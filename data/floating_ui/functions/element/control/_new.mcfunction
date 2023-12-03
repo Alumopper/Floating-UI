@@ -1,6 +1,7 @@
 #> floating_ui:element/control/_new
 # @within floating_ui:element/*/_new
 
+data modify storage floating_ui:debug curr prepend value "floating_ui:element/control/_new"
 tp @s ~ ~ ~ ~ ~
 
 tag @s add floating_ui_control
@@ -42,11 +43,11 @@ scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] uid
 execute at @s as 0-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @s data.childPoint append from entity @e[tag=new,limit=1] UUID
 execute at @s as 0-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @s data.size set from entity @e[tag=new,limit=1] transformation.scale
 execute at @s as 0-0-0-0-2 on origin if entity @s[type=item_display] run data modify entity @s item.tag.data.childPoint append from entity @e[tag=new,limit=1] UUID
-tellraw @a ["before",{"nbt":"Thrower","entity":"0-0-0-0-2"}]
 data modify entity @s item.tag.data.parent set from entity 0-0-0-0-2 Thrower
 #父节点替换
 data modify entity 0-0-0-0-2 Thrower set from entity @s UUID
-tellraw @a ["after",{"nbt":"Thrower","entity":"0-0-0-0-2"}]
 #坐标记录
 function floating_ui:element/control/gemo_data_flush
 tag @s remove new
+
+data remove storage floating_ui:debug curr[0]

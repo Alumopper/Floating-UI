@@ -1,6 +1,7 @@
 #> floating_ui:interact/player_tick
 # @internal
 # 玩家是否看向了UI
+data modify storage floating_ui:debug curr prepend value "floating_ui:interact/player_tick"
 tag @s add floating_ui_owner
 # 获取玩家看着的UI
 execute anchored eyes positioned ^ ^ ^ run function floating_ui:ray/if_ray_ui
@@ -16,3 +17,4 @@ execute as @a[tag=floating_ui_checkingClick] anchored eyes positioned ^ ^ ^ run 
 tag @s remove floating_ui_owner
 tag @s[tag=floating_ui_lookingAtUI] add floating_ui_checkingClick
 tag @s[tag=!floating_ui_lookingAtUI] remove floating_ui_checkingClick
+data remove storage floating_ui:debug curr[0]

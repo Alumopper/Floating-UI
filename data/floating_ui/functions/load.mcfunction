@@ -1,6 +1,8 @@
 #> floating_ui:load
 # @private
 
+data modify storage floating_ui:debug curr prepend value "floating_ui:load"
+
 scoreboard objectives add int dummy
 scoreboard objectives add _ dummy
 scoreboard objectives add floating_ui.x dummy
@@ -26,3 +28,5 @@ scoreboard objectives add floating_ui.clock dummy
     # @internal
     #define score_holder clock.40 floating_ui.clock
     execute unless score clock.40 floating_ui.clock matches -2147483648..2147483647 run scoreboard players set clock.40 floating_ui.clock 0
+
+data remove storage floating_ui:debug curr[0]

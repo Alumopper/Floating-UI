@@ -88,32 +88,34 @@ Floating UI使用物品展示实体进行UI的绘制，因此需要在创建UI�
 ---
 #### 
 > 注意，抽象类（abstract class）的控件不可被创建
+
+在下文中，布局属性是在创建布局的时候可以被读取输入的部分。数据属性是数据包进行渲染时使用的数据，是只读的。
 #### `abstract class Control`
 control是所有控件的父类，包含了基本的属性。
 
-属性：
+布局属性：
 * `double x`：x坐标
 * `double y`：y坐标
 * `float[2] size`：控件的大小。只用于输入
 * `float width`：控件的长度
 * `float height`：控件的高度
 * `Item item`：物品展示实体将要展示的物品
+* `string move_in`：一个函数或函数标签的命名空间id。鼠标准星进入这个控件
+* `string move_out`：一个函数或函数标签的命名空间id。鼠标准星离开这个控件
+数据属性：
 * `UUID parent`：这个控件的父控件的UUID数组。
 * `list<UUID> childPoint`：这个控件可能的所有子控件的UUID数组列表。
-* `string mouseIn`：一个函数或函数标签的命名空间id。鼠标准星进入这个控件
-* `string mouseOut`：一个函数或函数标签的命名空间id。鼠标准星离开这个控件
-
-方法：
-* `floating_ui:element/control/_new`：构造函数。control不能被直接创建
 
 #### `class Panel : Control`
 panel是一个简单的容器，可以在其中放置一些子控件
+布局属性：
 * `list<Control> child`：子控件
 
 #### `class Button : Clickable, Control`
 button是一个基础的按钮，可以被点击并执行某些动作
-* `string leftClicked`：一个函数或函数标签的命名空间id。使用鼠标左键点击了此按钮
-* `string rightClicked`：一个函数或函数标签的命名空间id。使用鼠标右键点击了此按钮
+布局属性：
+* `string left_click`：一个函数或函数标签的命名空间id。使用鼠标左键点击了此按钮
+* `string right_click`：一个函数或函数标签的命名空间id。使用鼠标右键点击了此按钮
 
 ## 技术细节
 ### Storage的使用
@@ -122,3 +124,6 @@ Floating UI使用了大量的Storage和宏来完成UI的绘制和数据的传递
     * data 用于API函数的输入
     * child 在遍历一个控件的子元素的时候使用。是一个列表，储存了每一级的子控件的信息
     * temp 在创建控件的时候使用的数据，在这个控件创建的开始就被储存在控件实体中，随后便被丢弃
+* data 用于数据的储存
+* debug 用于debug
+    * curr 储存了堆栈的调用信息。可以使用`floating_ui:util/`

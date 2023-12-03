@@ -5,6 +5,9 @@
 #>
 # @internal
 #define storage floating_ui:temp 临时用的浮空UI数据
+#>
+# @internal
+#define storage floating_ui:debug 浮空UI调试
 
 #define tag enable_control 能够被使用的控件
 #define tag floating_ui_root 浮空UI根节点

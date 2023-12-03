@@ -14,6 +14,7 @@
 # @context entity @s[type=marker]
 # @return 生成的ui的编号
 
+data modify storage floating_ui:debug curr prepend value "floating_ui:_new_ui"
 tag @s add floating_ui_root
 #储存数据
 execute store result score @s floating_ui.x run data get entity @s Pos[0] 10000
@@ -38,3 +39,4 @@ data modify storage floating_ui:input temp set from storage floating_ui:input da
 $execute summon item_display run function floating_ui:element/$(type)/_new with storage floating_ui:input data
 tag @a[tag=floating_ui_owner] remove floating_ui_owner
 scoreboard players operation return _ = @s floating_ui.uid
+data remove storage floating_ui:debug curr[0]
