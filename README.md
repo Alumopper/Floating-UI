@@ -73,9 +73,34 @@ Floating UI使用UI数据对UI进行生成。UI数据是一个NBT复合标签。
 ### 储存数据
 储存数据将会储存UI的信息。储存数据的大部分和布局数据相同，但是对于子控件`child`字段，储存数据中储存的是一个NBT列表，表示了控件中的所有子空间。可以使用Throwner-on方法选取子控件。同样的，一个控件也可能会有`parent`字段，同样也是一个NBT值，表示这个控件的父控件。
 
-## 事件
-
 ## API
+
+### 函数
+Floating UI提供了一些便于调用的函数。以下函数全部略去`floating_ui`命名空间
+#### `.player_new_ui`
+按照floating_ui:input data中的布局数据，生成属于命令执行者的新UI。
+
+直接调用。
+
+#### `.player_dispose_ui`
+销毁这个玩家拥有的全部UI
+
+直接调用
+#### `_new_ui`
+按照floating_ui:input data中的布局数据，生成属于\[tag=floating_ui_owner\]玩家的UI。
+
+需要`execute summon item_display run function this`进行调用
+
+#### `_dispose_ui`
+删除作为函数执行者的这个UI。
+
+需要`execute as UI实体 run function this`进行调用
+
+#### `util/_tree`
+输出作为函数执行者的UI的结构。
+
+需要`execute as UI实体 run function this`进行调用
+
 ### 类
 Floating UI使用物品展示实体进行UI的绘制，因此需要在创建UI时传入要绘制的物品的信息。一般来说，你可以通过资源包绘制出更多样而丰富的UI界面。
 #### `class Item`
@@ -126,4 +151,5 @@ Floating UI使用了大量的Storage和宏来完成UI的绘制和数据的传递
     * temp 在创建控件的时候使用的数据，在这个控件创建的开始就被储存在控件实体中，随后便被丢弃
 * data 用于数据的储存
 * debug 用于debug
-    * curr 储存了堆栈的调用信息。可以使用`floating_ui:util/`
+    * curr 储存了堆栈的调用信息。可以使用`floating_ui:util/_stack_track`输出当前位置的堆栈信息
+> 要在自己的函数使用堆栈信息，请在函数调用开始的位置插入`data modify storage floating_ui:debug curr prepend value "命名空间id"`，并在函数调用结束的时候使用`data remove storage floating_ui:debug curr[0]`，否则会发生内存泄漏
