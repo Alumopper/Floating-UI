@@ -1,0 +1,12 @@
+{
+    "criteria": {
+        "qwq":{
+            "trigger": "minecraft:player_hurt_entity",
+            "conditions": {
+                "entity": {
+                    "type": "minecraft:interaction"
+                }
+            }
+        }
+    }
+}

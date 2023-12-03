@@ -1,0 +1,20 @@
+#> floating_ui:element/panel/_new
+# 创建一个新的panel。
+# @internal
+# @input storage floating_ui:input 要创建的ui的内容信息
+
+function floating_ui:element/control/_new
+
+#
+tag @s add floating_ui_panel
+
+#region 属性设置
+
+#遍历子元素
+execute if data storage floating_ui:input temp.child run data modify storage floating_ui:temp child append from storage floating_ui:input temp.child
+data modify storage floating_ui:temp cache append from storage floating_ui:input temp
+execute if data storage floating_ui:input temp.child at @s positioned ^ ^ ^0.001 run function floating_ui:element/panel/add_child
+data modify storage floating_ui:input temp set from storage floating_ui:temp cache[-1]
+data remove storage floating_ui:temp cache[-1]
+execute if data storage floating_ui:input temp.child run data remove storage floating_ui:temp child[-1]
+#endregion

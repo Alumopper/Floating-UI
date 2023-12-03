@@ -1,0 +1,1 @@
+$tellraw @a {"text": "[WARN]$(msg)","color": "yellow"}
