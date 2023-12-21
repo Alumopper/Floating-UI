@@ -14,7 +14,8 @@ tag @s add floating_ui_panel
 #遍历子元素
 execute if data storage floating_ui:input temp.child run data modify storage floating_ui:temp child append from storage floating_ui:input temp.child
 data modify storage floating_ui:temp cache append from storage floating_ui:input temp
-execute if data storage floating_ui:input temp.child at @s positioned ^ ^ ^0.001 run function floating_ui:element/panel/add_child
+scoreboard players set @s floating_ui.child_z 10
+execute if data storage floating_ui:input temp.child run function floating_ui:element/panel/add_child
 data modify storage floating_ui:input temp set from storage floating_ui:temp cache[-1]
 data remove storage floating_ui:temp cache[-1]
 execute if data storage floating_ui:input temp.child run data remove storage floating_ui:temp child[-1]

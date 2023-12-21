@@ -8,5 +8,6 @@ execute if score length _ matches 0 run return 1
 data modify entity 0-0-0-0-2 Thrower set from entity @s item.tag.data.childPoint[-1]
 function floating_ui:dispose_control with entity @s item.tag.data.ui.child[-1]
 data remove entity @s item.tag.data.childPoint[-1]
+data remove entity @s item.tag.data.ui.child[-1]
 function floating_ui:element/panel/dispose_child
 data remove storage floating_ui:debug curr[0]

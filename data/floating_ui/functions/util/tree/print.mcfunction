@@ -1,2 +1,3 @@
-tellraw Alumopper_ [{"nbt":"arg.prefix1","storage": "floating_ui:temp"},{"nbt":"item.tag.data.ui.type","entity":"@s"}]
+execute if entity @s[type=item_display] run tellraw Alumopper_ [{"nbt":"arg.prefix1","storage": "floating_ui:temp"},{"nbt":"item.tag.data.ui.type","entity":"@s"}]
+execute if entity @s[type=marker] run tellraw Alumopper_ [{"nbt":"arg.prefix1","storage": "floating_ui:temp"},{"nbt":"data.ui.type","entity":"@s"}]
 tellraw Alumopper_ [{"nbt":"arg.prefix2","storage": "floating_ui:temp"},{"nbt":"UUID","entity":"@s"}]

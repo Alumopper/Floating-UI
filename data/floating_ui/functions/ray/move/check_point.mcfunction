@@ -1,4 +1,4 @@
-#> floating_ui:ray/click/check_point
+#> floating_ui:ray/move/check_point
 # @within floating_ui:ray/click/each_check
 # @context as @s 控件
 

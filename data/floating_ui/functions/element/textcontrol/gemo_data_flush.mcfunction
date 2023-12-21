@@ -1,9 +1,9 @@
-#> floating_ui:element/control/gemo_data_flush
+#> floating_ui:element/textcontrol/gemo_data_flush
 # @internal
 
 #这里的return_uv是相对于根节点的uv
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/control/gemo_data_flush"
+data modify storage floating_ui:debug curr prepend value "floating_ui:element/textcontrol/gemo_data_flush"
 execute store result score @s floating_ui.x run data get entity @s Pos[0] 10000
 execute store result score @s floating_ui.y run data get entity @s Pos[1] 10000
 execute store result score @s floating_ui.z run data get entity @s Pos[2] 10000

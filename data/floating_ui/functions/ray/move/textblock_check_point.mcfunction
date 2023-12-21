@@ -1,8 +1,9 @@
-#> floating_ui:ray/click/root_check_point
+#> floating_ui:ray/move/textblock_check_point
 # @within floating_ui:ray/click/each_check
 # @context as @s 控件
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:ray/click/root_check_point"
+
+data modify storage floating_ui:debug curr prepend value "floating_ui:ray/move/textblock_check_point"
 #传参调用数学库
 scoreboard players operation x int = @s floating_ui.x
 scoreboard players operation y int = @s floating_ui.y
@@ -23,21 +24,11 @@ scoreboard players set uvw_theta int 0
 execute at @s as 0-0-0-0-0 run function math:uvw/_base
 function math:uvw/_vecto
 #判断是否在平面内
-execute store result score width _ run data get entity @s data.size[0] 5000.0
-execute store result score height _ run data get entity @s data.size[1] 5000.0
-scoreboard players operation cache_u _ = u int
-scoreboard players operation cache_v _ = v int
+execute store result score width _ run data get entity @s transformation.scale[0] 5000.0
+execute store result score height _ run data get entity @s transformation.scale[1] 5000.0
 scoreboard players operation u int += width _
 scoreboard players operation v int += height _
 scoreboard players operation width _ *= 2 int
 scoreboard players operation height _ *= 2 int
-scoreboard players set qwq _ 0
-execute if score u int matches 0.. if score u int <= width _ if score v int matches 0.. if score v int <= height _ run scoreboard players set qwq _ 1
-execute if score qwq _ matches 0 run return 0
-#比较最近点
-execute if score stempt int > min_stempt _ run return 0
-scoreboard players operation min_stempt _ = stempt int
-#储存数据
-scoreboard players operation return_u _ = cache_u _
-scoreboard players operation return_v _ = cache_v _
-data modify storage floating_ui:temp floating_ui.return set from entity @s UUID
+execute if score u int matches 0.. if score u int <= width _ if score v int matches 0.. if score v int <= height _ run return 1
+return 0

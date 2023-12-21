@@ -56,12 +56,17 @@ Floating UI使用UI数据对UI进行生成。UI数据是一个NBT复合标签。
     "size":[5f,5f],
     "child":[
         {
+            "type":"textblock",
+            "text":"Hello FloatingUI",
+            "y":0.2f,
+            "size":[2f,2f]
+        },
+        {
             "type":"button",
-            "y":0.3,
-            "size":[2.5f,2.5f],
+            "y":-0.2,
+            "size":[1.2f,1.2f],
             "item":{
-                "id":"apple",
-                "tex":1000250
+                "id":"apple"
             }
         }
     ]
