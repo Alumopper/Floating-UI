@@ -6,6 +6,7 @@
 # @context entity @s[type=item_display/text_display]
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:_new_control"
-data modify storage floating_ui:input temp set from storage floating_ui:temp child[-1][-1]
-$function floating_ui:element/$(type)/_new with storage floating_ui:temp child[-1][-1]
+#tellraw @a {"nbt":"child[-1][0]","storage":"floating_ui:temp"}
+data modify storage floating_ui:input temp set from storage floating_ui:temp child[-1][0]
+$function floating_ui:element/$(type)/_new with storage floating_ui:temp child[-1][0]
 data remove storage floating_ui:debug curr[0]

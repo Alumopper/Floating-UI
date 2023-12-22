@@ -58,12 +58,12 @@ Floating UI使用UI数据对UI进行生成。UI数据是一个NBT复合标签。
         {
             "type":"textblock",
             "text":"Hello FloatingUI",
-            "y":0.2f,
-            "size":[2f,2f]
+            "y":1f,
+            "fontsize":2.0f
         },
         {
             "type":"button",
-            "y":-0.2,
+            "y":-1f,
             "size":[1.2f,1.2f],
             "item":{
                 "id":"apple"
@@ -121,20 +121,31 @@ Floating UI使用物品展示实体进行UI的绘制，因此需要在创建UI�
 
 在下文中，布局属性是在创建布局的时候可以被读取输入的部分。数据属性是数据包进行渲染时使用的数据，是只读的。
 #### `abstract class Control`
-control是所有控件的父类，包含了基本的属性。
+control是大部分控件的父类，包含了基本的属性。
 
 布局属性：
 * `double x`：x坐标
 * `double y`：y坐标
 * `float[2] size`：控件的大小。只用于输入
-* `float width`：控件的长度
-* `float height`：控件的高度
 * `Item item`：物品展示实体将要展示的物品
 * `string move_in`：一个函数或函数标签的命名空间id。鼠标准星进入这个控件
 * `string move_out`：一个函数或函数标签的命名空间id。鼠标准星离开这个控件
 数据属性：
 * `UUID parent`：这个控件的父控件的UUID数组。
 * `list<UUID> childPoint`：这个控件可能的所有子控件的UUID数组列表。
+
+#### `abstract class TextControl`
+textcontrol是文本控件的父类，包含了一些基本的属性。由于文本展示实体难以储存自定义信息，因此textcontrol分为两个marker和文本展示实体两个实体组成，其中marker用于储存信息，同时也是UI界面节点的组成部分。可以通过marker访问到对应的文本展示实体。
+
+布局属性：
+* `double x`：x坐标
+* `double y`：y坐标
+* `float fontsize`：字体的大小。仅用于输入
+* `string move_in`：一个函数或函数标签的命名空间id。鼠标准星进入这个控件
+* `string move_out`：一个函数或函数标签的命名空间id。鼠标准星离开这个控件
+数据属性：
+* `UUID parent`：这个控件的父控件的UUID数组。
+* `UUID displayEntity`：这个控件所对应的文本展示实体。
 
 #### `class Panel : Control`
 panel是一个简单的容器，可以在其中放置一些子控件
@@ -146,6 +157,15 @@ button是一个基础的按钮，可以被点击并执行某些动作
 布局属性：
 * `string left_click`：一个函数或函数标签的命名空间id。使用鼠标左键点击了此按钮
 * `string right_click`：一个函数或函数标签的命名空间id。使用鼠标右键点击了此按钮
+* `Control或TextControl content`：按钮的内容，是一个控件。如果指定，则忽略`item`，而将按钮展示为指定的控件。
+
+#### `class TextBlock : TextControl`
+textblock是一个基本的文本展示区域
+布局属性：
+* `string text`：要展示的字符串
+    
+    或者：`string[] text`：要展示的多行文本的字符串
+* `align`：文本对齐方式，有`left`，`right`，`center`三种。默认为`left`
 
 ## 技术细节
 ### Storage的使用

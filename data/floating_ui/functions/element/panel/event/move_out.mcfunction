@@ -7,5 +7,5 @@ function floating_ui:element/panel/event/move_out_walk_child
 data remove storage floating_ui:temp move.child[0]
 
 function floating_ui:element/control/event/move_out
-
+    
 data remove storage floating_ui:debug curr[0]

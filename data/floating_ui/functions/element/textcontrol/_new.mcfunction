@@ -8,8 +8,8 @@ tag @s add floating_ui_textcontrol
 
 summon text_display ~ ~ ~ {Tags:["floating_ui_textcontrol_text","just"],background:0}
 
-data modify entity 0-0-0-0-4 Thrower set from entity @e[tag=just,limit=1,sort=nearest] UUID
-data modify entity @s data.displayEntity set from entity @e[tag=just,limit=1,sort=nearest] UUID
+data modify entity 0-0-0-0-4 Thrower set from entity @e[tag=just,limit=1] UUID
+data modify entity @s data.displayEntity set from entity @e[tag=just,limit=1] UUID
 
 #属性
 #坐标
@@ -43,9 +43,11 @@ data modify entity @e[tag=just,limit=1,sort=nearest] transformation.scale set va
 tag @e[tag=just,limit=1,sort=nearest] add floating_ui_schedule_animation
 data modify entity @s data.size set from storage floating_ui:input temp.size
 
-#大小
-execute if data storage floating_ui:input temp.size run data modify entity @e[tag=just,limit=1,sort=nearest] transformation.scale[0] set from storage floating_ui:input temp.size[0]
-execute if data storage floating_ui:input temp.size run data modify entity @e[tag=just,limit=1,sort=nearest] transformation.scale[1] set from storage floating_ui:input temp.size[1]
+#字体大小
+execute if data storage floating_ui:input temp.fontsize run data modify entity @s data.fontsize set from storage floating_ui:input temp.fontsize
+execute unless data storage floating_ui:input temp.fontsize run data modify entity @s data.fontsize set value 2.0f
+data modify entity @e[tag=just,limit=1] transformation.scale[0] set from entity @s data.fontsize
+data modify entity @e[tag=just,limit=1] transformation.scale[1] set from entity @s data.fontsize
 
 #事件
 execute if data storage floating_ui:input temp.move_in run data modify entity @s data.move_in set from storage floating_ui:input temp.move_in
