@@ -15,6 +15,7 @@
 # @return 生成的ui的编号
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:_new_ui"
+tp @s ~ ~ ~ ~ ~
 tag @s add floating_ui_root
 #储存数据
 execute store result score @s floating_ui.x run data get entity @s Pos[0] 10000
@@ -40,8 +41,13 @@ execute unless score @s floating_ui.uid matches -2147483648..2147483647 run scor
 # UI数据储存
 data modify entity @s data.floating_ui set from storage floating_ui:input data
 data modify storage floating_ui:input temp set from storage floating_ui:input data
-$execute summon item_display run function floating_ui:element/$(type)/_new with storage floating_ui:input data
+data modify storage floating_ui:input summon.arg.rotation set from entity @s Rotation
+data modify storage floating_ui:input summon.arg.type set value "item_display"
+function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
+tag @e[tag=just,limit=1] add floating_ui_root_child
+$execute as @e[tag=just,limit=1] run function floating_ui:element/$(type)/_new with storage floating_ui:input data
+data modify entity @s data.size set from entity @e[tag=floating_ui_root_child,limit=1] item.tag.data.size
 tag @a[tag=floating_ui_owner] remove floating_ui_owner
 scoreboard players operation return _ = @s floating_ui.uid
 data remove storage floating_ui:debug curr[0]
-schedule function floating_ui:schedule/animation 1t
+schedule function floating_ui:schedule/new_animation 3t

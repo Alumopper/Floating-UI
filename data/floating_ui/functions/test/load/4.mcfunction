@@ -15,7 +15,7 @@ data modify storage floating_ui:input data set value {\
             "size":[1.2f,1.2f],\
             "content":{\
                 "type":"textblock",\
-                "text":"Click Me",\
+                "text":["Click","Me"],\
                 "align":"center"\
             }\
         }\

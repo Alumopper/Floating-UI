@@ -2,16 +2,24 @@
 # @within floating_ui:element/*/_new
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:element/textcontrol/_new"
-tp @s ~ ~ ~ ~ ~
+
+tag @s remove just
 
 tag @s add floating_ui_textcontrol
 
-summon text_display ~ ~ ~ {Tags:["floating_ui_textcontrol_text","just"],background:0}
+data modify storage floating_ui:input summon.arg.type set value "text_display"
+function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
+data modify entity @e[tag=just,limit=1] background set value 0
+tag @e[tag=just,limit=1] add floating_ui_textcontrol_text
 
 data modify entity 0-0-0-0-4 Thrower set from entity @e[tag=just,limit=1] UUID
 data modify entity @s data.displayEntity set from entity @e[tag=just,limit=1] UUID
 
 #属性
+
+#name
+data modify entity @s data.name set from storage floating_ui:input temp.name
+
 #坐标
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
 execute unless data storage floating_ui:input temp.y run data modify storage floating_ui:input temp.y set value 0
@@ -37,11 +45,6 @@ execute store result entity @e[tag=just,limit=1,sort=nearest] transformation.tra
 data modify entity @s data.x set from storage floating_ui:input temp.x
 data modify entity @s data.y set from storage floating_ui:input temp.y
 data modify entity @s data.z set from storage floating_ui:input temp.z
-
-#大小需要插值，在下一刻进行
-data modify entity @e[tag=just,limit=1,sort=nearest] transformation.scale set value [0.0f,0.0f,0.0f]
-tag @e[tag=just,limit=1,sort=nearest] add floating_ui_schedule_animation
-data modify entity @s data.size set from storage floating_ui:input temp.size
 
 #字体大小
 execute if data storage floating_ui:input temp.fontsize run data modify entity @s data.fontsize set from storage floating_ui:input temp.fontsize

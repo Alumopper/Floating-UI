@@ -16,9 +16,10 @@ data modify storage floating_ui:temp child[-1] append from storage floating_ui:i
 data modify storage _ nextChild set from storage floating_ui:temp child[-1][0]
 
 execute store success score contentqwq _ run data modify storage _ nextChild.type set value "textblock"
-
-execute if score contentqwq _ matches 1 summon item_display run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
-execute unless score contentqwq _ matches 1 summon marker run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
+execute if score contentqwq _ matches 1 run data modify storage floating_ui:input summon.arg.type set value "item_display"
+execute unless score contentqwq _ matches 1 run data modify storage floating_ui:input summon.arg.type set value "marker"
+function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
+execute as @e[tag=just,limit=1] run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
 
 #覆盖item属性
 data modify entity @s item.id set value "glass_pane"

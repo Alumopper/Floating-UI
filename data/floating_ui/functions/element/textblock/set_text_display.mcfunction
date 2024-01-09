@@ -3,11 +3,9 @@
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:element/textblock/set_text_display"
 
-tp @s ~ ~ ~ ~ ~
-
 #文本
 execute store success score isMultiline _ run data get storage floating_ui:input temp.text[0]
-execute if score isMultiline _ matches 1 run data modify storage floating_ui:temp args.text set value ""
+execute if score isMultiline _ matches 1 run data modify storage floating_ui:temp args.text set from storage floating_ui:input temp.text[0]
 execute if score isMultiline _ matches 1 store result score line _ run data get storage floating_ui:input temp.text
 execute if score isMultiline _ matches 1 run function floating_ui:element/textblock/append_multiline_text
 execute if score isMultiline _ matches 0 run scoreboard players set line _ 1

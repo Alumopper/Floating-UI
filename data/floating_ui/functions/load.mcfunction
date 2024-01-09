@@ -17,6 +17,7 @@ scoreboard objectives add floating_ui.v dummy
 scoreboard objectives add floating_ui.clicked_u dummy
 scoreboard objectives add floating_ui.clicked_v dummy
 scoreboard objectives add floating_ui.stempt dummy
+scoreboard objectives add floating_ui.re dummy
 #世界UI的编号
 scoreboard objectives add floating_ui.uid dummy
     #> 

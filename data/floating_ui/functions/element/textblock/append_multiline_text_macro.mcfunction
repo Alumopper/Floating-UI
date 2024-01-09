@@ -1,1 +1,1 @@
-$data modify storage floating_ui:temp args.text set value "$(text)\\n$(appendText)"
+$data modify storage floating_ui:temp args.text set value "$(text)\\\\n$(appendText)"
