@@ -1,3 +1,5 @@
+#> floating_ui:element/control/animation/walk_anim_data
+
 execute store result score length _ run data get storage floating_ui:temp anim.data
 execute if score length _ matches 0 run return 1
 

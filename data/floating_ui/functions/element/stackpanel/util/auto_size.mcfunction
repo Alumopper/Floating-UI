@@ -2,14 +2,14 @@
 # @internal
 
 tag @s add floating_ui_this
-data modify entity 0-0-0-0-2 Thrower set from entity @s item.tag.data.parent
-execute as 0-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @e[tag=floating_ui_this,limit=1,sort=nearest] item.tag.data.size set value [5.0f,5.0f]
-execute as 0-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @e[tag=floating_ui_this,limit=1,sort=nearest] transformation.scale set value [5.0f,5.0f,0.0f]
-execute as 0-0-0-0-2 on origin if entity @s[type=marker] run return 0
+data modify entity 1bf52-0-0-0-2 Thrower set from entity @s item.tag.data.parent
+execute as 1bf52-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @e[tag=floating_ui_this,limit=1,sort=nearest] item.tag.data.size set value [5.0f,5.0f]
+execute as 1bf52-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @e[tag=floating_ui_this,limit=1,sort=nearest] transformation.scale set value [5.0f,5.0f,0.0f]
+execute as 1bf52-0-0-0-2 on origin if entity @s[type=marker] run return 0
 #计算控件大小
 
-execute as 0-0-0-0-2 on origin store result score width _ run data get entity @s item.tag.data.size[0] 0.5
-execute as 0-0-0-0-2 on origin store result score height _ run data get entity @s item.tag.data.size[1] 0.5
+execute as 1bf52-0-0-0-2 on origin store result score width _ run data get entity @s item.tag.data.size[0] 0.5
+execute as 1bf52-0-0-0-2 on origin store result score height _ run data get entity @s item.tag.data.size[1] 0.5
 
 scoreboard players operation left _ = width _
 scoreboard players operation right _ = width _

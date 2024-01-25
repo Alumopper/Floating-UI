@@ -11,17 +11,17 @@ scoreboard players operation z int = @s floating_ui.z
 scoreboard players operation f0 int = @s floating_ui.f0
 scoreboard players operation f1 int = @s floating_ui.f1
 scoreboard players operation f2 int = @s floating_ui.f2
-execute as 0-0-0-0-0 run function math:geom/plane/_facing
+execute as 1bf52-0-0-0-0 run function math:geom/plane/_facing
 # 粒子显示
 scoreboard players set particle int 2
-execute as 0-0-0-0-0 run function math:3vec/_tofpos
-execute at 0-0-0-0-0 run function math:_particle
+execute as 1bf52-0-0-0-0 run function math:3vec/_tofpos
+execute at 1bf52-0-0-0-0 run function math:_particle
 data remove storage floating_ui:debug curr[0]
 execute if score res int matches 0 run return 0
 execute if score stempt int matches ..0 run return 0
 #如果看着平面，计算交点
 scoreboard players set uvw_theta int 0
-execute at @s as 0-0-0-0-0 run function math:uvw/_base
+execute at @s as 1bf52-0-0-0-0 run function math:uvw/_base
 function math:uvw/_vecto
 #判断是否在平面内
 execute store result score width _ run data get entity @s transformation.scale[0] 5000.0

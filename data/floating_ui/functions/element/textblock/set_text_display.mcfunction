@@ -22,5 +22,5 @@ data modify entity @s alignment set from storage floating_ui:input temp.align
 
 data modify entity @s background set value 0
 
-data modify entity 0-0-0-0-4 Thrower set from entity @s UUID
+data modify entity 1bf52-0-0-0-4 Thrower set from entity @s UUID
 data remove storage floating_ui:debug curr[0]

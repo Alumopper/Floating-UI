@@ -12,7 +12,7 @@ function floating_ui:macro/summon_with_rot with storage floating_ui:input summon
 data modify entity @e[tag=just,limit=1] background set value 0
 tag @e[tag=just,limit=1] add floating_ui_textcontrol_text
 
-data modify entity 0-0-0-0-4 Thrower set from entity @e[tag=just,limit=1] UUID
+data modify entity 1bf52-0-0-0-4 Thrower set from entity @e[tag=just,limit=1] UUID
 data modify entity @s data.displayEntity set from entity @e[tag=just,limit=1] UUID
 
 #属性
@@ -27,12 +27,12 @@ execute unless data storage floating_ui:input temp.z run data modify storage flo
 execute store result score x _ run data get storage floating_ui:input temp.x 10000
 execute store result score y _ run data get storage floating_ui:input temp.y 10000
 execute store result score z _ run data get storage floating_ui:input temp.z 10000
-execute store result score @s floating_ui.parent_x as 0-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_x
-execute store result score @s floating_ui.parent_y as 0-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_y
-execute store result score @s floating_ui.parent_z as 0-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_z
-execute store result score @s floating_ui.root_x as 0-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_x
-execute store result score @s floating_ui.root_y as 0-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_y
-execute store result score @s floating_ui.root_z as 0-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_z
+execute store result score @s floating_ui.parent_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_x
+execute store result score @s floating_ui.parent_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_y
+execute store result score @s floating_ui.parent_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_z
+execute store result score @s floating_ui.root_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_x
+execute store result score @s floating_ui.root_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_y
+execute store result score @s floating_ui.root_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_z
 scoreboard players operation @s floating_ui.root_x += @s floating_ui.parent_x
 scoreboard players operation @s floating_ui.root_y += @s floating_ui.parent_y
 scoreboard players operation @s floating_ui.root_z += @s floating_ui.parent_z
@@ -64,17 +64,17 @@ data modify entity @s data.ui set from storage floating_ui:input temp
 
 tag @s add new
 #编号分配
-execute at @s as 0-0-0-0-2 on origin run scoreboard players operation @e[distance=0,tag=new] floating_ui.uid = @s floating_ui.uid
-scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] uid
+execute at @s as 1bf52-0-0-0-2 on origin run scoreboard players operation @e[distance=0,tag=new] floating_ui.uid = @s floating_ui.uid
+scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] floating_ui.uid
 #加入父节点
-execute at @s as 0-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @s data.childPoint prepend from entity @e[tag=new,limit=1] UUID
-execute at @s as 0-0-0-0-2 on origin if entity @s[type=item_display] run data modify entity @s item.tag.data.childPoint prepend from entity @e[tag=new,limit=1] UUID
+execute at @s as 1bf52-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @s data.childPoint prepend from entity @e[tag=new,limit=1] UUID
+execute at @s as 1bf52-0-0-0-2 on origin if entity @s[type=item_display] run data modify entity @s item.tag.data.childPoint prepend from entity @e[tag=new,limit=1] UUID
 
-execute at @s as 0-0-0-0-2 on origin if entity @s[tag=floating_ui_root] run data modify entity @s data.size set from entity @e[tag=just,limit=1] transformation.scale
+execute at @s as 1bf52-0-0-0-2 on origin if entity @s[tag=floating_ui_root] run data modify entity @s data.size set from entity @e[tag=just,limit=1] transformation.scale
 
-data modify entity @s data.parent set from entity 0-0-0-0-2 Thrower
+data modify entity @s data.parent set from entity 1bf52-0-0-0-2 Thrower
 #父节点替换
-data modify entity 0-0-0-0-2 Thrower set from entity @s UUID
+data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #坐标记录
 function floating_ui:element/control/gemo_data_flush
 tag @s remove new

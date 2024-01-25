@@ -17,7 +17,7 @@
 data modify storage floating_ui:debug curr prepend value "floating_ui:load"
 
 scoreboard objectives add int dummy
-    scoreboard players set 2083 int 2083
+    function floating_ui:int_load
 scoreboard objectives add _ dummy
 scoreboard objectives add floating_ui.x dummy
 scoreboard objectives add floating_ui.y dummy
@@ -75,5 +75,8 @@ execute in overworld positioned .0 3000.0 .0 run summon interaction ~ ~ ~ {respo
 execute in overworld positioned .0 3000.0 .0 run summon item ~ ~ ~ {NoGravity:1b,UUID:[I;114514,0,0,4],Item:{id:"minecraft:sand",Count:1b},PickupDelay:-32768s, Age:-32768s}
 execute in overworld positioned .0 3000.0 .0 run summon item ~ ~ ~ {NoGravity:1b,UUID:[I;114514,0,0,5],Item:{id:"minecraft:glass",Count:1b},PickupDelay:-32768s, Age:-32768s}
 #endregion
+
+#初始化数学库
+
 
 data remove storage floating_ui:debug curr[0]
