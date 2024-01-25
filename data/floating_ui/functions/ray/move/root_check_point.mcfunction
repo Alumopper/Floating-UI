@@ -31,7 +31,8 @@ scoreboard players operation u int += width _
 scoreboard players operation v int += height _
 scoreboard players operation width _ *= 2 int
 scoreboard players operation height _ *= 2 int
-execute store result score qwq _ if score u int matches 0.. if score u int <= width _ if score v int matches 0.. if score v int <= height _
+scoreboard players set qwq _ 0
+execute if score u int matches 0.. if score u int <= width _ if score v int matches 0.. if score v int <= height _ run scoreboard players set qwq _ 1
 execute if score qwq _ matches 0 run return 0
 #比较最近点
 execute if score stempt int > min_stempt _ run return 0

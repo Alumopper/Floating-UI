@@ -1,0 +1,1 @@
+execute as @e[tag=floating_ui_root,limit=1,sort=nearest] run function floating_ui:util/_tree

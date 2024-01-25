@@ -6,8 +6,8 @@ data modify storage floating_ui:debug curr prepend value "floating_ui:element/co
 
 scoreboard players operation this.u _ = return_u _
 scoreboard players operation this.v _ = return_v _
-scoreboard players operation this.u _ -= @s floating_ui.u
-scoreboard players operation this.v _ -= @s floating_ui.v
+scoreboard players operation this.u _ -= @s floating_ui.root_x
+scoreboard players operation this.v _ -= @s floating_ui.root_y
 execute store result score width _ run data get entity @s transformation.scale[0] 5000.0
 execute store result score height _ run data get entity @s transformation.scale[1] 5000.0
 scoreboard players operation this.u _ += width _

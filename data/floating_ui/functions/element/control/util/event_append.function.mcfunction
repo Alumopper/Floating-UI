@@ -1,0 +1,1 @@
+$data modify entity @s item.tag.data.$(event) append value "function $(function)"
