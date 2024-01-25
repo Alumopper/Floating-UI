@@ -22,14 +22,15 @@ execute store result score @s floating_ui.y run data get entity @s Pos[1] 10000
 execute store result score @s floating_ui.z run data get entity @s Pos[2] 10000
 execute store result score @s floating_ui.u run data get entity @s item.tag.x
 execute store result score @s floating_ui.v run data get entity @s item.tag.y
-execute positioned .0 .0 .0 run tp 0-0-0-0-0 ^ ^ ^1
-execute store result score @s floating_ui.f0 run data get entity 0-0-0-0-0 Pos[0] 10000.0
-execute store result score @s floating_ui.f1 run data get entity 0-0-0-0-0 Pos[1] 10000.0
-execute store result score @s floating_ui.f2 run data get entity 0-0-0-0-0 Pos[2] 10000.0
-tp 0-0-0-0-0 .0 .0 .0
-data modify entity 0-0-0-0-2 Thrower set from entity @s UUID
+execute positioned .0 .0 .0 run tp 1bf52-0-0-0-0 ^ ^ ^1
+execute store result score @s floating_ui.f0 run data get entity 1bf52-0-0-0-0 Pos[0] 10000.0
+execute store result score @s floating_ui.f1 run data get entity 1bf52-0-0-0-0 Pos[1] 10000.0
+execute store result score @s floating_ui.f2 run data get entity 1bf52-0-0-0-0 Pos[2] 10000.0
+tp 1bf52-0-0-0-0 .0 .0 .0
+data modify entity 1bf52-0-0-0-5 Thrower set from entity @s UUID
+data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #编号分配
-scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] uid
+scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] floating_ui.uid
 tag @p[tag=floating_ui_owner] add floating_ui_hasUI
 execute unless score @s floating_ui.uid matches -2147483648..2147483647 run scoreboard players remove _static floating_ui.uid 1
 execute unless score @s floating_ui.uid matches -2147483648..2147483647 run scoreboard players operation @s floating_ui.uid = _static floating_ui.uid

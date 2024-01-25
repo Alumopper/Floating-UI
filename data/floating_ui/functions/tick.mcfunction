@@ -10,4 +10,7 @@ execute as @a[tag=floating_ui_hasUI] at @s run function floating_ui:dispose/play
 # 时钟
 function floating_ui:clock/tick
 
+#玩家uid分配
+execute as @a unless score @s floating_ui.uid matches -2147483648..2147483647 run function floating_ui:util/player_uid
+
 data remove storage floating_ui:debug curr[0]

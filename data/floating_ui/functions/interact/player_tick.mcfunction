@@ -13,7 +13,7 @@ execute if data storage floating_ui:temp floating_ui.return run function floatin
 execute if data storage floating_ui:temp floating_ui.return run tag @s add floating_ui_lookingAtUI
 execute unless data storage floating_ui:temp floating_ui.return run tag @s remove floating_ui_lookingAtUI
 #展示实体到处tp
-execute as @a[tag=floating_ui_checkingClick] anchored eyes positioned ^ ^ ^ run tp 0-0-0-0-3 ~ ~-0.5 ~
+execute as @a[tag=floating_ui_checkingClick] anchored eyes positioned ^ ^ ^ run tp 1bf52-0-0-0-3 ~ ~-0.5 ~
 tag @s remove floating_ui_owner
 tag @s[tag=floating_ui_lookingAtUI] add floating_ui_checkingClick
 tag @s[tag=!floating_ui_lookingAtUI] remove floating_ui_checkingClick
