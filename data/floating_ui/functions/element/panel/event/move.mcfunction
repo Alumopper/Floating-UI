@@ -2,7 +2,6 @@
 # @internal
 
 #say move
-
 data modify storage floating_ui:debug curr prepend value "floating_ui:element/panel/event/move"
 data modify storage floating_ui:temp move.child prepend from entity @s item.tag.data.childPoint
 function floating_ui:element/panel/event/move_walk_child
