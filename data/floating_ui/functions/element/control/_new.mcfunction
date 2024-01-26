@@ -1,7 +1,7 @@
 #> floating_ui:element/control/_new
 # @within floating_ui:element/*/_new
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/control/_new"
+data modify storage floating_ui:debbvbvbvbvbvbvug curr prepend value "floating_ui:element/control/_new"
 
 tag @s remove just
 
@@ -16,7 +16,11 @@ data modify entity @s item.tag.CustomModelData set from storage floating_ui:inpu
 #属性
 
 #name
-data modify entity @s item.tag.data.name set from storage floating_ui:input temp.name
+data modify storage floating_ui:input temp.this set from entity @s UUID
+execute if data storage floating_ui:input temp.name as 1bf52-0-0-0-5 on origin run function floating_ui:element/control/append_name_list with storage floating_ui:input temp
+
+#tag
+execute if data storage floating_ui:input temp.tag run data modify entity @s Tags append from storage floating_ui:input temp.tag
 
 #region 坐标
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
@@ -56,6 +60,13 @@ execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:
 execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new.value[1].value set from storage floating_ui:input temp.size[1]
 tag @s add floating_ui_schedule_animation
 data modify entity @s item.tag.data.size set from storage floating_ui:input temp.size
+
+#旋转
+execute if data storage floating_ui:input temp.rotation run data modify entity @s transformation.rotation set from storage floating_ui:input temp.rotation
+execute unless data storage floating_ui:input temp.rotation run data modify entity @s transformation.rotation set value [0.0f,1.0f,0.0f,0.0f]
+
+#渲染模式
+execute if data storage floating_ui:input temp.display run data modify entity @s item_display set from storage floating_ui:input temp.display
 
 #region 事件
 
@@ -100,6 +111,9 @@ execute at @s as 1bf52-0-0-0-2 on origin if entity @s[type=item_display] run dat
 data modify entity @s item.tag.data.parent set from entity 1bf52-0-0-0-2 Thrower
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
+#根节点
+execute as 1bf52-0-0-0-5 on origin run data modify entity @e[tag=new,limit=1,distance=0] item.tag.data.root set from entity @s UUID
+
 #坐标记录
 function floating_ui:element/control/gemo_data_flush
 tag @s remove new

@@ -18,7 +18,11 @@ data modify entity @s data.displayEntity set from entity @e[tag=just,limit=1] UU
 #属性
 
 #name
-data modify entity @s data.name set from storage floating_ui:input temp.name
+data modify storage floating_ui:input temp.this set from entity @s UUID
+execute if data storage floating_ui:input temp.name as 1bf52-0-0-0-5 on origin run function floating_ui:element/control/append_name_list with storage floating_ui:input temp
+
+#tag
+execute if data storage floating_ui:input temp.tag run data modify entity @s Tags append from storage floating_ui:input temp.tag
 
 #坐标
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
@@ -52,6 +56,11 @@ execute unless data storage floating_ui:input temp.fontsize run data modify enti
 data modify entity @e[tag=just,limit=1] transformation.scale[0] set from entity @s data.fontsize
 data modify entity @e[tag=just,limit=1] transformation.scale[1] set from entity @s data.fontsize
 
+#旋转
+execute if data storage floating_ui:input temp.rotation run data modify entity @s data.rotation set from storage floating_ui:input temp.rotation
+execute unless data storage floating_ui:input temp.rotation run data modify entity @s data.rotation set value [0.0f,1.0f,0.0f,0.0f]
+data modify entity @e[tag=just,limit=1] transformation.rotation set from entity @s data.rotation
+
 #事件
 execute if data storage floating_ui:input temp.move_in run data modify entity @s data.move_in set from storage floating_ui:input temp.move_in
 execute if data storage floating_ui:input temp.move_out run data modify entity @s data.move_out set from storage floating_ui:input temp.move_out
@@ -75,6 +84,9 @@ execute at @s as 1bf52-0-0-0-2 on origin if entity @s[tag=floating_ui_root] run 
 data modify entity @s data.parent set from entity 1bf52-0-0-0-2 Thrower
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
+#根节点
+execute as 1bf52-0-0-0-5 on origin run data modify entity @e[tag=new,limit=1,distance=0] data.root set from entity @s UUID
+
 #坐标记录
 function floating_ui:element/control/gemo_data_flush
 tag @s remove new
