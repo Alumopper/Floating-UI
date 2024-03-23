@@ -106,9 +106,7 @@ tag @s add new
 execute at @s as 1bf52-0-0-0-2 on origin run scoreboard players operation @e[distance=0,tag=new] floating_ui.uid = @s floating_ui.uid
 scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] floating_ui.uid
 #加入父节点
-execute at @s as 1bf52-0-0-0-2 on origin if entity @s[type=marker] run data modify entity @s data.childPoint append from entity @e[tag=new,limit=1] UUID
-execute at @s as 1bf52-0-0-0-2 on origin if entity @s[type=item_display] run data modify entity @s item.tag.data.childPoint append from entity @e[tag=new,limit=1] UUID
-data modify entity @s item.tag.data.parent set from entity 1bf52-0-0-0-2 Thrower
+execute as 1bf52-0-0-0-2 on origin run ride @e[tag=new,limit=1] mount @s
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #根节点
