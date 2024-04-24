@@ -1,5 +1,7 @@
 # Floating UI
 
+简体中文/[English](README_en.md)
+
 Floating UI是一个功能丰富的数据包，允许你使用纯原版的方式在Minecraft中创建一个浮空的可操作UI。
 
 在使用Floating UI之前，你需要安装[小豆的数学库](https://github.com/xiaodou8593/math2.0)和[小豆的事件队列](https://github.com/xiaodou8593/timelist)。Floating UI使用小豆的数学库进行计算，使用小豆的事件队列托管事件的定时触发效果。
