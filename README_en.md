@@ -154,7 +154,7 @@ With the help of the interpolation function of display entities, Floating UI imp
 
 An animation has two events, `start` and `end`, which are executed when the animation starts and ends, respectively. However, `start` and `end` cannot be used as animation triggers.
 
-## 控件的访问
+## Access the control
 
 There are two ways to access controls: name and tag. The former can be used to access a specific single control, while the latter can be used to access multiple controls.
 
@@ -261,7 +261,7 @@ Output the structure of the UI of the function executor.
 
 Call like `execute as UI entity run function this`.
 
-### 类
+### Class
 
 Floating UI uses item display entities to draw UI, so you need to pass in the information of the item to be drawn when creating the UI. In general, you can draw more diverse and rich UI interfaces through resource packs.
 
@@ -270,7 +270,6 @@ We introduce the concept of class in Floating UI to better manage the UI. A clas
 #### `class Item`
 
 `Item` represents an item that will be displayed by the item display entity. It is similar to the original item format, but with an additional `tex` attribute, which is actually the same as `tag.CustomModelData`, just to avoid long key names.
-物品类表示一个将要被展示实体展示的物品，和原版物品格式基本相同。但是Floating UI额外添加了一个`tex`属性，实际作用和`tag.CustomModelData`相同，只是为了避免冗长的键名
 
 * (optional) `string id`: The id of the item. If the namespace is `minecraft`, it can be omitted. If this item is omitted, it defaults to `glass_pane`.
 * (optional) `byte count`: The id of the item. If omitted, it defaults to `1b`. Basically useless.
