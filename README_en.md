@@ -3,7 +3,6 @@
 > [!Note]
 > Some of the translations in this document is by machine and may not be accurate. If you find any errors, please feel free to submit a pull request.
 
-
 Floating UI is a datapack with rich features, which allows you to create a floating and interactive UI in Minecraft in a pure vanilla way.
 
 Before using Floating UI, you need to install [Xiaodou's Math Library](https://github.com/xiaodou8593/math2.0) and [Xiaodou's Event Queue](https://github.com/xiaodou8593/timelist). Floating UI uses Xiaodou's Math Library for calculations and Xiaodou's Event Queue to manage the timing of events.
@@ -109,6 +108,9 @@ You can use the `x` and `y` properties to control the specific position of the c
 ### Storage Data
 
 The storage data will store the information of the UI. Most of the storage data is the same as the layout data, but for the `child` field in the child control, the storage data stores an NBT list, representing all child controls in this control. You can use the `Throwner-on method` to select child controls. Similarly, a control may also have a `parent` field, which is also an NBT value, representing the parent control of this control.
+
+> [!Tip]
+> You can find more examples in the `data/floating_ui/functions/test/load` folder of the datapack.
 
 ## Events
 
