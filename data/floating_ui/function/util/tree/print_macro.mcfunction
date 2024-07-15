@@ -1,1 +1,0 @@
-$function floating_ui:element/$(type)/_print

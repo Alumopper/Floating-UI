@@ -2,11 +2,9 @@
 # @internal
 
 tag @s add floating_ui_this
-execute on vehicle if entity @s[type=marker] run data modify entity @e[tag=floating_ui_this,limit=1,sort=nearest] item.components.minecraft:custom_data.data.size set value [5.0f,5.0f]
-execute on vehicle if entity @s[type=marker] run data modify entity @e[tag=floating_ui_this,limit=1,sort=nearest] transformation.scale set value [5.0f,5.0f,0.0f]
-execute on vehicle if entity @s[type=marker] run return 0
-#计算控件大小
+execute on vehicle if entity @s[tag=floating_ui_root] run return run function floating_ui:element/panel/util/auto_size_root
 
+#计算控件大小
 execute on vehicle store result score width _ run data get entity @s item.components.minecraft:custom_data.data.size[0] 0.5
 execute on vehicle store result score height _ run data get entity @s item.components.minecraft:custom_data.data.size[1] 0.5
 

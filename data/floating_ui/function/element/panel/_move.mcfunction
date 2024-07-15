@@ -6,6 +6,6 @@ data modify storage floating_ui:debug curr prepend value "floating_ui:element/pa
 
 function floating_ui:element/control/_move
 #移动子节点
-function floating_ui:element/panel/move_child
+execute on passengers run function floating_ui:element/panel/move_child
 
 data remove storage floating_ui:debug curr[0]

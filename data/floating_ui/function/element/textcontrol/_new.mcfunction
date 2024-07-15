@@ -11,9 +11,11 @@ data modify storage floating_ui:input summon.arg.type set value "text_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
 data modify entity @n[tag=just,distance=..1] background set value 0
 tag @n[tag=just,distance=..1] add floating_ui_textcontrol_text
-
-data modify entity 1bf52-0-0-0-4 Thrower set from entity @n[tag=just,distance=..1] UUID
 ride @n[tag=just,distance=..1] mount @s
+
+data modify entity @s item set value {id:"stone",count: 1b}
+data modify entity @s transformation.scale[] set value 0f
+
 #属性
 
 #name
@@ -57,8 +59,7 @@ data modify entity @n[tag=just,distance=..1] transformation.scale[1] set from en
 
 #旋转
 execute if data storage floating_ui:input temp.rotation run data modify entity @s item.components.minecraft:custom_data.rotation set from storage floating_ui:input temp.rotation
-execute unless data storage floating_ui:input temp.rotation run data modify entity @s item.components.minecraft:custom_data.rotation set value [0.0f,1.0f,0.0f,0.0f]
-data modify entity @n[tag=just,distance=..1] transformation.left_rotation set from entity @s item.components.minecraft:custom_data.rotation
+execute if data storage floating_ui:input temp.rotation run data modify entity @n[tag=just,distance=..1] transformation.right_rotation set from entity @s item.components.minecraft:custom_data.rotation
 
 #事件
 execute if data storage floating_ui:input temp.move_in run data modify entity @s item.components.minecraft:custom_data.data.move_in set from storage floating_ui:input temp.move_in
@@ -72,12 +73,12 @@ data modify entity @s item.components.minecraft:custom_data.data.ui set from sto
 
 tag @s add new
 #编号分配
-execute at @s as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=0,tag=new] floating_ui.uid = @s floating_ui.uid
+execute as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=..1, tag=new] floating_ui.uid = @s floating_ui.uid
 scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] floating_ui.uid
 #加入父节点
-execute as 1bf52-0-0-0-2 on origin run ride @n[tag=new] mount @s
+execute as 1bf52-0-0-0-2 on origin run ride @n[tag=new, distance=..1] mount @s
 
-execute at @s as 1bf52-0-0-0-2 on origin if entity @s[tag=floating_ui_root] run data modify entity @s item.components.minecraft:custom_data.size set from entity @n[tag=just,distance=..1] transformation.scale
+execute as 1bf52-0-0-0-2 on origin if entity @s[tag=floating_ui_root] run data modify entity @s item.components.minecraft:custom_data.size set from entity @n[tag=just,distance=..1] transformation.scale
 
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
@@ -88,6 +89,6 @@ execute as 1bf52-0-0-0-5 on origin run data modify entity @n[tag=new,distance=..
 function floating_ui:element/textcontrol/gemo_data_flush
 tag @s remove new
 
-tag @e[tag=just] remove just
+tag @e[tag=just, distance=..1] remove just
 
 data remove storage floating_ui:debug curr[0]

@@ -6,4 +6,4 @@ $execute if score success _ matches 0 store success score success _ run data mod
 $execute if score success _ matches 0 store success score success _ run data modify entity @s $(key) set value $(value)b
 $execute if score success _ matches 0 store success score success _ run data modify entity @s $(key) set value $(value)l
 $execute if score success _ matches 0 store success score success _ run data modify entity @s $(key) set value $(value)s
-$execute if score success _ matches 0 run tellraw @a [{"text": "Error while set nbt of entity ","color":"yellow"},{"selector":"@s"},{"text": " with key:$(key) and value:$(value)","color":"yellow"}]
+$execute if score success _ matches 0 run function floating_ui:util/_error_track {"ex":"UnboundedKeyValue","msg":"Error while set key: $(key) with value: $(value)"}

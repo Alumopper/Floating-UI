@@ -6,8 +6,6 @@ data modify storage floating_ui:debug curr prepend value "floating_ui:element/pa
 execute unless function floating_ui:element/control/event/pos_check run data remove storage floating_ui:debug curr[0]
 execute unless function floating_ui:element/control/event/pos_check run return 0
 
-data modify storage floating_ui:temp click.child prepend from entity @s item.components.minecraft:custom_data.data.childPoint
-function floating_ui:element/panel/event/click_walk_child
-data remove storage floating_ui:temp click.child[0]
+execute on passengers run function floating_ui:element/panel/event/click_walk_child
 
 data remove storage floating_ui:debug curr[0]

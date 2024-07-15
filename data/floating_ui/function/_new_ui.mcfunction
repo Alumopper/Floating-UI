@@ -14,11 +14,12 @@
 # @context entity @s[type=item_display]
 # @return 生成的ui的编号
 
+data modify storage floating_ui:debug curr prepend value "floating_ui:_new_ui"
+
 #debug
 execute if entity @s[type=!item_display] run return run function floating_ui:util/_error_track {"ex":"NotItemDisplayException","msg":"_new_ui must be called by an item_display entity."}
 #end
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:_new_ui"
 tp @s ~ ~ ~ ~ ~
 tag @s add floating_ui_root
 #储存数据
@@ -44,14 +45,14 @@ tag @p[tag=floating_ui_owner] add floating_ui_hasUI
 execute unless score @s floating_ui.uid matches -2147483648..2147483647 run scoreboard players remove _static floating_ui.uid 1
 execute unless score @s floating_ui.uid matches -2147483648..2147483647 run scoreboard players operation @s floating_ui.uid = _static floating_ui.uid
 # UI数据储存
-data modify entity @s item.components.minecraft:custom_data.floating_ui set from storage floating_ui:input data
+data modify entity @s data.floating_ui set from storage floating_ui:input data
 data modify storage floating_ui:input temp set from storage floating_ui:input data
 data modify storage floating_ui:input summon.arg.rotation set from entity @s Rotation
 data modify storage floating_ui:input summon.arg.type set value "item_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
 tag @n[tag=just,distance=..0.1] add floating_ui_root_child
 $execute as @n[tag=just,distance=..0.1] run function floating_ui:element/$(type)/_new with storage floating_ui:input data
-data modify entity @s item.components.minecraft:custom_data.size set from entity @n[tag=floating_ui_root_child, distance=..0.1] item.components.minecraft:custom_data.data.size
+data modify entity @s data.size set from entity @n[tag=floating_ui_root_child, distance=..0.1] item.components.minecraft:custom_data.data.size
 tag @a[tag=floating_ui_owner] remove floating_ui_owner
 scoreboard players operation return _ = @s floating_ui.uid
 data remove storage floating_ui:debug curr[0]

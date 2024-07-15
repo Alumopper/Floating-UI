@@ -1,13 +1,11 @@
 #> floating_ui:element/control/_new
 # @within floating_ui:element/*/_new
 
-data modify storage floating_ui:debbvbvbvbvbvbvug curr prepend value "floating_ui:element/control/_new"
+data modify storage floating_ui:debug curr prepend value "floating_ui:element/control/_new"
 
 tag @s remove just
 
 tag @s add floating_ui_control
-
-tag @s add floating_ui_has_child
 
 #显示物品
 execute unless data storage floating_ui:input temp.item.id run data modify storage floating_ui:input temp.item.id set value "minecraft:glass_pane"
@@ -105,14 +103,14 @@ data modify entity @s item.components.minecraft:custom_data.data.ui set from sto
 
 tag @s add new
 #编号分配
-execute at @s as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=0,tag=new] floating_ui.uid = @s floating_ui.uid
+execute at @s as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=..1, tag=new] floating_ui.uid = @s floating_ui.uid
 scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] floating_ui.uid
 #加入父节点
-execute as 1bf52-0-0-0-2 on origin run ride @n[tag=new] mount @s
+execute as 1bf52-0-0-0-2 on origin run ride @n[tag=new, distance=..1] mount @s
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #根节点
-execute as 1bf52-0-0-0-5 on origin run data modify entity @n[tag=new,distance=0] item.components.minecraft:custom_data.data.root set from entity @s UUID
+execute as 1bf52-0-0-0-5 on origin run data modify entity @n[tag=new, distance=..1] item.components.minecraft:custom_data.data.root set from entity @s UUID
 
 #坐标记录
 function floating_ui:element/control/gemo_data_flush

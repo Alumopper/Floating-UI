@@ -1,4 +1,3 @@
-tellraw @a [{"nbt":"arg.prefix1","storage": "floating_ui:temp","color": "gray"},{"nbt":"data.ui.type","entity":"@s","color": "aqua"}," - ",{"nbt":"data.name","entity":"@s","color": "yellow"}]
+tellraw @a [{"nbt":"arg.prefix1","storage": "floating_ui:temp","color": "gray"},{"nbt":"item.components.minecraft:custom_data.data.ui.type","entity":"@s","color": "aqua"}," - ",{"nbt":"data.name","entity":"@s","color": "yellow"}]
 tellraw @a [{"nbt":"arg.prefix2","storage": "floating_ui:temp","color": "gray"},{"nbt":"UUID","entity":"@s","color": "white"}," ",{"selector":"@s"}]
-data modify entity 1bf52-0-0-0-4 Thrower set from entity @s item.components.minecraft:custom_data.displayEntity
-execute as 1bf52-0-0-0-4 on origin run tellraw @a [{"nbt":"arg.prefix2","storage": "floating_ui:temp","color": "gray"},{"nbt":"UUID","entity":"@s","color": "white"}," ",{"selector":"@s"}]
+execute on passengers run tellraw @a [{"nbt":"arg.prefix2","storage": "floating_ui:temp","color": "gray"},{"nbt":"UUID","entity":"@s","color": "white"}," ",{"selector":"@s"}]
