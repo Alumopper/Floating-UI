@@ -1,1 +1,0 @@
-$data modify entity @s data.names.$(name) set value $(this)

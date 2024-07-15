@@ -1,6 +1,6 @@
 {
     "pack": {
-        "pack_format": 6,
+        "pack_format": 50,
         "description": {
             "text": "Floating UI",
             "color": "green"

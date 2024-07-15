@@ -1,0 +1,2 @@
+tellraw @a [{"nbt":"arg.prefix1","storage": "floating_ui:temp","color": "gray"},{"nbt":"item.components.minecraft:custom_data.data.ui.type","entity":"@s","color": "aqua"}," - ",{"nbt":"item.components.minecraft:custom_data.data.name","entity":"@s","color": "yellow"}]
+tellraw @a [{"nbt":"arg.prefix2","storage": "floating_ui:temp","color": "gray"},{"nbt":"UUID","entity":"@s","color": "white"}," ",{"selector":"@s"}]

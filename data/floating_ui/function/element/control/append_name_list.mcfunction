@@ -1,0 +1,1 @@
+$data modify entity @s item.components.minecraft:custom_data.data.names.$(name) set value $(this)

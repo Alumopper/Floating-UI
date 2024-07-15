@@ -1,2 +1,0 @@
-execute if entity @s[type=item_display] run function floating_ui:util/tree/print_macro with entity @s item.tag.data.ui
-execute if entity @s[type=marker] run function floating_ui:util/tree/print_macro with entity @s data.ui

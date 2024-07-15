@@ -1,0 +1,110 @@
+struct Item {
+    id?: string,
+    count?: byte,
+    tex?: long,
+    data?: any,
+    components?: [any]
+}
+
+struct Animate {
+    value: [struct {
+        key: string,
+        value: any,
+    }],
+    time: int,
+    start: string,
+    end: string
+}
+
+dispatch minecraft:storage["floating_ui:input"] to struct {
+    data: UI,
+    temp: any,
+    summon: struct{
+        arg: struct{
+            type: #[id="entity"] string,
+            rotation: [float] @ 2
+        }
+    },
+    move: struct{
+        x: float,
+        y: float
+    }
+} 
+
+struct UI {
+    type: string,
+    name?: string,
+    tag?: string,
+    ...floating_ui:ui[[type]],
+}
+
+struct Control {
+    ...UI,
+    x?: double,
+    y?: double,
+    size?: [float]@2,
+    rotation?: [float]@4,
+    display?: enum(string){
+        none = "none",
+        thirdperson_lefthand = "thirdperson_lefthand",
+        thirdperson_righthand = "thirdperson_righthand",
+        firstperson_lefthand = "firstperson_lefthand",
+        firstperson_righthand = "firstperson_righthand",
+        head = "head",
+        gui = "gui",
+        ground = "ground",
+        fixed = "fixed"
+    },
+    item?: Item,
+    move_in?: string,
+    move_out?: string,
+    anim?: ControlAnimate,
+    children?: [int[]@4]
+}
+
+struct TextControl {
+    ...UI,
+    x?: double,
+    y?: double,
+    size?: [float]@2,
+    rotation?: [float]@4,
+    move_in?: string,
+    move_out?: string,
+    anim?: ControlAnimate,
+    parent?: int[]@4,
+    displayEntity?: int[]@4
+}
+
+struct ControlAnimate {
+    move_in?: Animate,
+    move_out?: Animate   
+}
+
+dispatch floating_ui:ui[panel] to struct Panel {
+    ...Control,
+    child: [Control]
+}
+
+dispatch floating_ui:ui[button] to struct Button {
+    ...Control,
+    left_click?: string,
+    right_click?: string,
+    content?: (Control|TextControl),
+    anim?: ButtonAnimate
+}
+
+struct ButtonAnimate {
+    ...ControlAnimate,
+    left_click?: Animate,
+    right_click?: Animate
+}
+
+dispatch floating_ui:ui[textblock] to struct TextBlock {
+    ...TextControl,
+    text: (string|[string]),
+    align? : enum(string){
+        left = "left",
+        center = "center",
+        right = "right"
+    }
+}
