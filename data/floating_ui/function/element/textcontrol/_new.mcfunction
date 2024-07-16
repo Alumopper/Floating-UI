@@ -52,10 +52,10 @@ data modify entity @s item.components.minecraft:custom_data.y set from storage f
 data modify entity @s item.components.minecraft:custom_data.z set from storage floating_ui:input temp.z
 
 #字体大小
-execute if data storage floating_ui:input temp.fontsize run data modify entity @s item.components.minecraft:custom_data.fontsize set from storage floating_ui:input temp.fontsize
-execute unless data storage floating_ui:input temp.fontsize run data modify entity @s item.components.minecraft:custom_data.fontsize set value 2.0f
-data modify entity @n[tag=just,distance=..1] transformation.scale[0] set from entity @s item.components.minecraft:custom_data.fontsize
-data modify entity @n[tag=just,distance=..1] transformation.scale[1] set from entity @s item.components.minecraft:custom_data.fontsize
+execute if data storage floating_ui:input temp.fontsize run data modify entity @s item.components.minecraft:custom_data.data.fontsize set from storage floating_ui:input temp.fontsize
+execute unless data storage floating_ui:input temp.fontsize run data modify entity @s item.components.minecraft:custom_data.data.fontsize set value 2.0f
+data modify entity @n[tag=just,distance=..1] transformation.scale[0] set from entity @s item.components.minecraft:custom_data.data.fontsize
+data modify entity @n[tag=just,distance=..1] transformation.scale[1] set from entity @s item.components.minecraft:custom_data.data.fontsize
 
 #旋转
 execute if data storage floating_ui:input temp.rotation run data modify entity @s item.components.minecraft:custom_data.rotation set from storage floating_ui:input temp.rotation

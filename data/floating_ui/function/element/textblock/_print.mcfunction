@@ -1,3 +1,3 @@
 tellraw @a [{"nbt":"arg.prefix1","storage": "floating_ui:temp","color": "gray"},{"nbt":"item.components.minecraft:custom_data.data.ui.type","entity":"@s","color": "aqua"}," - ",{"nbt":"data.name","entity":"@s","color": "yellow"}]
-tellraw @a [{"nbt":"arg.prefix2","storage": "floating_ui:temp","color": "gray"},{"nbt":"UUID","entity":"@s","color": "white"}," ",{"selector":"@s"}]
-execute on passengers run tellraw @a [{"nbt":"arg.prefix2","storage": "floating_ui:temp","color": "gray"},{"nbt":"UUID","entity":"@s","color": "white"}," ",{"selector":"@s"}]
+function floating_ui:macro/print_control_nbt with entity @s {}
+execute on passengers run function floating_ui:macro/print_control_nbt with entity @s {}

@@ -10,10 +10,7 @@ execute store result score length _ run data get storage floating_ui:temp child[
 execute if score length _ matches 0 run data remove storage floating_ui:debug curr[0]
 execute if score length _ matches 0 run return 1
 
-data modify storage _ nextChild set from storage floating_ui:temp child[-1][0]
-execute store success score panelqwq _ run data modify storage _ nextChild.type set value "textblock"
-execute if score panelqwq _ matches 1 summon item_display run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
-execute unless score panelqwq _ matches 1 summon marker run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
+execute summon item_display run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
 
 data remove storage floating_ui:temp child[-1][0]
 

@@ -15,8 +15,8 @@ execute if score isMultiline _ matches 0 run function floating_ui:element/textbl
 execute if data storage floating_ui:input temp.width run data modify entity @s line_width set from storage floating_ui:input temp.width 
 execute unless data storage floating_ui:input temp.width run function floating_ui:element/textblock/set_width_from_parent
 
-#对齐方式。默认为居左对齐
-execute unless data storage floating_ui:input temp.align run data modify storage floating_ui:input temp.align set value "left"
+#对齐方式。默认为居中对齐
+execute unless data storage floating_ui:input temp.align run data modify storage floating_ui:input temp.align set value "center"
 data modify entity @s alignment set from storage floating_ui:input temp.align
 
 data remove storage floating_ui:debug curr[0]

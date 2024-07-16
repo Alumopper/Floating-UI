@@ -6,7 +6,7 @@ data modify storage floating_ui:input data set value {\
             "type":"textblock",\
             "text":"Hello FloatingUI",\
             "y":1f,\
-            "size":[2f,2f]\
+            "size":[4f,4f]\
         },\
         {\
             "type":"button",\
