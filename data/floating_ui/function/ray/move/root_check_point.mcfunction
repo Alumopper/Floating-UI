@@ -23,8 +23,8 @@ scoreboard players set uvw_theta int 0
 execute at @s as 1bf52-0-0-0-0 run function math:uvw/_base
 function math:uvw/_vecto
 #判断是否在平面内
-execute store result score width _ run data get entity @s item.components.minecraft:custom_data.size[0] 5000.0
-execute store result score height _ run data get entity @s item.components.minecraft:custom_data.size[1] 5000.0
+execute store result score width _ run data get entity @s item.components.minecraft:custom_data.data.size[0] 5000.0
+execute store result score height _ run data get entity @s item.components.minecraft:custom_data.data.size[1] 5000.0
 scoreboard players operation cache_u _ = u int
 scoreboard players operation cache_v _ = v int
 scoreboard players operation u int += width _

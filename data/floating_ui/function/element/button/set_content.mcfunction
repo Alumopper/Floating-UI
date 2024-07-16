@@ -21,7 +21,7 @@ execute as @n[tag=just,distance=..1] run function floating_ui:_new_control with 
 
 #覆盖item属性
 data modify entity @s item.id set value "glass_pane"
-data modify entity @s item.components.minecraft:custom_data.CustomModelData set value 11450000
+data modify entity @s item.components.minecraft:custom_model_data set value 11450000
 
 data remove storage floating_ui:temp child[-1][0]
 data remove storage floating_ui:temp child[-1]

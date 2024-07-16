@@ -7,11 +7,14 @@ tag @s remove just
 
 tag @s add floating_ui_control
 
-#显示物品
+# 显示物品
 execute unless data storage floating_ui:input temp.item.id run data modify storage floating_ui:input temp.item.id set value "minecraft:glass_pane"
 data modify storage floating_ui:input temp.item.count set value 1b
 data modify entity @s item set from storage floating_ui:input temp.item
-data modify entity @s item.components.minecraft:custom_data.CustomModelData set from storage floating_ui:input temp.item.tex
+data modify entity @s item.components.minecraft:custom_model_data set from storage floating_ui:input temp.item.tex
+
+# 亮度
+data modify entity @s brightness set value {block: 15, sky: 15}
 
 #属性
 

@@ -16,6 +16,9 @@ ride @n[tag=just,distance=..1] mount @s
 data modify entity @s item set value {id:"stone",count: 1b}
 data modify entity @s transformation.scale[] set value 0f
 
+# 亮度
+data modify entity @s brightness set value {block: 15, sky: 15}
+
 #属性
 
 #name

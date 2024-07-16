@@ -12,6 +12,6 @@ tag @s add floating_ui_curr
 #初始化比较
 scoreboard players set min_stempt _ 100000000
 #开始求最近交点
-execute as @e[type=marker,tag=floating_ui_root,distance=..20] if score @s floating_ui.uid = @p[tag=floating_ui_curr] floating_ui.uid run function floating_ui:ray/move/root_check_point
+execute as @e[type=item_display,tag=floating_ui_root,distance=..20] if score @s floating_ui.uid = @p[tag=floating_ui_curr] floating_ui.uid run function floating_ui:ray/move/root_check_point
 tag @s remove floating_ui_curr
 data remove storage floating_ui:debug curr[0]

@@ -2,6 +2,7 @@
 # @internal
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:element/button/event/click_event"
+
 execute unless function floating_ui:element/control/event/pos_check run data remove storage floating_ui:debug curr[0]
 execute unless function floating_ui:element/control/event/pos_check run return 0
 
