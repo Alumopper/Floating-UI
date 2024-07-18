@@ -1,5 +1,5 @@
 data modify storage floating_ui:input data set value {\
-    "type":"panel",\
+    "type": "panel",\
     "size":[5f,5f],\
     "child":[\
         {\

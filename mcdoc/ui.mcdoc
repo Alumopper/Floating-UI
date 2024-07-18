@@ -32,14 +32,13 @@ dispatch minecraft:storage["floating_ui:input"] to struct {
 } 
 
 struct UI {
-    type: string,
+    type: #[dispatcher_key="floating_ui:ui"] string,
     name?: string,
     tag?: string,
-    ...floating_ui:ui[[type]],
+    ...floating_ui:ui[[type]]
 }
 
 struct Control {
-    ...UI,
     x?: double,
     y?: double,
     size?: [float]@2,
@@ -63,7 +62,6 @@ struct Control {
 }
 
 struct TextControl {
-    ...UI,
     x?: double,
     y?: double,
     size?: [float]@2,
