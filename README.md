@@ -289,6 +289,7 @@ control是大部分控件的父类，包含了基本的属性。
 * `Item item`：物品展示实体将要展示的物品
 * `string move_in`：一个函数或函数标签的命名空间id。鼠标准星进入这个控件
 * `string move_out`：一个函数或函数标签的命名空间id。鼠标准星离开这个控件
+
 数据属性：
 * `list<UUID> childPoint`：这个控件可能的所有子控件的UUID数组列表。
 
@@ -304,6 +305,7 @@ textcontrol是文本控件的父类，包含了一些基本的属性。由于文
 * `float[4] rotation`：控件的旋转。是一个四元数。默认为\[0f,1f,0f,0f\]
 * `string move_in`：一个函数或函数标签的命名空间id。鼠标准星进入这个控件
 * `string move_out`：一个函数或函数标签的命名空间id。鼠标准星离开这个控件
+
 数据属性：
 * `UUID parent`：这个控件的父控件的UUID数组。
 * `UUID displayEntity`：这个控件所对应的文本展示实体。

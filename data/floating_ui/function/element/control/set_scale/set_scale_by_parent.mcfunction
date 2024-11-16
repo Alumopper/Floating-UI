@@ -1,0 +1,2 @@
+function floating_ui:element/control/set_scale/set_offset_with_scale
+function floating_ui:element/control/_set_scale

@@ -28,14 +28,19 @@ dispatch minecraft:storage["floating_ui:input"] to struct {
     move: struct{
         x: float,
         y: float
-    }
+    },
+    pos: struct{
+        x: float,
+        y: float,
+        z: float
+    },
 } 
 
 struct UI {
+    ...floating_ui:ui[[type]],
     type: #[dispatcher_key="floating_ui:ui"] string,
     name?: string,
     tag?: string,
-    ...floating_ui:ui[[type]]
 }
 
 struct Control {

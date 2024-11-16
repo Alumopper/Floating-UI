@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "x": {
+            "type": "number"
+        },
+        "y": {
+            "type": "number"
+        },
+        "rotation": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "maxLength": 4,
+            "minLength": 4
+        },
+        "move_in": {
+            "type": "string"
+        },
+        "move_out": {
+            "type": "string"
+        },
+        "anim": {
+            "type": "object",
+            "properties": {
+                "move_in": {
+                    "$ref": "animation.json"
+                },
+                "move_out": {
+                    "$ref": "animation.json"
+                }
+            },
+            "additionalItems": true
+        },
+        "name": {
+            "type": "string"
+        },
+        "tag": {
+            "type": "string"
+        }
+    },
+    "additionalItems": false,
+    "required": ["type"]
+}

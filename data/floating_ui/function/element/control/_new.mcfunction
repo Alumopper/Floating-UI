@@ -29,27 +29,7 @@ execute if data storage floating_ui:input temp.tag run data modify entity @s Tag
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
 execute unless data storage floating_ui:input temp.y run data modify storage floating_ui:input temp.y set value 0
 execute unless data storage floating_ui:input temp.z run data modify storage floating_ui:input temp.z set value 0
-execute store result score x _ run data get storage floating_ui:input temp.x 10000
-execute store result score y _ run data get storage floating_ui:input temp.y 10000
-execute store result score z _ run data get storage floating_ui:input temp.z 10000
-execute store result score @s floating_ui.parent_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_x
-execute store result score @s floating_ui.parent_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_y
-execute store result score @s floating_ui.parent_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_z
-execute store result score @s floating_ui.root_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_x
-execute store result score @s floating_ui.root_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_y
-execute store result score @s floating_ui.root_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_z
-scoreboard players operation @s floating_ui.root_x += @s floating_ui.parent_x
-scoreboard players operation @s floating_ui.root_y += @s floating_ui.parent_y
-scoreboard players operation @s floating_ui.root_z += @s floating_ui.parent_z
-scoreboard players operation @s floating_ui.root_x += x _
-scoreboard players operation @s floating_ui.root_y += y _
-scoreboard players operation @s floating_ui.root_z += z _
-execute store result entity @s transformation.translation[0] float 0.0001 run scoreboard players get @s floating_ui.root_x
-execute store result entity @s transformation.translation[1] float 0.0001 run scoreboard players get @s floating_ui.root_y
-execute store result entity @s transformation.translation[2] float 0.0001 run scoreboard players get @s floating_ui.root_z
-data modify entity @s item.components.minecraft:custom_data.data.x set from storage floating_ui:input temp.x
-data modify entity @s item.components.minecraft:custom_data.data.y set from storage floating_ui:input temp.y
-data modify entity @s item.components.minecraft:custom_data.data.z set from storage floating_ui:input temp.z
+function floating_ui:element/control/_set_offset
 #endregion
 
 #大小。如果没有动画，插入默认动画，否则执行动画
@@ -58,7 +38,19 @@ execute store success score hasNewAnim _ run data get storage floating_ui:input 
 execute if score hasNewAnim _ matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.size[0]
 execute if score hasNewAnim _ matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.size[1]
 execute unless score hasNewAnim _ matches 1 run data modify entity @s transformation.scale set value [0.0f,0.0f,0.0f]
-execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new set value {value:[{key:"transformation.scale[0]",value:0f},{key:"transformation.scale[1]",value:0f}],time:3}
+execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new set value \
+{\
+    value:[\
+        {\
+            key:"transformation.scale[0]",\
+            value:0f\
+        },{\
+            key:"transformation.scale[1]",\
+            value:0f\
+        }\
+    ],\
+    time:3\
+}
 execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new.value[0].value set from storage floating_ui:input temp.size[0]
 execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new.value[1].value set from storage floating_ui:input temp.size[1]
 tag @s add floating_ui_schedule_animation
@@ -79,30 +71,13 @@ execute if data storage floating_ui:input temp.move run data modify entity @s it
 execute if data storage floating_ui:input temp.right_click run data modify entity @s item.components.minecraft:custom_data.data.right_click set from storage floating_ui:input temp.right_click
 execute if data storage floating_ui:input temp.left_click run data modify entity @s item.components.minecraft:custom_data.data.left_click set from storage floating_ui:input temp.left_click
 
-#data modify storage floating_ui:temp arg.event set value "move_in"
-#data modify storage floating_ui:temp arg.function set from storage floating_ui:input temp.move_in
-#execute if data storage floating_ui:input temp.move_in run function floating_ui:element/control/util/event_append.#function with storage floating_ui:temp arg
-#
-#data modify storage floating_ui:temp arg.event set value "move_out"
-#data modify storage floating_ui:temp arg.function set from storage floating_ui:input temp.move_out
-#execute if data storage floating_ui:input temp.move_out run function floating_ui:element/control/util/event_append.#function with storage floating_ui:temp arg
-#
-#data modify storage floating_ui:temp arg.event set value "move"
-#data modify storage floating_ui:temp arg.function set from storage floating_ui:input temp.move
-#execute if data storage floating_ui:input temp.move run function floating_ui:element/control/util/event_append.#function with storage floating_ui:temp arg
-#
-#data modify storage floating_ui:temp arg.event set value "right_click"
-#data modify storage floating_ui:temp arg.function set from storage floating_ui:input temp.right_click
-#execute if data storage floating_ui:input temp.right_click run function floating_ui:element/control/util/event_append.#function with storage floating_ui:temp arg
-#
-#data modify storage floating_ui:temp arg.event set value "left_click"
-#data modify storage floating_ui:temp arg.function set from storage floating_ui:input temp.left_click
-#execute if data storage floating_ui:input temp.left_click run function floating_ui:element/control/util/event_append.#function with storage floating_ui:temp arg
-
 #endregion
 
 #加入ui布局数据
 data modify entity @s item.components.minecraft:custom_data.data.ui set from storage floating_ui:input temp
+
+#可视距离
+data modify entity @s item.components.minecraft:custom_data.data.view_range set from entity @s view_range
 
 tag @s add new
 #编号分配
@@ -118,5 +93,12 @@ execute as 1bf52-0-0-0-5 on origin run data modify entity @n[tag=new, distance=.
 #坐标记录
 function floating_ui:element/control/gemo_data_flush
 tag @s remove new
+
+#可见
+scoreboard players set @s floating_ui.visible 1
+
+#高度和宽度
+execute store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
+execute store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
 
 data remove storage floating_ui:debug curr[0]

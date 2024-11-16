@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "allOf":[{"$ref": "control.json"}],
+    "properties": {
+        "left_click": {
+            "type": "string"
+        },
+        "right_click": {
+            "type": "string"
+        },
+        "content": {
+            "$ref": "main.json"  
+        },
+        "anim": {
+            "type": "object",
+            "properties": {
+                "left_click": {
+                    "$ref": "animation.json"
+                },
+                "right_click": {
+                    "$ref": "animation.json"
+                }
+            },
+            "additionalItems": true
+        }
+    }
+}

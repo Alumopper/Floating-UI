@@ -14,3 +14,7 @@ data remove storage floating_ui:debug curr[0]
 
 #设置内容
 function floating_ui:element/button/set_content
+
+#高度和宽度
+execute store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
+execute store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000

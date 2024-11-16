@@ -37,4 +37,7 @@ tag @s add floating_ui_schedule_animation
 
 data modify entity @s item.components.minecraft:custom_data.data.size set from storage floating_ui:input temp.size
 
+#高度和宽度
+execute store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
+execute store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
 data remove storage floating_ui:debug curr[0]

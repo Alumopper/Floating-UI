@@ -56,9 +56,33 @@ scoreboard objectives add floating_ui.root_z dummy
 scoreboard objectives add floating_ui.parent_x dummy
 scoreboard objectives add floating_ui.parent_y dummy
 scoreboard objectives add floating_ui.parent_z dummy
+#三种位置的未缩放版本
+scoreboard objectives add floating_ui.child_x_without_scale dummy
+scoreboard objectives add floating_ui.child_y_without_scale dummy
+scoreboard objectives add floating_ui.child_z_without_scale dummy
+scoreboard objectives add floating_ui.root_x_without_scale dummy
+scoreboard objectives add floating_ui.root_y_without_scale dummy
+scoreboard objectives add floating_ui.root_z_without_scale dummy
+scoreboard objectives add floating_ui.parent_x_without_scale dummy
+scoreboard objectives add floating_ui.parent_y_without_scale dummy
+scoreboard objectives add floating_ui.parent_z_without_scale dummy
+#UI的宽和高scale（倍率10000）
+scoreboard objectives add floating_ui.size0 dummy
+scoreboard objectives add floating_ui.size1 dummy
 #textControl子类UI控件的长和宽（倍率10000）
 scoreboard objectives add floating_ui.text.width dummy
 scoreboard objectives add floating_ui.text.height dummy
+#是否可见
+scoreboard objectives add floating_ui.visible dummy
+#list控件的子控件数量
+scoreboard objectives add floating_ui.list.childCount dummy
+#list控件的索引
+scoreboard objectives add floating_ui.list.index dummy
+#list控件的子控件在list中的索引
+scoreboard objectives add floating_ui.list.childIndex dummy
+#list控件现在正在显示的子空间的最大索引和最小索引
+scoreboard objectives add floating_ui.list.minIndex dummy
+scoreboard objectives add floating_ui.list.maxIndex dummy
 
 #region forceload
 execute in overworld run forceload add 0 0

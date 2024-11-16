@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$ref": "abstract_control.json",
+    "properties": {
+        "size": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "maxLength": 2,
+            "minLength": 2
+        },
+        "display": {
+            "type": "string",
+            "enum": [
+                "none",
+                "thirdperson_lefthand",
+                "thirdperson_righthand",
+                "firstperson_lefthand",
+                "firstperson_righthand",
+                "head",
+                "gui",
+                "ground",
+                "fixed"
+            ]
+        },
+        "item": {
+            "$ref": "item.json"
+        }
+    }
+}
