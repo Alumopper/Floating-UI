@@ -12,3 +12,5 @@ execute store result score @s floating_ui.root_y on vehicle run scoreboard playe
 execute store result score y _ run data get entity @s item.components.minecraft:custom_data.data.y 10000
 scoreboard players operation @s floating_ui.root_y += y _
 scoreboard players operation @s floating_ui.root_y += @s floating_ui.parent_y
+execute store result entity @s transformation.translation[0] float 0.0001 run scoreboard players get @s floating_ui.root_x
+execute store result entity @s transformation.translation[1] float 0.0001 run scoreboard players get @s floating_ui.root_y

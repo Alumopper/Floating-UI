@@ -1,0 +1,1 @@
+$data modify entity @s item.components.minecraft:custom_data.data.ui.anim.custom.$(id) set from storage floating_ui:input animate.data

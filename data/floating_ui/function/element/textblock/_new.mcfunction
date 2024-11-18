@@ -33,7 +33,7 @@ execute store success score hasNewAnim _ run data get storage floating_ui:input 
 execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new set value {value:[{key:"transformation.scale",value:0f}],time:3}
 execute unless score hasNewAnim _ matches 1 on passengers run data modify storage floating_ui:input temp.anim.new.value[0].value set from storage floating_ui:input temp.fontsize
 execute unless score hasNewAnim _ matches 1 run data modify entity @s transformation.scale set value [0.0f,0.0f,0.0f]
-tag @s add floating_ui_schedule_animation
+tag @s add floating_ui_schedule_new_animation
 
 data modify entity @s item.components.minecraft:custom_data.data.size set from storage floating_ui:input temp.size
 

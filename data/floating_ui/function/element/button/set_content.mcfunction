@@ -6,6 +6,8 @@ data modify storage floating_ui:debug curr prepend value "floating_ui:element/bu
 
 execute unless data storage floating_ui:input temp.content run return 0
 
+say hi
+
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #生成控件

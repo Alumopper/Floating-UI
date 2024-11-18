@@ -1,0 +1,1 @@
+$data modify storage timelist:io event.run set value "function floating_ui:element/control/animation/custom {id:$(id)}"

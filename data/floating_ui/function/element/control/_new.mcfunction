@@ -44,7 +44,8 @@ execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:
         {\
             key:"transformation.scale[0]",\
             value:0f\
-        },{\
+        },\
+        {\
             key:"transformation.scale[1]",\
             value:0f\
         }\
@@ -53,7 +54,7 @@ execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:
 }
 execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new.value[0].value set from storage floating_ui:input temp.size[0]
 execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new.value[1].value set from storage floating_ui:input temp.size[1]
-tag @s add floating_ui_schedule_animation
+tag @s add floating_ui_schedule_new_animation
 data modify entity @s item.components.minecraft:custom_data.data.size set from storage floating_ui:input temp.size
 
 #旋转

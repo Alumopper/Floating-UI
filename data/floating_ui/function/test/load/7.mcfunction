@@ -15,6 +15,34 @@ data modify storage floating_ui:input data set value {\
             "item":{\
                 "id":"carrot"\
             }\
-        }\
+        },\
+        {\
+            "type":"button",\
+            "size":[1.2f,1.2f],\
+            "item":{\
+                "id":"apple"\
+            }\
+        },\
+        {\
+            "type":"button",\
+            "size":[1.2f,1.2f],\
+            "item":{\
+                "id":"carrot"\
+            }\
+        },\
+        {\
+            "type":"button",\
+            "size":[1.2f,1.2f],\
+            "item":{\
+                "id":"apple"\
+            }\
+        },\
+        {\
+            "type":"button",\
+            "size":[1.2f,1.2f],\
+            "item":{\
+                "id":"carrot"\
+            }\
+        },\
     ]\
 }

@@ -10,10 +10,15 @@ struct Animate {
     value: [struct {
         key: string,
         value: any,
+        isProperty?: boolean,
+        type?: enum(string){
+            by = "by",
+            to = "to"
+        }
     }],
     time: int,
-    start: string,
-    end: string
+    start?: string,
+    end?: string
 }
 
 dispatch minecraft:storage["floating_ui:input"] to struct {
@@ -34,6 +39,10 @@ dispatch minecraft:storage["floating_ui:input"] to struct {
         y: float,
         z: float
     },
+    animate: struct{
+        id: string,
+        data: Animate
+    }
 } 
 
 struct UI {
