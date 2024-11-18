@@ -31,7 +31,7 @@ In addition, you can create a UI interface in a slightly more complex way, that 
 tag player add floating_ui_owner
 
 # Create a UI. Assume you have passed in the layout data here. Of course, you can directly replace with storage with the layout data.
-execute summon marker run function floating_ui:_new_ui with storage floating_ui:input data
+execute summon display run function floating_ui:_new_ui with storage floating_ui:input data
 ```
 
 If you successfully execute the first method, you will see an apple floating in front of you in a glass box.

@@ -29,7 +29,7 @@ Tips：如果你是用数据包中的函数运行的，可以使用`\`换行写�
 tag player add floating_ui_owner
 
 # 创建一个UI。假设这里你已经传入了布局数据。当然，你也可以直接用布局数据替换with storage这一串。
-execute summon marker run function floating_ui:_new_ui with storage floating_ui:input data
+execute summon item_display run function floating_ui:_new_ui with storage floating_ui:input data
 ```
 
 如果你使用第一种方法成功执行，那么你会看到一个被玻璃框装着的苹果浮在你的面前。

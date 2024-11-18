@@ -25,7 +25,7 @@ data remove storage floating_ui:temp cache[-1]
 execute if data storage floating_ui:input temp.child run data remove storage floating_ui:temp child[-1]
 #
 #高度和宽度
-execute store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
-execute store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
+execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
+execute store result score @s floating_ui.size1_without_scale store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
 #endregion
 data remove storage floating_ui:debug curr[0]

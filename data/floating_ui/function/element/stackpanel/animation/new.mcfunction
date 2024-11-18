@@ -1,1 +1,0 @@
-function floating_ui:element/control/animation/new

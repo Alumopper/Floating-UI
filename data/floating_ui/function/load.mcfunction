@@ -69,6 +69,8 @@ scoreboard objectives add floating_ui.parent_z_without_scale dummy
 #UI的宽和高scale（倍率10000）
 scoreboard objectives add floating_ui.size0 dummy
 scoreboard objectives add floating_ui.size1 dummy
+scoreboard objectives add floating_ui.size0_without_scale dummy
+scoreboard objectives add floating_ui.size1_without_scale dummy
 #textControl子类UI控件的长和宽（倍率10000）
 scoreboard objectives add floating_ui.text.width dummy
 scoreboard objectives add floating_ui.text.height dummy
@@ -80,9 +82,11 @@ scoreboard objectives add floating_ui.list.childCount dummy
 scoreboard objectives add floating_ui.list.index dummy
 #list控件的子控件在list中的索引
 scoreboard objectives add floating_ui.list.childIndex dummy
-#list控件现在正在显示的子空间的最大索引和最小索引
+#list控件现在正在显示的子空间的最大索引和最小索引（min闭区间，max开区间，min <= 显示范围 < max）
 scoreboard objectives add floating_ui.list.minIndex dummy
 scoreboard objectives add floating_ui.list.maxIndex dummy
+#玩家快捷栏选中的位置
+scoreboard objectives add floating_ui.slot dummy
 
 #region forceload
 execute in overworld run forceload add 0 0

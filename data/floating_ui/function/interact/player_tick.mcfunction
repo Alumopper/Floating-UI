@@ -18,6 +18,10 @@ execute if data storage floating_ui:temp floating_ui.return run function floatin
 execute if data storage floating_ui:temp floating_ui.return run tag @s add floating_ui_lookingAtUI
 execute unless data storage floating_ui:temp floating_ui.return run tag @s remove floating_ui_lookingAtUI
 
+# 鼠标滚轮滚动事件
+execute if data storage floating_ui:temp floating_ui.return if score @s floating_ui.slot matches -2147483648..2147483647 run function floating_ui:interact/roll/check
+execute unless score @s floating_ui.slot matches -2147483648..2147483647 store result score @s floating_ui.slot run data get entity @s SelectedItemSlot
+
 # 展示实体到处tp
 execute as @a[tag=floating_ui_checkingClick] anchored eyes positioned ^ ^ ^ run tp 1bf52-0-0-0-3 ~ ~-0.5 ~
 tag @s remove floating_ui_owner

@@ -18,7 +18,10 @@ data modify storage floating_ui:debug curr prepend value "floating_ui:_new_ui"
 
 #debug
 execute if entity @s[type=!item_display] run data remove storage floating_ui:debug curr[0]
-execute if entity @s[type=!item_display] run return run function floating_ui:util/_error_track {"ex":"NotItemDisplayException","msg":"_new_ui must be called by an item_display entity."}
+execute if entity @s[type=!item_display] run return run function floating_ui:util/_error_track {\
+    "ex":"NotItemDisplayException",\
+    "msg":"_new_ui must be called by an item_display entity."\
+}
 #end
 
 data modify entity @s item set value {id:"stone", count: 1b}
