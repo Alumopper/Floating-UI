@@ -19,7 +19,7 @@ function floating_ui:element/control/auto_layout/auto
 
 data modify storage floating_ui:input summon.arg.type set value "item_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
-execute as @n[tag=just,distance=..1] run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
+execute as @n[tag=just,distance=..1] run function floating_ui:_new_control
 
 #覆盖item属性
 data modify entity @s item.id set value "glass_pane"

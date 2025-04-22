@@ -1,6 +1,4 @@
 {
     "$schema": "main.json",
-    "type": "list",
-    "child": [
-    ]
+    "type": "list"
 }

@@ -4,11 +4,11 @@
 # 调用方式：
 # ```mcfunction
 # tag player add floating_ui_owner
-# execute summon item_display run function floating_ui:_new_ui with storage floating_ui:input data
+# execute summon item_display run function floating_ui:_new_ui
 # ```
 # 或直接调用
 # ```mcfunction
-# execute summon item_display run function floating_ui:_new_ui with storage floating_ui:input data
+# execute summon item_display run function floating_ui:_new_ui
 # ```
 # @input storage floating_ui:input data
 # @context entity @s[type=item_display]
@@ -60,7 +60,7 @@ data modify storage floating_ui:input summon.arg.rotation set from entity @s Rot
 data modify storage floating_ui:input summon.arg.type set value "item_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
 tag @n[tag=just,distance=..0.1] add floating_ui_root_child
-$execute as @n[tag=just,distance=..0.1] run function floating_ui:element/$(type)/_new with storage floating_ui:input data
+execute as @n[tag=just,distance=..0.1] run function floating_ui:macro/new_ui with storage floating_ui:input data
 data modify entity @s item.components.minecraft:custom_data.data.size set from entity @n[tag=floating_ui_root_child, distance=..1] item.components.minecraft:custom_data.data.size
 tag @a[tag=floating_ui_owner] remove floating_ui_owner
 scoreboard players operation return _ = @s floating_ui.uid

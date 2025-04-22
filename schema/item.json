@@ -10,7 +10,7 @@
             "pattern": "^[0-9]+[b|B]$"
         },
         "tex": {
-            "type": "number"
+            "type": "object"
         },
         "data": {
             "type": "object"

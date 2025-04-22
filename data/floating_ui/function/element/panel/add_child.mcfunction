@@ -15,7 +15,7 @@ function floating_ui:element/control/auto_layout/auto
 
 data modify storage floating_ui:input summon.arg.type set value "item_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
-execute as @n[tag=just,distance=..1] run function floating_ui:_new_control with storage floating_ui:temp child[-1][0]
+execute as @n[tag=just,distance=..1] run function floating_ui:_new_control
 
 data remove storage floating_ui:temp child[-1][0]
 scoreboard players add @s floating_ui.child_z 10

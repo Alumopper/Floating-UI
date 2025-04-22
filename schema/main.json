@@ -14,7 +14,8 @@
                 {
                     "type": "string"
                 }
-            ]
+            ],
+            "description": "控件的类型"
         }
     },
     "anyOf": [

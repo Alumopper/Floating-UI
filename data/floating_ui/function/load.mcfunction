@@ -104,6 +104,14 @@ execute in overworld positioned .0 3000.0 .0 run summon item ~ ~ ~ {NoGravity:1b
 execute in overworld positioned .0 3000.0 .0 run summon item ~ ~ ~ {NoGravity:1b,UUID:[I;114514,0,0,5],Item:{id:"minecraft:glass",count:1b},PickupDelay:-32768s, Age:-32768s}
 #endregion
 
+#region 控件注册
+data modify storage floating_ui:data std set value {\
+    "button":0b,\
+    "list":0b, \
+    "panel":0b, \
+    "textblock":0b\
+}
+
 #初始化数学库和事件队列
 execute store success score mathlib _ run function math:_init
 execute if score mathlib _ matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the math library.","color":"red"}]}

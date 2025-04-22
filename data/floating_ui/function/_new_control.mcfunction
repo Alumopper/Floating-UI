@@ -7,7 +7,5 @@
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:_new_control"
 data modify storage floating_ui:input temp set from storage floating_ui:temp child[-1][0]
-scoreboard players set #exist _ 1
-$execute store success score #exist _ run function floating_ui:element/$(type)/_new with storage floating_ui:temp child[-1][0]
-$execute if score #exist _ matches 0 run function floating_ui:util/_error_track {"ex":"NoSuchFunctionException","msg":"No such function: floating_ui:element/$(type)/_new"}
+function floating_ui:macro/new_control with storage floating_ui:input temp
 data remove storage floating_ui:debug curr[0]

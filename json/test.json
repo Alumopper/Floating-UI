@@ -1,0 +1,16 @@
+{
+    "$schema": "../schema/custom_control.json",
+    "content": {
+        "type": "panel",
+        "name": "test",
+        "child": [
+            {
+                "type":"textblock",
+                "text": "default"
+            }
+        ]
+    },
+    "params": {
+        "text": "child.text"
+    }
+}

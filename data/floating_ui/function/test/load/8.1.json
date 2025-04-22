@@ -1,0 +1,10 @@
+{
+    "$schema": "https://alumopper.top/res/json/schema/main.json",
+    "type": "panel",
+    "child": [
+        {
+            "type": "test",
+            "text": "Custom Control"
+        }
+    ]
+}
