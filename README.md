@@ -148,6 +148,76 @@ Floating UI使用UI数据对UI进行生成。UI数据是一个NBT复合标签。
 
 动画还有两个事件，即`start`和`end`，分别用于在动画开始和动画结束的时候执行。但是`start`和`end`并不能作为动画的触发器使用。
 
+## 控件模板
+
+控件模板指的是一个可以被多次使用的控件集合。通过使用控件模板，你可以在UI中使用相似的控件，而不需要重复编写相同的代码。控件模板的定义和使用都很简单。
+
+```json
+{
+    "$schema": "https://alumopper.top/res/json/schema/custom_control.json",
+    "content": {
+        "type": "panel",
+        "name": "test",
+        "size": [5f, 5f],
+        "child": [
+            {
+                "type": "textblock",
+                "text": "default"
+            }
+        ]
+    },
+    "params": {
+        "text": "child[0].text"
+    }
+}
+```
+
+其中，`content`字段表示了这个控件模板中的内容，其格式和布局数据完全相同。而`params`字段表示了这个控件模板的参数。参数的格式是一个键值对，键表示参数的名称，值表示参数在控件模板中相对模板根路径的NBT路径。
+
+要注册控件模板，你需要将这个控件模板的数据储存在`storage floating_ui:data custom.test.<模板名>`下。
+
+```mcfunction
+data modify storage floating_ui:data custom.test set value {\
+    "content": {\
+        "type": "panel",\
+        "name": "test",\
+        "size": [5f, 5f],\
+        "child": [\
+            {\
+                "type": "textblock",\
+                "text": "default"\
+            }\
+        ]\
+    },\
+    "params": {\
+        "text": "child[0].text"\
+    }\
+}
+```
+
+随后，你就可以像使用普通控件一样使用这个控件模板了。
+
+```json
+{
+    "type": "test",
+    "params":[
+        {"key":"text", "value":"Hello FloatingUI"}
+    ],
+}
+```
+
+```mcfunction
+data modify storage floating_ui:input data set value {\
+    "type": "test",\
+    "params":[\
+        {"key":"text", "value":"Hello FloatingUI"}\
+    ],\
+}
+```
+
+`type`字段就是你刚刚注册的模板名，而`params`列表对应了你注册的模板中的参数。`key`字段表示参数的名称，`value`字段表示参数的值。
+`params`列表中的参数会被传入到控件模板中，替换掉控件模板中对应NBT路径上的值。
+
 ## 控件的访问
 
 对控件的访问有两种方式，一种是使用一对一的name列表访问，一种是使用tag访问多个控件。
