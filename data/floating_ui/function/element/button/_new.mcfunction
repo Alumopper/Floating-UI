@@ -4,6 +4,10 @@
 # @input storage floating_ui:input 要创建的ui的内容信息
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:element/button/_new"
+
+# 缺省布局参数值
+execute unless data storage floating_ui:input temp.size run data modify storage floating_ui:input temp.size set value [1f,1f]
+
 function floating_ui:element/control/_new
 
 tag @s add floating_ui_button
@@ -13,7 +17,7 @@ execute if data storage floating_ui:input temp.click run data modify entity @s i
 data remove storage floating_ui:debug curr[0]
 
 #设置内容
-function floating_ui:element/button/set_content
+execute if data storage floating_ui:input temp.content run function floating_ui:element/button/set_content
 
 #高度和宽度
 execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000

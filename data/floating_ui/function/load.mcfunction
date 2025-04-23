@@ -29,7 +29,7 @@ scoreboard objectives add floating_ui.u dummy
 scoreboard objectives add floating_ui.v dummy
 scoreboard objectives add floating_ui.clicked_u dummy
 scoreboard objectives add floating_ui.clicked_v dummy
-scoreboard objectives add floating_ui.stempt dummy
+#scoreboard objectives add floating_ui.stempt dummy 不知道做什么用的
 scoreboard objectives add floating_ui.re dummy
 #世界UI的编号
 scoreboard objectives add floating_ui.uid dummy
@@ -44,15 +44,15 @@ scoreboard objectives add floating_ui.clock dummy
     # @internal
     #define score_holder clock.40 floating_ui.clock
     execute unless score clock.40 floating_ui.clock matches -2147483648..2147483647 run scoreboard players set clock.40 floating_ui.clock 0
-#UI的子控件位置控制（倍率10000）
+#UI的子控件位置控制（倍率10000），决定子控件的中心位置
 scoreboard objectives add floating_ui.child_x dummy
 scoreboard objectives add floating_ui.child_y dummy
 scoreboard objectives add floating_ui.child_z dummy
-#UI与root的相对位置（倍率10000）
+#UI与root的相对位置（倍率10000），决定控件的中心位置
 scoreboard objectives add floating_ui.root_x dummy
 scoreboard objectives add floating_ui.root_y dummy
 scoreboard objectives add floating_ui.root_z dummy
-#UI与父控件的相对位置（倍率10000）
+#UI与父控件的相对位置（倍率10000），决定控件的中心位置
 scoreboard objectives add floating_ui.parent_x dummy
 scoreboard objectives add floating_ui.parent_y dummy
 scoreboard objectives add floating_ui.parent_z dummy
@@ -110,6 +110,11 @@ data modify storage floating_ui:data std set value {\
     "list":0b, \
     "panel":0b, \
     "textblock":0b\
+}
+
+data modify storage floating_ui:tag container set value {\
+    "list":0b, \
+    "panel":0b, \
 }
 
 #初始化数学库和事件队列

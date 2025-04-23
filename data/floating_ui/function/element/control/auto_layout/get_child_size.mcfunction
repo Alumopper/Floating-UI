@@ -1,5 +1,6 @@
 data modify storage floating_ui:debug curr prepend value "floating_ui:element/control/auto_layout/get_child_size"
 
+
 #x方向上的
 execute store result score child_x _ run data get storage floating_ui:temp child[-1][0].x 10000
 execute store result score parent_x _ run data get entity @s item.components.minecraft:custom_data.data.ui.size[0] 5000
