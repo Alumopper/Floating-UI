@@ -85,6 +85,15 @@ scoreboard objectives add floating_ui.list.childIndex dummy
 #list控件现在正在显示的子空间的最大索引和最小索引（min闭区间，max开区间，min <= 显示范围 < max）
 scoreboard objectives add floating_ui.list.minIndex dummy
 scoreboard objectives add floating_ui.list.maxIndex dummy
+#stackpanel的对齐模式
+#0：左对齐，1：中间对齐，2：右对齐
+scoreboard objectives add floating_ui.stackpanel.align dummy
+#stackpanel的间隙（倍率10000）
+scoreboard objectives add floating_ui.stackpanel.gap dummy
+#stackpanel上一行的行高（倍率10000）
+scoreboard objectives add floating_ui.stackpanel.currLineHeight dummy
+#stackpanel当前行的宽度（倍率10000）
+scoreboard objectives add floating_ui.stackpanel.currLineWidth dummy
 #玩家快捷栏选中的位置
 scoreboard objectives add floating_ui.slot dummy
 
@@ -109,7 +118,8 @@ data modify storage floating_ui:data std set value {\
     "button":0b,\
     "list":0b, \
     "panel":0b, \
-    "textblock":0b\
+    "textblock":0b, \
+    "stackpanel": 0b,\
 }
 
 data modify storage floating_ui:tag container set value {\

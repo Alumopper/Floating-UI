@@ -1,0 +1,1 @@
+data modify storage floating_ui:input temp.size set value [1f,1f]

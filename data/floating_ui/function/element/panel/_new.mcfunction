@@ -11,9 +11,6 @@ tag @s add floating_ui_panel
 
 #region 属性设置
 
-#设置高度和宽度
-execute unless data storage floating_ui:input temp.size run function floating_ui:element/panel/util/auto_size
-
 #遍历子元素
 execute if data storage floating_ui:input temp.child run data modify storage floating_ui:temp child append from storage floating_ui:input temp.child
 data modify storage floating_ui:temp cache append from storage floating_ui:input temp

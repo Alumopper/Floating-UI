@@ -5,9 +5,6 @@
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:element/button/_new"
 
-# 缺省布局参数值
-execute unless data storage floating_ui:input temp.size run data modify storage floating_ui:input temp.size set value [1f,1f]
-
 function floating_ui:element/control/_new
 
 tag @s add floating_ui_button

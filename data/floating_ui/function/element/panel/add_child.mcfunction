@@ -10,11 +10,11 @@ execute store result score length _ run data get storage floating_ui:temp child[
 execute if score length _ matches 0 run data remove storage floating_ui:debug curr[0]
 execute if score length _ matches 0 run return 1
 
-#自动布局
-function floating_ui:element/control/auto_layout/auto
 
 data modify storage floating_ui:input summon.arg.type set value "item_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
+data modify storage floating_ui:input temp set from storage floating_ui:temp child[-1][0]
+execute unless data storage floating_ui:input temp.size run function floating_ui:macro/auto_size with storage floating_ui:input temp
 execute as @n[tag=just,distance=..1] run function floating_ui:_new_control
 
 data remove storage floating_ui:temp child[-1][0]

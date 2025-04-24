@@ -10,11 +10,12 @@ data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 data modify storage floating_ui:temp child append value []
 data modify storage floating_ui:temp child[-1] append from storage floating_ui:input temp.content
 
-#自动布局
-function floating_ui:element/control/auto_layout/auto
 
 data modify storage floating_ui:input summon.arg.type set value "item_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg
+data modify storage floating_ui:input temp set from storage floating_ui:input temp.content
+#自动布局
+execute unless data storage floating_ui:input temp.size run function floating_ui:macro/auto_size with storage floating_ui:input temp
 execute as @n[tag=just,distance=..1] run function floating_ui:_new_control
 
 #覆盖item属性
