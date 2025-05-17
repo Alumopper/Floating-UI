@@ -6,7 +6,9 @@ data modify storage floating_ui:debug curr prepend value "floating_ui:interact/p
 
 tag @s add floating_ui_owner
 
-# 获取玩家看着的UI
+execute as @e[type=item_display,tag=floating_ui_root,distance=..20] run function floating_ui:interact/is_ui_can_interact
+
+# 获取玩家看着的UI。选择的结果储存在storage floating_ui:temp floating_ui.return中
 execute anchored eyes positioned ^ ^ ^ run function floating_ui:ray/if_ray_ui
 
 # 点击事件
@@ -23,7 +25,8 @@ execute if data storage floating_ui:temp floating_ui.return if score @s floating
 execute unless score @s floating_ui.slot matches -2147483648..2147483647 store result score @s floating_ui.slot run data get entity @s SelectedItemSlot
 
 # 展示实体到处tp
-execute as @a[tag=floating_ui_checkingClick] anchored eyes positioned ^ ^ ^ run tp 1bf52-0-0-0-3 ~ ~-0.5 ~
+execute as @s[tag=floating_ui_checkingClick] anchored eyes positioned ^ ^ ^ run tp 1bf52-0-0-0-3 ~ ~-0.5 ~
+execute as @s[tag=!floating_ui_checkingClick] run tp 1bf52-0-0-0-3 .0 3000.0 .0
 tag @s remove floating_ui_owner
 tag @s[tag=floating_ui_lookingAtUI] add floating_ui_checkingClick
 tag @s[tag=!floating_ui_lookingAtUI] remove floating_ui_checkingClick

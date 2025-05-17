@@ -21,5 +21,3 @@ data modify storage floating_ui:input data set value {\
         {"key":"text", "value":"Hello FloatingUI"}\
     ],\
 }
-
-function floating_ui:.player_new_ui

@@ -50,6 +50,7 @@ data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #编号分配
 scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] floating_ui.uid
 tag @p[tag=floating_ui_owner] add floating_ui_hasUI
+#如果为世界UI，分配静态编号
 execute unless score @s floating_ui.uid matches -2147483648..2147483647 run scoreboard players remove _static floating_ui.uid 1
 execute unless score @s floating_ui.uid matches -2147483648..2147483647 run scoreboard players operation @s floating_ui.uid = _static floating_ui.uid
 

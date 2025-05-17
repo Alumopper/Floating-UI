@@ -77,7 +77,6 @@ data modify entity @s item.components.minecraft:custom_data.data.ui set from sto
 tag @s add new
 #编号分配
 execute as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=..1, tag=new] floating_ui.uid = @s floating_ui.uid
-scoreboard players operation @s floating_ui.uid = @p[tag=floating_ui_owner] floating_ui.uid
 #加入父节点
 execute as 1bf52-0-0-0-2 on origin run ride @n[tag=new, distance=..1] mount @s
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UI>
+    <Window>
+        <Panel size="[6,6]">
+            <Panel.Item tex="11451000"/>
+            <Panel size="5, 2.1" y="-2">
+                <Panel.Item tex="11451000"/>
+                <Panel.Anim>
+                    <Animation trigger="new"/>
+                </Panel.Anim>
+                <Panel name="bg1" x="-2.5" size="0,2.1">
+                    <Panel.Item tex="11451002" id="yellow_stained_glass_pane"/>
+                    <Panel.Anim>
+                        <Animation trigger="new" time="3" end="floating:ui/1/anim/new_next">
+                            <Value key="transformation.translation[0]" value="0"/>
+                            <Value key="transformation.translation[1]" value="5"/>
+                        </Animation>
+                    </Panel.Anim>
+                </Panel>
+                <Panel name="bg2" x="-2.5" size="0,2.1">
+                    <Panel.Anim>
+                        <Animation trigger="new" time="3" delay="3">
+                            <Value key="transformation.translation[0]" value="-0.1"/>
+                            <Value key="transformation.translation[1]" value="4.8"/>
+                        </Animation>
+                    </Panel.Anim>
+                </Panel>
+                <Button y="0.7" x="1" size="3,0.7">
+                    <Button.Anim>
+                        <Animation trigger="new"/>
+                    </Button.Anim>
+                    <TextBlock fontsize="1" align="center">选项1</TextBlock>
+                </Button>
+                <Button x="1" size="3,0.7">
+                    <Button.Anim>
+                        <Animation trigger="new"/>
+                    </Button.Anim>
+                    <TextBlock fontsize="1" align="center">选项2</TextBlock>
+                </Button>
+                <Button y="-0.7" x="1" size="3,0.7">
+                    <Button.Anim>
+                        <Animation trigger="new"/>
+                    </Button.Anim>
+                    <TextBlock fontsize="1" align="center">选项3</TextBlock>
+                </Button>
+            </Panel>
+            <Panel name="character" x="-4" z="0.002">
+                <Panel.Item>
+                    <id>paper</id>
+                    <tex>11450001</tex>
+                </Panel.Item>
+                <Panel.Anim>
+                    <Animation trigger="new" time="3">
+                        <Value key="transformation.translation[0]" value="-3"/>
+                    </Animation>
+                </Panel.Anim>
+            </Panel>
+            <TextBlock name="character_name" fontsize="3" align="center" y="-1" x="-1.5" z="0.002">霜叶</TextBlock>
+        </Panel>
+    </Window>
+</UI>
