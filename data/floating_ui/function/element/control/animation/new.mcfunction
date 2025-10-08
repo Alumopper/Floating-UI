@@ -18,3 +18,4 @@ data modify storage floating_ui:temp arg.time set from entity @s item.components
 function floating_ui:util/_add_animation_event with storage floating_ui:temp arg
 data remove storage floating_ui:temp arg
 data remove storage floating_ui:temp anim
+

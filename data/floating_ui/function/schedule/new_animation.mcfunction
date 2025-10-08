@@ -1,4 +1,4 @@
-#> floating_ui:schedule/animation
+#> floating_ui:schedule/new_animation
 # @internal
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:schedule/animation"

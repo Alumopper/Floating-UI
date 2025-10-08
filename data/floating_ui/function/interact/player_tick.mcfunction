@@ -1,7 +1,6 @@
 #> floating_ui:interact/player_tick
 # @internal
 # 玩家是否看向了UI
-
 data modify storage floating_ui:debug curr prepend value "floating_ui:interact/player_tick"
 
 tag @s add floating_ui_owner

@@ -1,0 +1,1 @@
+$data modify storage floating_ui:input temp.child.value set from storage $(path)

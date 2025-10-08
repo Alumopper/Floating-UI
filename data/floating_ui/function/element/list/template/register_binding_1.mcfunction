@@ -1,0 +1,1 @@
+$data modify entity @s item.components."minecraft:custom_data".register_binding."$(path)" set value 'function floating_ui:element/list/template/before_update_source'

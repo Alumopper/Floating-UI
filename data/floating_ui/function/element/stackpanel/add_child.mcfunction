@@ -19,9 +19,10 @@ execute unless data storage floating_ui:input temp.size run function floating_ui
 function floating_ui:element/stackpanel/auto_layout/before/_
 
 #添加子控件
-execute as @n[tag=just,distance=..1] run function floating_ui:_new_control
 data modify entity @s item.components.minecraft:custom_data.data.childPoint append from entity @n[tag=just,distance=..1] UUID
 scoreboard players add temp.childCount _ 1
+execute store result score noNewAnim _ if score isUpdate _ matches 1
+execute as @n[tag=just,distance=..1] run function floating_ui:_new_control
 
 #更新初始位置
 function floating_ui:element/stackpanel/auto_layout/after/_

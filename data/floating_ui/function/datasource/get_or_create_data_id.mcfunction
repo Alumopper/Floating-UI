@@ -1,0 +1,2 @@
+$execute unless data storage floating_ui:data binding.id."$(path)" store result storage floating_ui:data binding.id."$(path)" int 1.0 run scoreboard players add _static_index floating_ui.data_id 1
+$return run data get storage floating_ui:data binding.id."$(path)"

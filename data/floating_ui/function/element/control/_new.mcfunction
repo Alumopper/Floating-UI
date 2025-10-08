@@ -34,27 +34,9 @@ function floating_ui:element/control/_set_offset
 
 #大小。如果没有动画，插入默认动画，否则执行动画
 data modify entity @s transformation.scale[2] set value 0.0f
-execute store success score hasNewAnim _ run data get storage floating_ui:input temp.anim.new
-execute if score hasNewAnim _ matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.size[0]
-execute if score hasNewAnim _ matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.size[1]
-execute unless score hasNewAnim _ matches 1 run data modify entity @s transformation.scale set value [0.0f,0.0f,0.0f]
-execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new set value \
-{\
-    value:[\
-        {\
-            key:"transformation.scale[0]",\
-            value:0f\
-        },\
-        {\
-            key:"transformation.scale[1]",\
-            value:0f\
-        }\
-    ],\
-    time:3\
-}
-execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new.value[0].value set from storage floating_ui:input temp.size[0]
-execute unless score hasNewAnim _ matches 1 run data modify storage floating_ui:input temp.anim.new.value[1].value set from storage floating_ui:input temp.size[1]
-tag @s add floating_ui_schedule_new_animation
+execute if score noNewAnim _ matches 0 run function floating_ui:element/control/_new/new_anim
+execute if score noNewAnim _ matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.size[0]
+execute if score noNewAnim _ matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.size[1]
 data modify entity @s item.components.minecraft:custom_data.data.size set from storage floating_ui:input temp.size
 
 #旋转

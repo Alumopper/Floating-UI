@@ -30,16 +30,11 @@ scoreboard players set @s floating_ui.stackpanel.currLineWidth 0
 
 function floating_ui:element/stackpanel/auto_layout/init/_
 
+#数据模板
+execute if data storage floating_ui:input temp.child.binds if data storage floating_ui:input temp.template run function floating_ui:element/stackpanel/template/append_template
+
 #遍历子元素
-scoreboard players set temp.childCount _ 0
-execute if data storage floating_ui:input temp.child run data modify storage floating_ui:temp child append from storage floating_ui:input temp.child
-data modify storage floating_ui:temp cache append from storage floating_ui:input temp
-scoreboard players set @s floating_ui.child_z 10
-data modify entity @s item.components.minecraft:custom_data.data.childPoint set value []
-execute if data storage floating_ui:input temp.child run function floating_ui:element/stackpanel/add_child
-data modify storage floating_ui:input temp set from storage floating_ui:temp cache[-1]
-data remove storage floating_ui:temp cache[-1]
-execute if data storage floating_ui:input temp.child run data remove storage floating_ui:temp child[-1]
+execute if data storage floating_ui:input temp.child[0] run function floating_ui:element/stackpanel/child
 
 #endregion
 data remove storage floating_ui:debug curr[0]

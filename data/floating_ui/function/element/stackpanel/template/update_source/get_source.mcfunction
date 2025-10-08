@@ -1,0 +1,1 @@
+$data modify storage floating_ui:temp temp.template.$(target) set from storage floating_ui:temp temp.child.value[0].$(source)

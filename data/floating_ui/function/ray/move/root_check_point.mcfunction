@@ -1,7 +1,6 @@
 #> floating_ui:ray/click/root_check_point
 # @within floating_ui:ray/click/each_check
 # @context as @s 控件
-
 data modify storage floating_ui:debug curr prepend value "floating_ui:ray/click/root_check_point"
 #传参调用数学库
 scoreboard players operation x int = @s floating_ui.x

@@ -88,6 +88,9 @@ scoreboard objectives add floating_ui.list.maxIndex dummy
 #stackpanel的对齐模式
 #0：左对齐，1：中间对齐，2：右对齐
 scoreboard objectives add floating_ui.stackpanel.align dummy
+    scoreboard players set LEFT floating_ui.stackpanel.align 0
+    scoreboard players set CENTER floating_ui.stackpanel.align 1
+    scoreboard players set RIGHT floating_ui.stackpanel.align 2
 #stackpanel的间隙（倍率10000）
 scoreboard objectives add floating_ui.stackpanel.gap dummy
 #stackpanel上一行的行高（倍率10000）
@@ -96,6 +99,35 @@ scoreboard objectives add floating_ui.stackpanel.currLineHeight dummy
 scoreboard objectives add floating_ui.stackpanel.currLineWidth dummy
 #玩家快捷栏选中的位置
 scoreboard objectives add floating_ui.slot dummy
+#数据绑定的id
+scoreboard objectives add floating_ui.data_id dummy
+    execute unless score _static_index floating_ui.data_id matches -2147483648..2147483647 run scoreboard players set _static_index floating_ui.data_id 0
+#每个控件数据绑定的槽位
+scoreboard objectives add floating_ui.data_id_0 dummy
+scoreboard objectives add floating_ui.data_id_1 dummy
+scoreboard objectives add floating_ui.data_id_2 dummy
+scoreboard objectives add floating_ui.data_id_3 dummy
+scoreboard objectives add floating_ui.data_id_4 dummy
+scoreboard objectives add floating_ui.data_id_5 dummy
+scoreboard objectives add floating_ui.data_id_6 dummy
+scoreboard objectives add floating_ui.data_id_7 dummy
+scoreboard objectives add floating_ui.data_id_8 dummy
+scoreboard objectives add floating_ui.data_id_9 dummy
+scoreboard objectives add floating_ui.data_id_10 dummy
+scoreboard objectives add floating_ui.data_id_11 dummy
+scoreboard objectives add floating_ui.data_id_12 dummy
+scoreboard objectives add floating_ui.data_id_13 dummy
+scoreboard objectives add floating_ui.data_id_14 dummy
+scoreboard objectives add floating_ui.data_id_15 dummy
+scoreboard objectives add floating_ui.data_id_16 dummy
+scoreboard objectives add floating_ui.data_id_17 dummy
+scoreboard objectives add floating_ui.data_id_18 dummy
+scoreboard objectives add floating_ui.data_id_19 dummy
+scoreboard objectives add floating_ui.data_id_20 dummy
+#通知事件ID
+scoreboard objectives add floating_ui.notify_id dummy
+    #源更新
+    scoreboard players set SOURCE_UPDATE floating_ui.notify_id 0
 
 #region forceload
 execute in overworld run forceload add 0 0

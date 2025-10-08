@@ -1,0 +1,1 @@
+$data modify storage floating_ui:temp binding_info.action set from entity @s item.components."minecraft:custom_data".register_binding."$(path)"

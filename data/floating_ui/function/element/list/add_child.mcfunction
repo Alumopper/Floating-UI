@@ -14,9 +14,9 @@ function floating_ui:macro/summon_with_rot with storage floating_ui:input summon
 #自动布局
 data modify storage floating_ui:input temp set from storage floating_ui:temp child[-1][0]
 execute unless data storage floating_ui:input temp.size run function floating_ui:macro/auto_size with storage floating_ui:input temp
-execute as @n[tag=just,distance=..1] run function floating_ui:element/list/add_child_1
 data modify entity @s item.components.minecraft:custom_data.data.childPoint append from entity @n[tag=just,distance=..1] UUID
 scoreboard players add temp.childCount _ 1
+execute as @n[tag=just,distance=..1] run function floating_ui:element/list/add_child_1
 
 data remove storage floating_ui:temp child[-1][0]
 scoreboard players add @s floating_ui.child_z 10

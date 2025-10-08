@@ -1,0 +1,1 @@
+$execute store success score isChanged _ run data modify storage $(path) set value $(value) 

@@ -1,5 +1,5 @@
 execute store result score height _ run data get storage floating_ui:input temp.size[1] 10000
 execute store result score width _ run data get storage floating_ui:input temp.size[0] 10000
-execute if score @s floating_ui.stackpanel.align matches 0 run return run function floating_ui:element/stackpanel/auto_layout/before/left
-execute if score @s floating_ui.stackpanel.align matches 1 run return run function floating_ui:element/stackpanel/auto_layout/before/center
+execute if score @s floating_ui.stackpanel.align = LEFT floating_ui.stackpanel.align run return run function floating_ui:element/stackpanel/auto_layout/before/left
+execute if score @s floating_ui.stackpanel.align = CENTER floating_ui.stackpanel.align run return run function floating_ui:element/stackpanel/auto_layout/before/center
 function floating_ui:element/stackpanel/auto_layout/before/right

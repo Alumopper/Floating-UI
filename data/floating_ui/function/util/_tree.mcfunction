@@ -2,7 +2,7 @@
 
 data modify storage floating_ui:debug curr prepend value "floating_ui:_tree"
 #打印
-tellraw Alumopper_ {"text":"root","color": "green"}
+tellraw @p {"text":"root","color": "green"}
 function floating_ui:util/tree/print_root with entity @s {}
 data modify storage floating_ui:temp arg.prefix1 set value "|---"
 data modify storage floating_ui:temp arg.prefix2 set value "|  "
