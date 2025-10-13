@@ -10,8 +10,6 @@ function floating_ui:element/control/_new
 
 tag @s add floating_ui_numberbox
 
-tellraw @a {nbt:"temp", storage:"floating_ui:input"}
-
 # value
 execute unless data storage floating_ui:input temp.value run data modify storage floating_ui:input temp.value set value 0
 execute store result entity @s item.components.minecraft:custom_data.data.value int 1.0 store result score @s floating_ui.numberbox.value run data get storage floating_ui:input temp.value
