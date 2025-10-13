@@ -15,6 +15,7 @@ execute on passengers run function floating_ui:element/textblock/set_text_displa
 data modify entity @s item.components.minecraft:custom_data.data.size set value [0.0f,0.0f]
 execute store result entity @s item.components.minecraft:custom_data.data.size[0] float 0.024 on passengers run data get entity @s line_width
 # 计算高度
+# size[1] = ((20 * line) + 2)*fontsize/80
 scoreboard players operation line _ *= 20 int
 scoreboard players operation line _ += 2 int
 execute store result score fontSize _ run data get entity @s item.components.minecraft:custom_data.data.fontsize 10000

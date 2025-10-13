@@ -1,1 +1,2 @@
-$data modify entity @s text set value '"                                                                                                                                                                                                                                                \\n$(text)"'
+#$data modify entity @s text set value '"                                                                                                                                                                                                                                                \\n$(text)"'
+$data modify entity @s text set value "$(text)"

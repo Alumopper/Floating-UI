@@ -74,6 +74,8 @@ scoreboard objectives add floating_ui.size1_without_scale dummy
 #textControl子类UI控件的长和宽（倍率10000）
 scoreboard objectives add floating_ui.text.width dummy
 scoreboard objectives add floating_ui.text.height dummy
+#textControl文本行数
+scoreboard objectives add floating_ui.text.line_count dummy
 #是否可见
 scoreboard objectives add floating_ui.visible dummy
 #list控件的子控件数量
@@ -128,6 +130,9 @@ scoreboard objectives add floating_ui.data_id_20 dummy
 scoreboard objectives add floating_ui.notify_id dummy
     #源更新
     scoreboard players set SOURCE_UPDATE floating_ui.notify_id 0
+scoreboard objectives add floating_ui.numberbox.value dummy
+scoreboard objectives add floating_ui.numberbox.max dummy
+scoreboard objectives add floating_ui.numberbox.min dummy
 
 #region forceload
 execute in overworld run forceload add 0 0
@@ -152,11 +157,13 @@ data modify storage floating_ui:data std set value {\
     "panel":0b, \
     "textblock":0b, \
     "stackpanel": 0b,\
+    "numberbox": 0b,\
 }
 
 data modify storage floating_ui:tag container set value {\
     "list":0b, \
     "panel":0b, \
+    "stackpanel":0b,\
 }
 
 #初始化数学库和事件队列
