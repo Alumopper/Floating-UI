@@ -3,7 +3,7 @@
 # @internal
 # @input storage floating_ui:input layout data of the ui
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/sprite/_new"
+
 
 
 function floating_ui:element/control/_new
@@ -39,4 +39,3 @@ scoreboard players operation fontSize _ *= @s floating_ui.size1_without_scale
 execute store result storage floating_ui:input temp.fontsize float 0.0001 run scoreboard players operation fontSize _ /= 11 int
 execute as @n[tag=just, distance=..1] run function floating_ui:_new_control
 
-data remove storage floating_ui:debug curr[0]

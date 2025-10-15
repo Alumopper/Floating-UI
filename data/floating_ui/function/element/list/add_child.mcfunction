@@ -1,12 +1,11 @@
 #> floating_ui:element/list/add_child
 # 添加子元素
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/list/add_child"
+
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 
 execute store result score length _ run data get storage floating_ui:temp child[-1]
-execute if score length _ matches 0 run data remove storage floating_ui:debug curr[0]
 execute if score length _ matches 0 run return 1
 
 data modify storage floating_ui:input summon.arg.type set value "item_display"
@@ -23,4 +22,3 @@ scoreboard players add @s floating_ui.child_z 10
 
 function floating_ui:element/list/add_child
 
-data remove storage floating_ui:debug curr[0]

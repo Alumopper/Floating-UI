@@ -3,7 +3,7 @@
 #
 # @input storage floating_ui:input 要创建的ui的内容信息
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/textblock/_new"
+
 
 function floating_ui:element/textcontrol/_new
 
@@ -41,4 +41,3 @@ data modify entity @s item.components.minecraft:custom_data.data.size set from s
 #高度和宽度
 execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
 execute store result score @s floating_ui.size1_without_scale store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
-data remove storage floating_ui:debug curr[0]

@@ -1,7 +1,7 @@
 #> floating_ui:element/textcontrol/_new
 # @within floating_ui:element/*/_new
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/textcontrol/_new"
+execute if data storage floating_ui:input temp.before_init run function floating_ui:macro/before_init_event with storage floating_ui:input temp
 
 tag @s remove just
 
@@ -13,8 +13,14 @@ data modify entity @n[tag=just,distance=..1] background set value 0
 tag @n[tag=just,distance=..1] add floating_ui_textcontrol_text
 ride @n[tag=just,distance=..1] mount @s
 
+# 显示物品，不可修改
 data modify entity @s item set value {id:"stone",count: 1b}
-data modify entity @s transformation.scale[] set value 0f
+
+# 材质
+data modify entity @s item.components."minecraft:item_model" set from storage floating_ui:input temp.model
+
+# 默认不可见，除非指定了模型
+execute unless data storage floating_ui:input temp.model run data modify entity @s transformation.scale[] set value 0f
 
 # 亮度
 data modify entity @s brightness set value {block: 15, sky: 15}
@@ -96,4 +102,3 @@ tag @e[tag=just, distance=..1] remove just
 #高度和宽度
 execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
 execute store result score @s floating_ui.size1_without_scale store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
-data remove storage floating_ui:debug curr[0]

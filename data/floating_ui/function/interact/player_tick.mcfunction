@@ -1,7 +1,7 @@
 #> floating_ui:interact/player_tick
 # @internal
 # 玩家是否看向了UI
-data modify storage floating_ui:debug curr prepend value "floating_ui:interact/player_tick"
+
 
 tag @s add floating_ui_owner
 
@@ -29,4 +29,3 @@ execute as @s[tag=!floating_ui_checkingClick] run tp 1bf52-0-0-0-3 .0 3000.0 .0
 tag @s remove floating_ui_owner
 tag @s[tag=floating_ui_lookingAtUI] add floating_ui_checkingClick
 tag @s[tag=!floating_ui_lookingAtUI] remove floating_ui_checkingClick
-data remove storage floating_ui:debug curr[0]

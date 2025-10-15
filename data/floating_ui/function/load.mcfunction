@@ -14,7 +14,7 @@
 # 世界物品3
 #alias entity worldItem3 1bf52-0-0-0-5
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:load"
+
 
 scoreboard objectives add int dummy
     function floating_ui:int_load
@@ -172,7 +172,7 @@ execute if score mathlib _ matches 0 run tellraw @s {"text":"[Floating UI]","col
 execute store success score timelist _ run function timelist:_init
 execute if score timelist _ matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the time list.","color":"red"}]}
 
-data remove storage floating_ui:debug curr[0]
+
 
 #加载成功
 tellraw @s {"text": "[Floating UI] ", "color": "green", "bold": true, "extra": [{"text": "Loaded successfully.", "color": "green"}]}

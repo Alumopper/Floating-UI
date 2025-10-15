@@ -1,7 +1,7 @@
 #> floating_ui:element/control/_new
 # @within floating_ui:element/*/_new
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/control/_new"
+execute if data storage floating_ui:input temp.before_init run function floating_ui:macro/before_init_event with storage floating_ui:input temp
 
 tag @s remove just
 
@@ -9,9 +9,11 @@ tag @s add floating_ui_control
 
 # 显示物品
 execute unless data storage floating_ui:input temp.item.id run data modify storage floating_ui:input temp.item.id set value "minecraft:glass_pane"
-data modify storage floating_ui:input temp.item.count set value 1b
+execute unless data storage floating_ui:input temp.item.count run data modify storage floating_ui:input temp.item.count set value 1b
 data modify entity @s item set from storage floating_ui:input temp.item
-data modify entity @s item.components.minecraft:custom_model_data set from storage floating_ui:input temp.item.tex
+
+# 材质
+data modify entity @s item.components."minecraft:item_model" set from storage floating_ui:input temp.model
 
 # 亮度
 data modify entity @s brightness set value {block: 15, sky: 15}
@@ -53,6 +55,7 @@ execute if data storage floating_ui:input temp.move_out run data modify entity @
 execute if data storage floating_ui:input temp.move run data modify entity @s item.components.minecraft:custom_data.data.move set from storage floating_ui:input temp.move
 execute if data storage floating_ui:input temp.right_click run data modify entity @s item.components.minecraft:custom_data.data.right_click set from storage floating_ui:input temp.right_click
 execute if data storage floating_ui:input temp.left_click run data modify entity @s item.components.minecraft:custom_data.data.left_click set from storage floating_ui:input temp.left_click
+execute if data storage floating_ui:input temp.init run data modify entity @s item.components.minecraft:custom_data.data.init set from storage floating_ui:input temp.init
 
 #endregion
 
@@ -82,5 +85,3 @@ scoreboard players set @s floating_ui.visible 1
 #高度和宽度
 execute store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
 execute store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
-
-data remove storage floating_ui:debug curr[0]

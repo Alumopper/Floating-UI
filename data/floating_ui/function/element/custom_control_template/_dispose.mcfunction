@@ -1,6 +1,6 @@
 #> floating_ui:element/sprite/_dispose
 # @internal
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/sprite/_dispose"
+
 
 # If the control has any children, delete them here first
 # 
@@ -9,4 +9,3 @@ data modify storage floating_ui:debug curr prepend value "floating_ui:element/sp
 
 # Delete the control itself
 kill @s
-data remove storage floating_ui:debug curr[0]

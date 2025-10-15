@@ -1,5 +1,5 @@
 #> floating_ui:interact/tick
-data modify storage floating_ui:debug curr prepend value "floating_ui:interact/tick"
+
 
 # tag替换
 tag @e[tag=floating_ui_lookedAt] add floating_ui_legacy_lookedAt
@@ -15,4 +15,3 @@ tag @a[tag=floating_ui_canInteractUI] remove floating_ui_canInteractUI
 execute as @e[tag=floating_ui_root,tag=floating_ui_legacy_lookedAt] unless entity @s[tag=floating_ui_lookedAt] run function floating_ui:interact/move_out/check
 tag @e[tag=floating_ui_legacy_lookedAt] remove floating_ui_legacy_lookedAt
 
-data remove storage floating_ui:debug curr[0]

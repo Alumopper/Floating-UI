@@ -1,6 +1,3 @@
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/control/auto_layout/get_child_size"
-
-
 #x方向上的
 execute store result score child_x _ run data get storage floating_ui:temp child[-1][0].x 10000
 execute store result score parent_x _ run data get entity @s item.components.minecraft:custom_data.data.ui.size[0] 5000
@@ -17,5 +14,3 @@ execute unless score parent_y _ matches 0.. run function log:_warn {"msg":"Child
 data modify storage floating_ui:temp child[-1][0].size set value [0f,0f]
 execute store result storage floating_ui:temp child[-1][0].size[0] float 0.0002 run scoreboard players get parent_x _
 execute store result storage floating_ui:temp child[-1][0].size[1] float 0.0002 run scoreboard players get parent_y _
-
-data remove storage floating_ui:debug curr[0]

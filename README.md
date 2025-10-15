@@ -427,4 +427,4 @@ Floating UI使用了大量的Storage和宏来完成UI的绘制和数据的传递
   * curr 储存了堆栈的调用信息。可以使用`floating_ui:util/_stack_track`输出当前位置的堆栈信息
 * tag 用于标记某种类型的控件
 
-> 要在自己的函数使用堆栈信息，请在函数调用开始的位置插入`data modify storage floating_ui:debug curr prepend value "命名空间id"`，并在函数调用结束的时候使用`data remove storage floating_ui:debug curr[0]`，否则会发生内存泄漏
+> 要在自己的函数使用堆栈信息，请在函数调用开始的位置插入`

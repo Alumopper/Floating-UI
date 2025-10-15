@@ -1,0 +1,1 @@
+function floating_ui:element/textcontrol/event/init

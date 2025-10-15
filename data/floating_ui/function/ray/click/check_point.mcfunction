@@ -2,7 +2,7 @@
 # @within floating_ui:ray/click/each_check
 # @context as @s 控件
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:click/check_point"
+
 #传参调用数学库
 scoreboard players operation x int = @s floating_ui.x
 scoreboard players operation y int = @s floating_ui.y
@@ -15,7 +15,7 @@ execute as 1bf52-0-0-0-0 run function math:geom/plane/_facing
 scoreboard players set particle int 2
 execute as 1bf52-0-0-0-0 run function math:3vec/_tofpos
 execute at 1bf52-0-0-0-0 run function math:_particle
-data remove storage floating_ui:debug curr[0]
+
 execute if score res int matches 0 run return 0
 execute if score stempt int matches ..0 run return 0
 #如果看着平面，计算交点

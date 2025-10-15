@@ -1,0 +1,1 @@
+function floating_ui:element/control/event/before_init

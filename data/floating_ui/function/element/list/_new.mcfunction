@@ -3,7 +3,7 @@
 # @internal
 # @input storage floating_ui:input 要创建的ui的内容信息
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/list/_new"
+
 function floating_ui:element/control/_new
 
 #
@@ -22,4 +22,3 @@ execute if data storage floating_ui:input temp.child.binds if data storage float
 execute if data storage floating_ui:input temp.child[0] run function floating_ui:element/list/child
 
 #endregion
-data remove storage floating_ui:debug curr[0]

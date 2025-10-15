@@ -1,9 +1,6 @@
 #> floating_ui:element/button/set_content
 #@internal
 
-
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/button/set_content"
-
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #生成控件
@@ -25,4 +22,3 @@ data modify entity @s item.components.minecraft:custom_model_data set value 1145
 data remove storage floating_ui:temp child[-1][0]
 data remove storage floating_ui:temp child[-1]
 
-data remove storage floating_ui:debug curr[0]

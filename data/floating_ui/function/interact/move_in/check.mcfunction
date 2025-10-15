@@ -1,7 +1,7 @@
 #> floating_ui:interact/move_in/check
 # @internal
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:interact/move_in/check"
+
 
 # 选中根实体
 data modify entity 1bf52-0-0-0-2 Thrower set from storage floating_ui:temp floating_ui.return
@@ -16,9 +16,7 @@ execute as 1bf52-0-0-0-2 on origin on passengers run data modify storage floatin
 
 #之前在被观察，现在也在被观察，说明是指针在ui上移动，没有离开
 execute if score isLookedAt _ matches 1 as 1bf52-0-0-0-2 on origin on passengers run function floating_ui:interact/move/trigger with storage floating_ui:temp arg 
-execute if score isLookedAt _ matches 1 run data remove storage floating_ui:debug curr[0]
 execute if score isLookedAt _ matches 1 run return 0
 
 #是进入事件，链式检测并传递moveIn事件
 execute as 1bf52-0-0-0-2 on origin on passengers run function floating_ui:interact/move_in/trigger with storage floating_ui:temp arg
-data remove storage floating_ui:debug curr[0]

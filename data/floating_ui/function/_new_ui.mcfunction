@@ -14,10 +14,9 @@
 # @context entity @s[type=item_display]
 # @return 生成的ui的编号
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:_new_ui"
+
 
 #debug
-execute if entity @s[type=!item_display] run data remove storage floating_ui:debug curr[0]
 execute if entity @s[type=!item_display] run return run function floating_ui:util/_error_track {\
     "ex":"NotItemDisplayException",\
     "msg":"_new_ui must be called by an item_display entity."\
@@ -66,6 +65,6 @@ data modify entity @s item.components.minecraft:custom_data.data.size set from e
 tag @a[tag=floating_ui_owner] remove floating_ui_owner
 scoreboard players operation return _ = @s floating_ui.uid
 
-data remove storage floating_ui:debug curr[0]
+
 
 schedule function floating_ui:schedule/new_animation 3t

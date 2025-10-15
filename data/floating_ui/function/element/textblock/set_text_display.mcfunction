@@ -1,7 +1,7 @@
 #> floating_ui:element/textblock/set_text_display
 #@internal
 
-data modify storage floating_ui:debug curr prepend value "floating_ui:element/textblock/set_text_display"
+
 
 #文本
 execute store success score isMultiline _ run data get storage floating_ui:input temp.text[0]
@@ -22,4 +22,4 @@ execute unless data storage floating_ui:input temp.width run function floating_u
 execute unless data storage floating_ui:input temp.align run data modify storage floating_ui:input temp.align set value "center"
 data modify entity @s alignment set from storage floating_ui:input temp.align
 
-data remove storage floating_ui:debug curr[0]
+

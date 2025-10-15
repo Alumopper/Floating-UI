@@ -372,4 +372,4 @@ Floating UI uses a lot of storage and macros to complete the drawing of the UI a
   * `curr` stores the call information of the stack. You can use `floating_ui:util/_stack_track` to output the stack information of the current position
 
 > [!Tip]
-> To use stack information in your own function, insert `data modify storage floating_ui:debug curr prepend value "namespace id"` at the beginning of the function call, and use `data remove storage floating_ui:debug curr[0]` at the end of the function call, otherwise memory leaks will occur
+> To use stack information in your own function, insert `
