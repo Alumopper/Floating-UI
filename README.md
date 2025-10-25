@@ -2,7 +2,7 @@
 
 简体中文/[English](README_en.md)
 
-Floating UI是一个功能丰富的数据包，允许你使用纯原版的方式在Minecraft中创建一个浮空的可操作UI。
+Floating UI是一个基于展示实体实现的重量级UI框架，允许你使用纯原版的方式在Minecraft中创建一个浮空可交互UI。
 
 在使用Floating UI之前，你需要安装[小豆的数学库](https://github.com/xiaodou8593/math2.0)和[小豆的事件队列](https://github.com/xiaodou8593/timelist)。Floating UI使用小豆的数学库进行计算，使用小豆的事件队列托管事件的定时触发效果。
 
@@ -15,12 +15,28 @@ Floating UI是一个功能丰富的数据包，允许你使用纯原版的方式
 要创建一个UI，最简单的方式是使用函数`floating_ui:.player_new_ui`。这个函数将会在执行者前方四格远的地方生成一个面向玩家的UI界面。在调用这个函数之前，你需要传入UI的布局数据，例如：
 
 ```mcfunction
-data modify floating_ui:input data set value {"type":"panel","size":[5f,5f],"child":[{"type":"button","y":0.3,"size":[2.5f,2.5f],"item":{"id":"apple"}}]}
+
+# 玩家执行
+
+data modify floating_ui:input data set value {、
+    "type":"panel",\
+    "size":[5f,5f],\
+    "child":[\
+        {\
+            "type":"button",\
+            "y":0.3,\
+            "size":[2.5f,2.5f],\
+            "item":{"id":"apple"}
+        }
+    ]
+}
 
 function floating_ui:.player_new_ui
 ```
 
-Tips：如果你是用数据包中的函数运行的，可以使用`\`换行写布局数据以提高布局数据的可读性。
+:::tips
+如果你是用数据包中的函数运行的，可以使用`\`换行写布局数据以提高布局数据的可读性。
+:::
 
 除此之外，你也可以用稍微复杂一些的方式创建一个UI界面，也就是使用函数`floating_ui:_new_ui`。它的使用方法如下：
 
@@ -62,7 +78,7 @@ Floating UI使用UI数据对UI进行生成。UI数据是一个NBT复合标签。
 
 ### 布局数据
 
-我们用一个花括号保存一个控件或一个UI的所有信息。花括号中的所有成员表示这个控件的属性值。例如
+我们用一个复合标签保存一个控件或一个UI的所有信息。复合标签中的所有成员表示这个控件的属性值。例如
 
 ```json
 {
@@ -72,7 +88,8 @@ Floating UI使用UI数据对UI进行生成。UI数据是一个NBT复合标签。
 }
 ```
 
-表示这是一个button控件，它与父控件的间距为`[0,20,0,20]`（按照左，上，右，下的顺序），同时背景颜色为蓝色
+表示这是一个button控件，它与父控件的间距为`[0, 20, 0, 20]`（按照左，上，右，下的顺序）。
+
 又比如
 
 ```json

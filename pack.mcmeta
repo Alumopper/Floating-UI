@@ -1,9 +1,24 @@
 {
     "pack": {
-        "pack_format": 50,
+        "max_format": [ 88, 0 ],
+        "min_format": [ 88, 0 ],
         "description": {
             "text": "Floating UI",
             "color": "green"
         }
+    },
+    "overlays": {
+        "entries": [
+            {
+                "directory": "math2.0-release_2.0.3",
+                "max_format": [ 88, 0 ],
+                "min_format": [ 88, 0 ]
+            },
+            {
+                "directory": "timelist-release_1.0.0",
+                "max_format": [ 88, 0 ],
+                "min_format": [ 88, 0 ]
+            }
+        ]
     }
 }
