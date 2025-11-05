@@ -15,7 +15,7 @@ execute unless data storage floating_ui:input temp.value run data modify storage
 execute store result entity @s item.components.minecraft:custom_data.data.value int 1.0 store result score @s floating_ui.numberbox.value run data get storage floating_ui:input temp.value
 
 # max/min
-execute unless data storage floating_ui:input temp.max run data modify storage floating_ui:input temp.max set value 0
+execute unless data storage floating_ui:input temp.max run data modify storage floating_ui:input temp.max set value 999
 execute store result entity @s item.components.minecraft:custom_data.data.max int 1.0 store result score @s floating_ui.numberbox.max run data get storage floating_ui:input temp.max
 execute unless data storage floating_ui:input temp.min run data modify storage floating_ui:input temp.min set value 0
 execute store result entity @s item.components.minecraft:custom_data.data.min int 1.0 store result score @s floating_ui.numberbox.min run data get storage floating_ui:input temp.min
@@ -23,6 +23,13 @@ execute store result entity @s item.components.minecraft:custom_data.data.min in
 #Height and width
 execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
 execute store result score @s floating_ui.size1_without_scale store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000
+
+#value_change event
+execute if data storage floating_ui:input temp.value_change run data modify entity @s item.components.minecraft:custom_data.data.value_change set from storage floating_ui:input temp.value_change
+#value_exceed_max event
+execute if data storage floating_ui:input temp.value_exceed_max run data modify entity @s item.components.minecraft:custom_data.data.value_exceed_max set from storage floating_ui:input temp.value_exceed_max
+#value_below_min event
+execute if data storage floating_ui:input temp.value_below_min run data modify entity @s item.components.minecraft:custom_data.data.value_below_min set from storage floating_ui:input temp.value_below_min
 
 # Replace the parent control uuid with current control
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
@@ -34,8 +41,8 @@ data modify storage floating_ui:input temp set value {"type": "textblock"}
 data modify storage floating_ui:input temp.text set from entity @s item.components.minecraft:custom_data.data.value
 # size[1] = ((20 * line) + 2)*fontsize/80 =(line=1)=> size[1] = 11*fontsize/40
 # fontsize = size[1] * 40 / 11
-scoreboard players set fontSize _ 40
-scoreboard players operation fontSize _ *= @s floating_ui.size1_without_scale
-execute store result storage floating_ui:input temp.fontsize float 0.0001 run scoreboard players operation fontSize _ /= 11 int
+scoreboard players set fontSize floating_ui.temp 40
+scoreboard players operation fontSize floating_ui.temp *= @s floating_ui.size1_without_scale
+execute store result storage floating_ui:input temp.fontsize float 0.0001 run scoreboard players operation fontSize floating_ui.temp /= 11 int
 execute as @n[tag=just, distance=..1] run function floating_ui:_new_control
 

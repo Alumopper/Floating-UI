@@ -1,0 +1,1 @@
+execute as @e[tag=floating_ui_root, tag=floating_ui_checkingUI] if score @s floating_ui.uid matches ..-1 run function floating_ui:_dispose_ui

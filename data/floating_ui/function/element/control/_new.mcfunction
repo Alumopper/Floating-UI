@@ -23,6 +23,7 @@ data modify entity @s brightness set value {block: 15, sky: 15}
 #name
 data modify storage floating_ui:input temp.this set from entity @s UUID
 execute if data storage floating_ui:input temp.name as 1bf52-0-0-0-5 on origin run function floating_ui:element/control/append_name_list with storage floating_ui:input temp
+execute if data storage floating_ui:input temp.name run data modify entity @s item.components."minecraft:custom_data".data.name set from storage floating_ui:input temp.name
 
 #tag
 execute if data storage floating_ui:input temp.tag run data modify entity @s Tags append from storage floating_ui:input temp.tag
@@ -36,9 +37,9 @@ function floating_ui:element/control/_set_offset
 
 #大小。如果没有动画，插入默认动画，否则执行动画
 data modify entity @s transformation.scale[2] set value 0.0f
-execute if score noNewAnim _ matches 0 run function floating_ui:element/control/_new/new_anim
-execute if score noNewAnim _ matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.size[0]
-execute if score noNewAnim _ matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.size[1]
+execute if score noNewAnim floating_ui.temp matches 0 run function floating_ui:element/control/_new/new_anim
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.size[0]
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.size[1]
 data modify entity @s item.components.minecraft:custom_data.data.size set from storage floating_ui:input temp.size
 
 #旋转
@@ -55,9 +56,13 @@ execute if data storage floating_ui:input temp.move_out run data modify entity @
 execute if data storage floating_ui:input temp.move run data modify entity @s item.components.minecraft:custom_data.data.move set from storage floating_ui:input temp.move
 execute if data storage floating_ui:input temp.right_click run data modify entity @s item.components.minecraft:custom_data.data.right_click set from storage floating_ui:input temp.right_click
 execute if data storage floating_ui:input temp.left_click run data modify entity @s item.components.minecraft:custom_data.data.left_click set from storage floating_ui:input temp.left_click
+execute if data storage floating_ui:input temp.roll run data modify entity @s item.components.minecraft:custom_data.data.roll set from storage floating_ui:input temp.roll
 execute if data storage floating_ui:input temp.init run data modify entity @s item.components.minecraft:custom_data.data.init set from storage floating_ui:input temp.init
 
 #endregion
+
+#custom_data
+execute if data storage floating_ui:input temp.custom_data run data modify entity @s item.components."minecraft:custom_data".data.custom_data set from storage floating_ui:input temp.custom_data
 
 #加入ui布局数据
 data modify entity @s item.components.minecraft:custom_data.data.ui set from storage floating_ui:input temp

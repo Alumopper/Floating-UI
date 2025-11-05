@@ -63,7 +63,7 @@ tag @n[tag=just,distance=..0.1] add floating_ui_root_child
 execute as @n[tag=just,distance=..0.1] run function floating_ui:macro/new_control with storage floating_ui:input data
 data modify entity @s item.components.minecraft:custom_data.data.size set from entity @n[tag=floating_ui_root_child, distance=..1] item.components.minecraft:custom_data.data.size
 tag @a[tag=floating_ui_owner] remove floating_ui_owner
-scoreboard players operation return _ = @s floating_ui.uid
+scoreboard players operation return floating_ui.temp = @s floating_ui.uid
 
 
 

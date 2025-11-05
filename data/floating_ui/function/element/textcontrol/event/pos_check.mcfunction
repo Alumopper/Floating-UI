@@ -5,16 +5,16 @@
 
 
 #获取相对于控件的坐标
-scoreboard players operation this.u _ = return_u _
-scoreboard players operation this.v _ = return_v _
-scoreboard players operation this.u _ -= @s floating_ui.root_x
-scoreboard players operation this.v _ -= @s floating_ui.root_y
+scoreboard players operation this.u floating_ui.temp = return_u floating_ui.temp
+scoreboard players operation this.v floating_ui.temp = return_v floating_ui.temp
+scoreboard players operation this.u floating_ui.temp -= @s floating_ui.root_x
+scoreboard players operation this.v floating_ui.temp -= @s floating_ui.root_y
 #计算是否在范围内
-scoreboard players operation width _ = @s floating_ui.text.width
-scoreboard players operation height _ = @s floating_ui.text.height
-scoreboard players operation width _ /= 2 int
-scoreboard players operation this.u _ += width _
-scoreboard players operation width _ *= 2 int
+scoreboard players operation width floating_ui.temp = @s floating_ui.text.width
+scoreboard players operation height floating_ui.temp = @s floating_ui.text.height
+scoreboard players operation width floating_ui.temp /= 2 int
+scoreboard players operation this.u floating_ui.temp += width floating_ui.temp
+scoreboard players operation width floating_ui.temp *= 2 int
 
-execute if score this.u _ matches 0.. if score this.u _ <= width _ if score this.v _ matches 0.. if score this.v _ <= height _ run return 1
+execute if score this.u floating_ui.temp matches 0.. if score this.u floating_ui.temp <= width floating_ui.temp if score this.v floating_ui.temp matches 0.. if score this.v floating_ui.temp <= height floating_ui.temp run return 1
 return 0

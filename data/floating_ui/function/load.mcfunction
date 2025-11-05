@@ -18,7 +18,7 @@
 
 scoreboard objectives add int dummy
     function floating_ui:int_load
-scoreboard objectives add _ dummy
+scoreboard objectives add floating_ui.temp dummy
 scoreboard objectives add floating_ui.x dummy
 scoreboard objectives add floating_ui.y dummy
 scoreboard objectives add floating_ui.z dummy
@@ -167,10 +167,10 @@ data modify storage floating_ui:tag container set value {\
 }
 
 #初始化数学库和事件队列
-execute store success score mathlib _ run function math:_init
-execute if score mathlib _ matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the math library.","color":"red"}]}
-execute store success score timelist _ run function timelist:_init
-execute if score timelist _ matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the time list.","color":"red"}]}
+execute store success score mathlib floating_ui.temp run function math:_init
+execute if score mathlib floating_ui.temp matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the math library.","color":"red"}]}
+execute store success score timelist floating_ui.temp run function timelist:_init
+execute if score timelist floating_ui.temp matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the time list.","color":"red"}]}
 
 
 

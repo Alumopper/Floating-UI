@@ -3,9 +3,9 @@
 # @api
 # @input floating_ui:input temp [float x,float y, float z]
 
-execute store result score x _ run data get storage floating_ui:input temp.x 10000
-execute store result score y _ run data get storage floating_ui:input temp.y 10000
-execute store result score z _ run data get storage floating_ui:input temp.z 10000
+execute store result score x floating_ui.temp run data get storage floating_ui:input temp.x 10000
+execute store result score y floating_ui.temp run data get storage floating_ui:input temp.y 10000
+execute store result score z floating_ui.temp run data get storage floating_ui:input temp.z 10000
 execute store result score @s floating_ui.parent_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_x
 execute store result score @s floating_ui.parent_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_y
 execute store result score @s floating_ui.parent_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_z
@@ -15,9 +15,9 @@ execute store result score @s floating_ui.root_z as 1bf52-0-0-0-2 on origin run 
 scoreboard players operation @s floating_ui.root_x += @s floating_ui.parent_x
 scoreboard players operation @s floating_ui.root_y += @s floating_ui.parent_y
 scoreboard players operation @s floating_ui.root_z += @s floating_ui.parent_z
-execute store result score @s floating_ui.root_x_without_scale run scoreboard players operation @s floating_ui.root_x += x _
-execute store result score @s floating_ui.root_y_without_scale run scoreboard players operation @s floating_ui.root_y += y _
-execute store result score @s floating_ui.root_z_without_scale run scoreboard players operation @s floating_ui.root_z += z _
+execute store result score @s floating_ui.root_x_without_scale run scoreboard players operation @s floating_ui.root_x += x floating_ui.temp
+execute store result score @s floating_ui.root_y_without_scale run scoreboard players operation @s floating_ui.root_y += y floating_ui.temp
+execute store result score @s floating_ui.root_z_without_scale run scoreboard players operation @s floating_ui.root_z += z floating_ui.temp
 execute store result entity @s transformation.translation[0] float 0.0001 run scoreboard players get @s floating_ui.root_x
 execute store result entity @s transformation.translation[1] float 0.0001 run scoreboard players get @s floating_ui.root_y
 execute store result entity @s transformation.translation[2] float 0.0001 run scoreboard players get @s floating_ui.root_z
