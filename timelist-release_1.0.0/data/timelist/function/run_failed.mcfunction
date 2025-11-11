@@ -1,0 +1,1 @@
+$tellraw @a {text: "[Error/timelist] Failed to execute action: $(run)", color: "red"}

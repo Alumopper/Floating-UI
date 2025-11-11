@@ -1,0 +1,2 @@
+execute if entity @s[tag=csch_atri_lectern_displaying] if block ~ ~ ~ lectern[has_book=false] run function ui_for_csch:ui/attribute_panel/lectern/close_ui
+execute if entity @s[tag=!csch_atri_lectern_displaying] if block ~ ~ ~ lectern[has_book=true] run function ui_for_csch:ui/attribute_panel/lectern/open_ui

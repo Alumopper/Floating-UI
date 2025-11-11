@@ -1,0 +1,1 @@
+#scoreboard players set @s csch.ui.attribute_panel.page 0

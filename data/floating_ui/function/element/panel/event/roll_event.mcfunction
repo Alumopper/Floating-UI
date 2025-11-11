@@ -4,5 +4,6 @@
 
 execute unless function floating_ui:element/control/event/pos_check run return 0
 
-execute on passengers run function floating_ui:element/panel/event/roll_walk_child
+function floating_ui:element/control/event/roll_event
 
+execute on passengers run function floating_ui:element/panel/event/roll_walk_child

@@ -5,7 +5,8 @@ execute unless data storage floating_ui:temp anim.delay run data modify entity @
 function floating_ui:element/control/animation/walk_anim_data
 
 data modify storage floating_ui:temp arg.function set from storage floating_ui:temp anim.start
-function floating_ui:util/function with storage floating_ui:temp arg
+function floating_ui:util/function
+
 
 #事件队列
 execute unless data storage floating_ui:temp anim.end run return 0

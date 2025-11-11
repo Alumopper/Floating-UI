@@ -1,4 +1,2 @@
-data modify storage floating_ui:temp arg.function set from entity @s item.components.minecraft:custom_data.data.custom_data.value_change
-function floating_ui:util/function with storage floating_ui:temp arg
-
+execute on vehicle run function ui_for_csch:control/numberbox_group/this_value_change
 return 1

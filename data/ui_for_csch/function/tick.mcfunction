@@ -1,0 +1,1 @@
+execute as @a at @s run function ui_for_csch:player_tick

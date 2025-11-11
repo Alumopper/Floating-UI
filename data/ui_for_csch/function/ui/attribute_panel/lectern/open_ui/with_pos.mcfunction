@@ -1,0 +1,1 @@
+$execute positioned $(pos) summon item_display run function floating_ui:_new_ui

@@ -6,10 +6,11 @@ execute unless data entity @s item.components.minecraft:custom_data.data.ui.anim
 
 #设置动画数据
 function floating_ui:element/control/animation/walk_anim_data
-
+#function log:_debug {msg: "Animation playing"}
 #触发事件start
 data modify storage floating_ui:temp arg.function set from entity @s item.components.minecraft:custom_data.data.ui.anim.new.start
-function floating_ui:util/function with storage floating_ui:temp arg
+function floating_ui:util/function
+
 
 #事件队列，在动画结束以后触发事件end
 execute unless data entity @s item.components.minecraft:custom_data.data.ui.anim.new.end run return 0

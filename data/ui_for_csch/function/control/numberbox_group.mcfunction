@@ -26,8 +26,8 @@ data modify storage floating_ui:data custom.'csch:numberbox_group' set value {\
                 "max": 9,\
                 "min": 0,\
                 "value_change":"ui_for_csch:control/numberbox_group/value_change",\
-                "value_exceed":"ui_for_csch:control/numberbox_group/exceed/1",\
-                "value_below":"ui_for_csch:control/numberbox_group/below/1"\
+                "value_exceed_max":"ui_for_csch:control/numberbox_group/exceed/1",\
+                "value_below_min":"ui_for_csch:control/numberbox_group/below/1"\
             },\
             {\
                 "type": "numberbox",\
@@ -37,15 +37,15 @@ data modify storage floating_ui:data custom.'csch:numberbox_group' set value {\
                 "max": 9,\
                 "min": 0,\
                 "value_change":"ui_for_csch:control/numberbox_group/value_change",\
-                "value_exceed":"ui_for_csch:control/numberbox_group/exceed/0",\
-                "value_below":"ui_for_csch:control/numberbox_group/below/0"\
+                "value_exceed_max":"ui_for_csch:control/numberbox_group/exceed/0",\
+                "value_below_min":"ui_for_csch:control/numberbox_group/below/0"\
             }\
         ],\
         "init":"ui_for_csch:control/numberbox_group/init"\
     },\
-    "params": {\
-        "title": "child[0].text"\
-    },\
+    "params": [\
+        {"key": "title", "path": "child[0].text"}\
+    ],\
     "custom_data":[\
         {"key": "value_change"}, \
         {"key": "value", "default": 0}, \

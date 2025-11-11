@@ -1,8 +1,6 @@
 #> floating_ui:interact/move_in/check
 # @internal
 
-
-
 # 选中根实体
 data modify entity 1bf52-0-0-0-2 Thrower set from storage floating_ui:temp floating_ui.return
 

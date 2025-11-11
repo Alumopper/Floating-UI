@@ -51,6 +51,7 @@ execute if data storage floating_ui:input temp.display run data modify entity @s
 
 #region 事件
 
+
 execute if data storage floating_ui:input temp.move_in run data modify entity @s item.components.minecraft:custom_data.data.move_in set from storage floating_ui:input temp.move_in
 execute if data storage floating_ui:input temp.move_out run data modify entity @s item.components.minecraft:custom_data.data.move_out set from storage floating_ui:input temp.move_out
 execute if data storage floating_ui:input temp.move run data modify entity @s item.components.minecraft:custom_data.data.move set from storage floating_ui:input temp.move

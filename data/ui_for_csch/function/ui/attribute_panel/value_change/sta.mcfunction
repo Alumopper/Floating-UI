@@ -1,0 +1,3 @@
+scoreboard players operation value floating_ui.temp = @s csch.ui.numberbox_group.value
+scoreboard players operation uid floating_ui.temp = @s floating_ui.uid
+execute as @e[tag=csch_atri_lectern_displaying, distance=0..6] if score @s csch.marker.lectern.ui = uid floating_ui.temp at @s store result block ~ ~ ~ Book.components."minecraft:custom_data".char.attr.sta int 1.0 run scoreboard players get value floating_ui.temp

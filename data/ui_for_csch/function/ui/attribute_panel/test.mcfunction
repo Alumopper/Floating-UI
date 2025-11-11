@@ -1,0 +1,1 @@
+tellraw @a {score: {name: "@s", objective: "csch.ui.numberbox_group.value"}}

@@ -28,7 +28,7 @@ execute store result score @s floating_ui.size1_without_scale store result score
 scoreboard players set @s floating_ui.stackpanel.currLineHeight 0
 scoreboard players set @s floating_ui.stackpanel.currLineWidth 0
 
-function floating_ui:element/stackpanel/auto_layout/init/floating_ui.temp
+function floating_ui:element/stackpanel/auto_layout/init/_
 
 #数据模板
 execute if data storage floating_ui:input temp.child.binds if data storage floating_ui:input temp.template run function floating_ui:element/stackpanel/template/append_template
