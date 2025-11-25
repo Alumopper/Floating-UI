@@ -1,8 +1,6 @@
 #> floating_ui:element/control/event/roll
 # @internal
 
-
-
 #update the value
 scoreboard players operation @s floating_ui.numberbox.value += slot _
 execute if score @s floating_ui.numberbox.value > @s floating_ui.numberbox.max run scoreboard players operation @s floating_ui.numberbox.value = @s floating_ui.numberbox.max
