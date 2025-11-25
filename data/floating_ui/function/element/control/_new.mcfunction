@@ -28,6 +28,9 @@ execute if data storage floating_ui:input temp.name run data modify entity @s it
 #tag
 execute if data storage floating_ui:input temp.tag run data modify entity @s Tags append from storage floating_ui:input temp.tag
 
+# 是否启用
+execute store success score @s floating_ui.enabled if data storage floating_ui:input temp{enabled: true}
+
 #region 坐标
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
 execute unless data storage floating_ui:input temp.y run data modify storage floating_ui:input temp.y set value 0
@@ -50,8 +53,6 @@ execute unless data storage floating_ui:input temp.rotation run data modify enti
 execute if data storage floating_ui:input temp.display run data modify entity @s item_display set from storage floating_ui:input temp.display
 
 #region 事件
-
-
 execute if data storage floating_ui:input temp.move_in run data modify entity @s item.components.minecraft:custom_data.data.move_in set from storage floating_ui:input temp.move_in
 execute if data storage floating_ui:input temp.move_out run data modify entity @s item.components.minecraft:custom_data.data.move_out set from storage floating_ui:input temp.move_out
 execute if data storage floating_ui:input temp.move run data modify entity @s item.components.minecraft:custom_data.data.move set from storage floating_ui:input temp.move

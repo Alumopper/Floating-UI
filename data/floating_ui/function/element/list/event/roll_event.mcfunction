@@ -1,6 +1,10 @@
 #> floating_ui:element/list/event/roll
 # @internal
 
+function floating_ui:element/control/event/roll_event
+
+execute if score event_handled floating_ui.temp matches 1 run return 1
+
 scoreboard players operation @s floating_ui.list.index += slot floating_ui.temp
 execute if score @s floating_ui.list.index >= @s floating_ui.list.childCount run scoreboard players operation @s floating_ui.list.index = @s floating_ui.list.childCount
 execute if score @s floating_ui.list.index = @s floating_ui.list.childCount run scoreboard players remove @s floating_ui.list.index 1

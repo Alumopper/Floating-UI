@@ -66,6 +66,15 @@ execute unless data storage floating_ui:input temp.fontsize run data modify enti
 data modify entity @n[tag=just,distance=..1] transformation.scale[0] set from entity @s item.components.minecraft:custom_data.data.fontsize
 data modify entity @n[tag=just,distance=..1] transformation.scale[1] set from entity @s item.components.minecraft:custom_data.data.fontsize
 
+#缩放
+execute unless data storage floating_ui:input temp.scale[0] run data modify storage floating_ui:input temp.scale[0] set value 1.0
+execute unless data storage floating_ui:input temp.scale[1] run data modify storage floating_ui:input temp.scale[1] set value 1.0
+data modify entity @s transformation.scale[2] set value 0.0f
+execute if score noNewAnim floating_ui.temp matches 0 run function floating_ui:element/textcontrol/_new/new_anim
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.scale[0]
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.scale[1]
+data modify entity @s item.components.minecraft:custom_data.data.scale set from storage floating_ui:input temp.scale
+
 #旋转
 execute if data storage floating_ui:input temp.rotation run data modify entity @s item.components.minecraft:custom_data.data.rotation set from storage floating_ui:input temp.rotation
 execute if data storage floating_ui:input temp.rotation run data modify entity @n[tag=just,distance=..1] transformation.right_rotation set from entity @s item.components.minecraft:custom_data.rotation

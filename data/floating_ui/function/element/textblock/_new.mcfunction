@@ -16,12 +16,10 @@ data modify entity @s item.components.minecraft:custom_data.data.size set value 
 execute store result entity @s item.components.minecraft:custom_data.data.size[0] float 0.024 on passengers run data get entity @s line_width
 # 计算高度
 # size[1] = ((20 * line) + 2)*fontsize/80
-scoreboard players operation line floating_ui.temp *= 20 int
-scoreboard players operation line floating_ui.temp += 2 int
-execute store result score fontSize floating_ui.temp run data get entity @s item.components.minecraft:custom_data.data.fontsize 10000
-scoreboard players operation line floating_ui.temp *= fontSize floating_ui.temp
-scoreboard players operation line floating_ui.temp /= 80 int
-execute store result entity @s item.components.minecraft:custom_data.data.size[1] float 0.0001 run scoreboard players get line floating_ui.temp
+# 对单行可以简化为 size[1] = fontsize * 0.275
+# 对单行来说，从高度倒推字体大小可以是 fontsize = size[1] * 40 / 11 = size[1] * 3.636
+execute if score line floating_ui.temp matches 1 run function floating_ui:element/textblock/_new/singleline_height
+execute if score line floating_ui.temp matches 2.. run function floating_ui:element/textblock/_new/multiline_height
 
 #居中
 execute store result score text_y floating_ui.temp run data get entity @s item.components.minecraft:custom_data.data.size[1] 5000

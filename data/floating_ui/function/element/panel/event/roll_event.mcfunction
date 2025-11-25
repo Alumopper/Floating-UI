@@ -6,4 +6,4 @@ execute unless function floating_ui:element/control/event/pos_check run return 0
 
 function floating_ui:element/control/event/roll_event
 
-execute on passengers run function floating_ui:element/panel/event/roll_walk_child
+execute if score event_handled floating_ui.temp matches 0 on passengers run function floating_ui:element/panel/event/roll_walk_child

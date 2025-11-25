@@ -1,7 +1,9 @@
 #> floating_ui:element/textblock/set_text_display
 #@internal
 
-
+#透明度
+execute unless data storage floating_ui:input temp.opacity run data modify storage floating_ui:input temp.opacity set value -1
+data modify entity @s text_opacity set from storage floating_ui:input temp.opacity
 
 #文本
 execute store success score isMultiline floating_ui.temp run data get storage floating_ui:input temp.text[0]

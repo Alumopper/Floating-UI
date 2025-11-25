@@ -1,4 +1,4 @@
-#> floating_ui:element/control/_set_offset
+#> floating_ui:element/control/_set_move_to
 # 设置这个控件的偏移
 # @api
 # @input floating_ui:input temp [float x,float y, float z]

@@ -1,8 +1,8 @@
 #传入动画数据
 data modify storage floating_ui:temp anim.data set from entity @s item.components.minecraft:custom_data.data.ui.anim.new.value
-data modify entity @s interpolation_duration set from entity @s item.components.minecraft:custom_data.data.ui.anim.new.time
-execute if data entity @s item.components.minecraft:custom_data.data.ui.anim.new.delay run data modify entity @s start_interpolation set from entity @s item.components.minecraft:custom_data.data.ui.anim.new.delay
-execute unless data entity @s item.components.minecraft:custom_data.data.ui.anim.new.delay run data modify entity @s start_interpolation set value 0
+
+execute store result score time floating_ui.temp run data get entity @s item.components.minecraft:custom_data.data.ui.anim.new.time
+execute store result score delay floating_ui.temp run data get entity @s item.components.minecraft:custom_data.data.ui.anim.new.delay
 
 #设置动画数据
 function floating_ui:element/control/animation/walk_anim_data

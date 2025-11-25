@@ -4,6 +4,10 @@
 #$tellraw @a "data_set: $(key) -> $(value)"
 #$tellraw @a ["curr: ",{"nbt": "$(key)", "entity": "@s"}]
 scoreboard players reset success floating_ui.temp
+
+execute store result entity @s interpolation_duration int 1 run scoreboard players get time floating_ui.temp
+execute store result entity @s start_interpolation int 1 run scoreboard players get time floating_ui.temp
+
 function floating_ui:element/control/animation/data_set/int with storage floating_ui:temp arg
 execute unless score success floating_ui.temp matches -2147483648..2147483647 run function floating_ui:element/control/animation/data_set/float with storage floating_ui:temp arg
 execute unless score success floating_ui.temp matches -2147483648..2147483647 run function floating_ui:element/control/animation/data_set/double with storage floating_ui:temp arg

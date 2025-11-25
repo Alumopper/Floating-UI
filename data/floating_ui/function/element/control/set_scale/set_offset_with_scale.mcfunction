@@ -21,6 +21,8 @@ scoreboard players operation @s floating_ui.root_z *= 100 int
 scoreboard players operation @s floating_ui.root_x += x floating_ui.temp
 scoreboard players operation @s floating_ui.root_y += y floating_ui.temp
 scoreboard players operation @s floating_ui.root_z += z floating_ui.temp
+execute store result entity @s interpolation_duration int 1 run scoreboard players get time floating_ui.temp
+execute store result entity @s start_interpolation int 1 run scoreboard players get time floating_ui.temp
 execute store result entity @s transformation.translation[0] float 0.000001 run scoreboard players get @s floating_ui.root_x
 execute store result entity @s transformation.translation[1] float 0.000001 run scoreboard players get @s floating_ui.root_y
 execute store result entity @s transformation.translation[2] float 0.000001 run scoreboard players get @s floating_ui.root_z
