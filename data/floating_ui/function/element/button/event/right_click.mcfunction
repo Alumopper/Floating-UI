@@ -3,6 +3,5 @@
 
 
 data modify storage floating_ui:temp arg.function set from entity @s item.components.minecraft:custom_data.data.right_click
-function floating_ui:util/function with storage floating_ui:temp arg.function
+function floating_ui:util/function
 
-say right_click

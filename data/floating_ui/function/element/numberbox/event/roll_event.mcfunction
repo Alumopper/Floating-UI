@@ -1,16 +1,19 @@
 #> floating_ui:element/control/event/roll
 # @internal
 
-#update the value
-scoreboard players operation @s floating_ui.numberbox.value += slot _
-execute if score @s floating_ui.numberbox.value > @s floating_ui.numberbox.max run scoreboard players operation @s floating_ui.numberbox.value = @s floating_ui.numberbox.max
-execute if score @s floating_ui.numberbox.value < @s floating_ui.numberbox.min run scoreboard players operation @s floating_ui.numberbox.value = @s floating_ui.numberbox.min
-#update text
-data modify storage floating_ui:input temp set value {}
-execute store result storage floating_ui:input temp.text int 1.0 run scoreboard players get @s floating_ui.numberbox.value
-execute on passengers on passengers run function floating_ui:element/textblock/_set_text
+execute unless function floating_ui:element/control/event/pos_check run return 0
 
+execute if score @s floating_ui.enabled matches 0 run return 1
+
+#trigger custom roll event
 data modify storage floating_ui:temp arg.function set from entity @s item.components.minecraft:custom_data.data.roll
-function floating_ui:util/function with storage floating_ui:temp arg
+function floating_ui:util/function
+
+execute if score event_handled floating_ui.temp matches 1 run return 1
+
+#update the value
+scoreboard players operation value floating_ui.temp = @s floating_ui.numberbox.value
+scoreboard players operation value floating_ui.temp -= slot floating_ui.temp
+function floating_ui:element/numberbox/update_value
 
 tag @s add floating_ui_lookedAt

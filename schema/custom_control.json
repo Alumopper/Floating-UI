@@ -5,10 +5,31 @@
             "$ref": "main.json"  
         },
         "params": {
-            "type": "object",
-            "additionalProperties": {
-                "type": "string"
+            "type": "array",
+            "items": {
+                "properties": {
+                    "key": {
+                        "type":"string"
+                    },
+                    "path": {
+                        "type":"string"
+                    }
+                },
+                "required": ["key", "path"]
+            }
+        },
+        "custom_data": {
+            "type": "array",
+            "items": {
+                "properties": {
+                    "key": {
+                        "type":"string"
+                    },
+                    "default": {}
+                },
+                "required": ["key"]
             }
         }
-    }
+    },
+    "required": ["content"]
 }

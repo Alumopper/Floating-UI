@@ -6,5 +6,3 @@ execute if score timelist_cmp int <= timelist_time int if data storage timelist:
 
 # 增加绝对时间
 scoreboard players add timelist_time int 1
-
-schedule function timelist:tick 1t replace

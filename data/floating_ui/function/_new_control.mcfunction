@@ -6,6 +6,6 @@
 # @context entity @s[type=item_display/text_display]
 
 
-execute unless score noNewAnim _ matches -2147483648..2147483647 run scoreboard players set noNewAnim _ 0
+execute unless score noNewAnim floating_ui.temp matches -2147483648..2147483647 run scoreboard players set noNewAnim floating_ui.temp 0
 function floating_ui:macro/new_control with storage floating_ui:input temp
-scoreboard players set noNewAnim _ 0
+scoreboard players set noNewAnim floating_ui.temp 0

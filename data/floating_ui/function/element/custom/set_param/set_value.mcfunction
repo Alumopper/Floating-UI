@@ -1,1 +1,1 @@
-$data modify storage floating_ui:temp custom.content.$(path) set value '$(value)'
+$data modify storage floating_ui:temp custom.content.$(path) set from storage floating_ui:input temp.$(key)

@@ -1,5 +1,7 @@
 {
     "values":[
-        "floating_ui:tick"
+        "floating_ui:tick",
+        "timelist:tick",
+        "ui_for_csch:tick"
     ]
 }

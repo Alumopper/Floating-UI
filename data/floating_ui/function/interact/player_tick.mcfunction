@@ -11,15 +11,19 @@ execute as @e[type=item_display,tag=floating_ui_root,distance=..20] run function
 execute anchored eyes positioned ^ ^ ^ run function floating_ui:ray/if_ray_ui
 
 # 点击事件
+scoreboard players set event_handled floating_ui.temp 0
 execute if data storage floating_ui:temp floating_ui.return if entity @s[advancements={floating_ui:right_click=true}] run function floating_ui:interact/click/check
+scoreboard players set event_handled floating_ui.temp 0
 execute if data storage floating_ui:temp floating_ui.return if entity @s[advancements={floating_ui:left_click=true}] run function floating_ui:interact/click/check
 
 # 光标移动事件
+scoreboard players set event_handled floating_ui.temp 0
 execute if data storage floating_ui:temp floating_ui.return run function floating_ui:interact/move_in/check
 execute if data storage floating_ui:temp floating_ui.return run tag @s add floating_ui_lookingAtUI
 execute unless data storage floating_ui:temp floating_ui.return run tag @s remove floating_ui_lookingAtUI
 
 # 鼠标滚轮滚动事件
+scoreboard players set event_handled floating_ui.temp 0
 execute if data storage floating_ui:temp floating_ui.return if score @s floating_ui.slot matches -2147483648..2147483647 run function floating_ui:interact/roll/check
 execute unless score @s floating_ui.slot matches -2147483648..2147483647 store result score @s floating_ui.slot run data get entity @s SelectedItemSlot
 

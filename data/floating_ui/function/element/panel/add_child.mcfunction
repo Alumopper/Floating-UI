@@ -6,9 +6,10 @@
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 
-execute store result score length _ run data get storage floating_ui:temp child[-1]
-execute if score length _ matches 0 run return 1
+execute store result score length floating_ui.temp run data get storage floating_ui:temp child[-1]
+execute if score length floating_ui.temp matches 0 run return 1
 
+#function log:_debug {msg: "Adding child to panel"}
 
 data modify storage floating_ui:input summon.arg.type set value "item_display"
 function floating_ui:macro/summon_with_rot with storage floating_ui:input summon.arg

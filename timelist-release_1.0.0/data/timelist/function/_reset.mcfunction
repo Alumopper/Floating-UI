@@ -13,3 +13,5 @@ data modify storage timelist:io event.as set from entity @s UUID
 # 这条命令打破了维度兼容性，如果要修复，则需要额外引入每个维度的世界实体加载器
 tp 0-0-0-8593-0 ~ ~ ~
 data modify storage timelist:io event.at set from entity 0-0-0-8593-0 Pos
+
+return 1

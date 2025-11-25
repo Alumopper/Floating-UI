@@ -4,3 +4,5 @@
 
 tp 0-0-0-8593-0 ~ ~ ~
 data modify storage timelist:io event.at set from entity 0-0-0-8593-0 Pos
+
+return 1

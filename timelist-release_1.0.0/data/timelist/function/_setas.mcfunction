@@ -3,3 +3,5 @@
 # 输入：<@s>
 
 data modify storage timelist:io event.as set from entity @s UUID
+
+return 1

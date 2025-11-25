@@ -1,3 +1,3 @@
-scoreboard players operation nextWidth _ = width _
-scoreboard players operation nextWidth _ += @s floating_ui.stackpanel.currLineWidth
-return run execute if score nextWidth _ > @s floating_ui.size0
+scoreboard players operation nextWidth floating_ui.temp = width floating_ui.temp
+scoreboard players operation nextWidth floating_ui.temp += @s floating_ui.stackpanel.currLineWidth
+return run execute if score nextWidth floating_ui.temp > @s floating_ui.size0

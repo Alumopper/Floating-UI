@@ -1,0 +1,1 @@
+scoreboard players set @s floating_ui.enabled 1

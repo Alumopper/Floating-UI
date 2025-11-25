@@ -1,5 +1,5 @@
-execute store result score noNewAnim _ if score isUpdate _ matches 1
+execute store result score noNewAnim floating_ui.temp if score isUpdate floating_ui.temp matches 1
 function floating_ui:_new_control
 scoreboard players set @s floating_ui.visible 0
 function floating_ui:element/control/_set_visible
-scoreboard players operation @s floating_ui.list.childIndex = temp.childCount _
+scoreboard players operation @s floating_ui.list.childIndex = temp.childCount floating_ui.temp

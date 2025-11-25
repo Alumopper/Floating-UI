@@ -1,0 +1,4 @@
+execute store success score hasNewAnim floating_ui.temp run data get storage floating_ui:input temp.anim.new
+execute if score hasNewAnim floating_ui.temp matches 1 run function floating_ui:element/textcontrol/_new/has_new_anim
+execute unless score hasNewAnim floating_ui.temp matches 1 run function floating_ui:element/textcontrol/_new/hasnt_new_anim
+tag @s add floating_ui_schedule_new_animation

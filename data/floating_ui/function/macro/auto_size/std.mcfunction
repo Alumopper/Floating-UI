@@ -1,0 +1,1 @@
+$function floating_ui:element/$(type)/auto_size

@@ -3,5 +3,7 @@
 
 execute unless function floating_ui:element/control/event/pos_check run return 0
 
-execute if score click_status _ matches 1 run function floating_ui:element/button/event/left_click
-execute if score click_status _ matches -1 run function floating_ui:element/button/event/right_click
+execute if score @s floating_ui.enabled matches 0 run return 1
+
+execute if score click_status floating_ui.temp matches 1 run function floating_ui:element/button/event/left_click
+execute if score click_status floating_ui.temp matches -1 run function floating_ui:element/button/event/right_click

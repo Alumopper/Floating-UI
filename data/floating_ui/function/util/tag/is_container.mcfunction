@@ -1,1 +1,1 @@
-execute store result score return _ if data storage floating_ui:tag container.$(key)
+execute store result score return floating_ui.temp if data storage floating_ui:tag container.$(key)

@@ -15,6 +15,5 @@ data modify storage timelist:io run_space set value {}
 
 # 初始化绝对时间
 scoreboard players set timelist_time int 0
-schedule function timelist:tick 1t replace
 
 return 1

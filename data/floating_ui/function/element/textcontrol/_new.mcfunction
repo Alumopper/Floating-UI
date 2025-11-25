@@ -38,9 +38,9 @@ execute if data storage floating_ui:input temp.tag run data modify entity @s Tag
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
 execute unless data storage floating_ui:input temp.y run data modify storage floating_ui:input temp.y set value 0
 execute unless data storage floating_ui:input temp.z run data modify storage floating_ui:input temp.z set value 0
-execute store result score x _ run data get storage floating_ui:input temp.x 10000
-execute store result score y _ run data get storage floating_ui:input temp.y 10000
-execute store result score z _ run data get storage floating_ui:input temp.z 10000
+execute store result score x floating_ui.temp run data get storage floating_ui:input temp.x 10000
+execute store result score y floating_ui.temp run data get storage floating_ui:input temp.y 10000
+execute store result score z floating_ui.temp run data get storage floating_ui:input temp.z 10000
 execute store result score @s floating_ui.parent_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_x
 execute store result score @s floating_ui.parent_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_y
 execute store result score @s floating_ui.parent_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_z
@@ -50,15 +50,15 @@ execute store result score @s floating_ui.root_z as 1bf52-0-0-0-2 on origin run 
 scoreboard players operation @s floating_ui.root_x += @s floating_ui.parent_x
 scoreboard players operation @s floating_ui.root_y += @s floating_ui.parent_y
 scoreboard players operation @s floating_ui.root_z += @s floating_ui.parent_z
-scoreboard players operation @s floating_ui.root_x += x _
-scoreboard players operation @s floating_ui.root_y += y _
-scoreboard players operation @s floating_ui.root_z += z _
+scoreboard players operation @s floating_ui.root_x += x floating_ui.temp
+scoreboard players operation @s floating_ui.root_y += y floating_ui.temp
+scoreboard players operation @s floating_ui.root_z += z floating_ui.temp
 execute store result entity @n[tag=just,distance=..1] transformation.translation[0] float 0.0001 run scoreboard players get @s floating_ui.root_x
 execute store result entity @n[tag=just,distance=..1] transformation.translation[1] float 0.0001 run scoreboard players get @s floating_ui.root_y
 execute store result entity @n[tag=just,distance=..1] transformation.translation[2] float 0.0001 run scoreboard players get @s floating_ui.root_z
-data modify entity @s item.components.minecraft:custom_data.x set from storage floating_ui:input temp.x
-data modify entity @s item.components.minecraft:custom_data.y set from storage floating_ui:input temp.y
-data modify entity @s item.components.minecraft:custom_data.z set from storage floating_ui:input temp.z
+data modify entity @s item.components.minecraft:custom_data.data.x set from storage floating_ui:input temp.x
+data modify entity @s item.components.minecraft:custom_data.data.y set from storage floating_ui:input temp.y
+data modify entity @s item.components.minecraft:custom_data.data.z set from storage floating_ui:input temp.z
 
 #字体大小
 execute if data storage floating_ui:input temp.fontsize run data modify entity @s item.components.minecraft:custom_data.data.fontsize set from storage floating_ui:input temp.fontsize
@@ -66,8 +66,17 @@ execute unless data storage floating_ui:input temp.fontsize run data modify enti
 data modify entity @n[tag=just,distance=..1] transformation.scale[0] set from entity @s item.components.minecraft:custom_data.data.fontsize
 data modify entity @n[tag=just,distance=..1] transformation.scale[1] set from entity @s item.components.minecraft:custom_data.data.fontsize
 
+#缩放
+execute unless data storage floating_ui:input temp.scale[0] run data modify storage floating_ui:input temp.scale[0] set value 1.0
+execute unless data storage floating_ui:input temp.scale[1] run data modify storage floating_ui:input temp.scale[1] set value 1.0
+data modify entity @s transformation.scale[2] set value 0.0f
+execute if score noNewAnim floating_ui.temp matches 0 run function floating_ui:element/textcontrol/_new/new_anim
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.scale[0]
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.scale[1]
+data modify entity @s item.components.minecraft:custom_data.data.scale set from storage floating_ui:input temp.scale
+
 #旋转
-execute if data storage floating_ui:input temp.rotation run data modify entity @s item.components.minecraft:custom_data.rotation set from storage floating_ui:input temp.rotation
+execute if data storage floating_ui:input temp.rotation run data modify entity @s item.components.minecraft:custom_data.data.rotation set from storage floating_ui:input temp.rotation
 execute if data storage floating_ui:input temp.rotation run data modify entity @n[tag=just,distance=..1] transformation.right_rotation set from entity @s item.components.minecraft:custom_data.rotation
 
 #事件

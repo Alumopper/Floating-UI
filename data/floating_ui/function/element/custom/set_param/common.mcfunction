@@ -1,0 +1,15 @@
+execute if data storage floating_ui:input temp.x run data modify storage floating_ui:temp custom.content.x set from storage floating_ui:input temp.x
+execute if data storage floating_ui:input temp.y run data modify storage floating_ui:temp custom.content.y set from storage floating_ui:input temp.y
+execute if data storage floating_ui:input temp.z run data modify storage floating_ui:temp custom.content.z set from storage floating_ui:input temp.z
+execute if data storage floating_ui:input temp.size run data modify storage floating_ui:temp custom.content.size set from storage floating_ui:input temp.size
+execute if data storage floating_ui:input temp.rotation run data modify storage floating_ui:temp custom.content.rotation set from storage floating_ui:input temp.rotation
+execute if data storage floating_ui:input temp.display run data modify storage floating_ui:temp custom.content.display set from storage floating_ui:input temp.display
+execute if data storage floating_ui:input temp.item run data modify storage floating_ui:temp custom.content.item set from storage floating_ui:input temp.item
+
+execute if data storage floating_ui:input temp.custom_data run data modify storage floating_ui:temp custom.content.custom_data set from storage floating_ui:input temp.custom_data
+execute if data storage floating_ui:input temp.move_in run data modify storage floating_ui:temp custom.content.move_in set from storage floating_ui:input temp.move_in
+execute if data storage floating_ui:input temp.move_out run data modify storage floating_ui:temp custom.content.move_out set from storage floating_ui:input temp.move_out
+execute if data storage floating_ui:input temp.move run data modify storage floating_ui:temp custom.content.move set from storage floating_ui:input temp.move
+execute if data storage floating_ui:input temp.right_click run data modify storage floating_ui:temp custom.content.right_click set from storage floating_ui:input temp.right_click
+execute if data storage floating_ui:input temp.left_click run data modify storage floating_ui:temp custom.content.left_click set from storage floating_ui:input temp.left_click
+execute if data storage floating_ui:input temp.init run data modify storage floating_ui:temp custom.content.init set from storage floating_ui:input temp.init

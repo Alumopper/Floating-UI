@@ -1,1 +1,1 @@
-$return run data modify storage floating_ui:temp custom set from storage floating_ui:data custom.$(type)
+$return run data modify storage floating_ui:temp custom set from storage floating_ui:data custom.'$(type)'

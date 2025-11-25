@@ -1,0 +1,1 @@
+$execute unless data storage floating_ui:input temp.custom_data.'$(key)' run data modify storage floating_ui:input temp.custom_data.'$(key)' set value $(default)

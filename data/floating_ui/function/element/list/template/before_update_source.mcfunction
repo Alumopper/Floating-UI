@@ -7,8 +7,8 @@ data modify storage floating_ui:input temp.child.value set from storage floating
 #删除子节点
 execute on passengers run function floating_ui:dispose_control with entity @s item.components.minecraft:custom_data.data.ui
 
-scoreboard players set isUpdate _ 1
+scoreboard players set isUpdate floating_ui.temp 1
 #更新源
 function floating_ui:element/list/template/update_source
 
-scoreboard players set isUpdate _ 0
+scoreboard players set isUpdate floating_ui.temp 0

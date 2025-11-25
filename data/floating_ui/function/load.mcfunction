@@ -18,7 +18,7 @@
 
 scoreboard objectives add int dummy
     function floating_ui:int_load
-scoreboard objectives add _ dummy
+scoreboard objectives add floating_ui.temp dummy
 scoreboard objectives add floating_ui.x dummy
 scoreboard objectives add floating_ui.y dummy
 scoreboard objectives add floating_ui.z dummy
@@ -71,13 +71,15 @@ scoreboard objectives add floating_ui.size0 dummy
 scoreboard objectives add floating_ui.size1 dummy
 scoreboard objectives add floating_ui.size0_without_scale dummy
 scoreboard objectives add floating_ui.size1_without_scale dummy
+#是否可见
+scoreboard objectives add floating_ui.visible dummy
+#控件是否启用
+scoreboard objectives add floating_ui.enabled dummy
 #textControl子类UI控件的长和宽（倍率10000）
 scoreboard objectives add floating_ui.text.width dummy
 scoreboard objectives add floating_ui.text.height dummy
 #textControl文本行数
 scoreboard objectives add floating_ui.text.line_count dummy
-#是否可见
-scoreboard objectives add floating_ui.visible dummy
 #list控件的子控件数量
 scoreboard objectives add floating_ui.list.childCount dummy
 #list控件的索引
@@ -167,10 +169,10 @@ data modify storage floating_ui:tag container set value {\
 }
 
 #初始化数学库和事件队列
-execute store success score mathlib _ run function math:_init
-execute if score mathlib _ matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the math library.","color":"red"}]}
-execute store success score timelist _ run function timelist:_init
-execute if score timelist _ matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the time list.","color":"red"}]}
+execute store success score mathlib floating_ui.temp run function math:_init
+execute if score mathlib floating_ui.temp matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the math library.","color":"red"}]}
+execute store success score timelist floating_ui.temp run function timelist:_init
+execute if score timelist floating_ui.temp matches 0 run tellraw @s {"text":"[Floating UI]","color":"red","bold":true,"extra":[{"text":"Failed to initialize the time list.","color":"red"}]}
 
 
 

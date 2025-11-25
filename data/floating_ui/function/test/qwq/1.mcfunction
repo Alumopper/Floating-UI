@@ -1,3 +1,5 @@
+function floating_ui:.player_dispose_ui
+
 data modify storage floating_ui:input data set value {\
     "type":"panel",\
     "size":[6f,4f],\
@@ -16,10 +18,31 @@ data modify storage floating_ui:input data set value {\
                 },\
                 {\
                     "type": "numberbox",\
-                    "x": 0.5,\
-                    "size": [1f, 1f]\
+                    "x": 0.3,\
+                    "size": [0.4f, 1f],\
+                    "max": 9,\
+                    "min": 0,\
+                    "name":"2.2"\
+                },\
+                {\
+                    "type": "numberbox",\
+                    "x": 0.7,\
+                    "size": [0.4f, 1f],\
+                    "max": 9,\
+                    "min": 0,\
+                    "name":"2.1"\
+                },\
+                {\
+                    "type": "numberbox",\
+                    "x": 1.1,\
+                    "size": [0.4f, 1f],\
+                    "max": 9,\
+                    "min": 0,\
+                    "name":"2.0"\
                 }\
             ]\
         }\
     ]\
 }
+
+function floating_ui:.player_new_ui
