@@ -27,15 +27,8 @@ scoreboard players operation root_y floating_ui.temp = @s floating_ui.root_y
 execute on passengers store result entity @s transformation.translation[1] float 0.0001 run scoreboard players operation root_y floating_ui.temp -= text_y floating_ui.temp
 scoreboard players operation @s floating_ui.root_y = root_y floating_ui.temp
 
-# 动画。如果没有动画，插入默认动画，否则执行动画
-execute store success score hasNewAnim floating_ui.temp run data get storage floating_ui:input temp.anim.new
-execute unless score hasNewAnim floating_ui.temp matches 1 run data modify storage floating_ui:input temp.anim.new set value {value:[{key:"transformation.scale",value:0f}],time:3}
-execute unless score hasNewAnim floating_ui.temp matches 1 on passengers run data modify storage floating_ui:input temp.anim.new.value[0].value set from storage floating_ui:input temp.fontsize
-execute unless score hasNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale set value [0.0f,0.0f,0.0f]
-tag @s add floating_ui_schedule_new_animation
-
 data modify entity @s item.components.minecraft:custom_data.data.size set from storage floating_ui:input temp.size
-
+ 
 #高度和宽度
 execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
 execute store result score @s floating_ui.size1_without_scale store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000

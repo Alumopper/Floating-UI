@@ -61,19 +61,13 @@ data modify entity @s item.components.minecraft:custom_data.data.y set from stor
 data modify entity @s item.components.minecraft:custom_data.data.z set from storage floating_ui:input temp.z
 
 #字体大小
-execute if data storage floating_ui:input temp.fontsize run data modify entity @s item.components.minecraft:custom_data.data.fontsize set from storage floating_ui:input temp.fontsize
-execute unless data storage floating_ui:input temp.fontsize run data modify entity @s item.components.minecraft:custom_data.data.fontsize set value 2.0f
-data modify entity @n[tag=just,distance=..1] transformation.scale[0] set from entity @s item.components.minecraft:custom_data.data.fontsize
-data modify entity @n[tag=just,distance=..1] transformation.scale[1] set from entity @s item.components.minecraft:custom_data.data.fontsize
-
-#缩放
-execute unless data storage floating_ui:input temp.scale[0] run data modify storage floating_ui:input temp.scale[0] set value 1.0
-execute unless data storage floating_ui:input temp.scale[1] run data modify storage floating_ui:input temp.scale[1] set value 1.0
-data modify entity @s transformation.scale[2] set value 0.0f
+execute unless data storage floating_ui:input temp.fontsize run data modify storage floating_ui:input temp.fontsize set value 2.0f 
+data modify entity @s item.components.minecraft:custom_data.data.fontsize set from storage floating_ui:input temp.fontsize
+# 动画。如果没有动画，插入默认动画，否则执行动画
 execute if score noNewAnim floating_ui.temp matches 0 run function floating_ui:element/textcontrol/_new/new_anim
-execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[0] set from storage floating_ui:input temp.scale[0]
-execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @s transformation.scale[1] set from storage floating_ui:input temp.scale[1]
-data modify entity @s item.components.minecraft:custom_data.data.scale set from storage floating_ui:input temp.scale
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @n[tag=just,distance=..1] transformation.scale[0] set from storage floating_ui:input temp.fontsize
+execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @n[tag=just,distance=..1] transformation.scale[1] set from storage floating_ui:input temp.fontsize
+tag @s add floating_ui_schedule_new_animation
 
 #旋转
 execute if data storage floating_ui:input temp.rotation run data modify entity @s item.components.minecraft:custom_data.data.rotation set from storage floating_ui:input temp.rotation
