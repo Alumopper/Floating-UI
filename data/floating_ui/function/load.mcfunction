@@ -71,6 +71,8 @@ scoreboard objectives add floating_ui.size0 dummy
 scoreboard objectives add floating_ui.size1 dummy
 scoreboard objectives add floating_ui.size0_without_scale dummy
 scoreboard objectives add floating_ui.size1_without_scale dummy
+#控件的缩放倍率
+scoreboard objectives add floating_ui.scale dummy
 #是否可见
 scoreboard objectives add floating_ui.visible dummy
 #控件是否启用
@@ -80,6 +82,8 @@ scoreboard objectives add floating_ui.text.width dummy
 scoreboard objectives add floating_ui.text.height dummy
 #textControl文本行数
 scoreboard objectives add floating_ui.text.line_count dummy
+#textControl字体大小（倍率10000）
+scoreboard objectives add floating_ui.text.fontsize dummy
 #list控件的子控件数量
 scoreboard objectives add floating_ui.list.childCount dummy
 #list控件的索引

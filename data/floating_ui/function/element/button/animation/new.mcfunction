@@ -1,3 +1,3 @@
 function floating_ui:element/control/animation/new
 
-execute on passengers if entity @s[type=item_display] run function floating_ui:macro/animation/new with entity @s item.components."minecraft:custom_data".data.ui
+execute on passengers if entity @s[type=item_display,tag=floating_ui_schedule_new_animation] run function floating_ui:macro/animation/new with entity @s item.components."minecraft:custom_data".data.ui

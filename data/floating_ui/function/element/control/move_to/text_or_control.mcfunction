@@ -1,0 +1,2 @@
+execute unless entity @s[tag=floating_ui_textcontrol] run function floating_ui:element/control/move_with_parent
+execute if entity @s[tag=floating_ui_textcontrol] run function floating_ui:element/textcontrol/move_with_parent

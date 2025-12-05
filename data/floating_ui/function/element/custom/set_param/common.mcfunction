@@ -5,7 +5,7 @@ execute if data storage floating_ui:input temp.size run data modify storage floa
 execute if data storage floating_ui:input temp.rotation run data modify storage floating_ui:temp custom.content.rotation set from storage floating_ui:input temp.rotation
 execute if data storage floating_ui:input temp.display run data modify storage floating_ui:temp custom.content.display set from storage floating_ui:input temp.display
 execute if data storage floating_ui:input temp.item run data modify storage floating_ui:temp custom.content.item set from storage floating_ui:input temp.item
-
+execute if data storage floating_ui:input temp.tag run data modify storage floating_ui:temp custom.content.tag set from storage floating_ui:input temp.tag
 execute if data storage floating_ui:input temp.custom_data run data modify storage floating_ui:temp custom.content.custom_data set from storage floating_ui:input temp.custom_data
 execute if data storage floating_ui:input temp.move_in run data modify storage floating_ui:temp custom.content.move_in set from storage floating_ui:input temp.move_in
 execute if data storage floating_ui:input temp.move_out run data modify storage floating_ui:temp custom.content.move_out set from storage floating_ui:input temp.move_out

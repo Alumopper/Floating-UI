@@ -40,8 +40,13 @@ execute store result score @s floating_ui.f1 run data get entity 1bf52-0-0-0-0 P
 execute store result score @s floating_ui.f2 run data get entity 1bf52-0-0-0-0 Pos[2] 10000.0
 scoreboard players set @s floating_ui.root_x 0
 scoreboard players set @s floating_ui.root_y 0
+scoreboard players set @s floating_ui.root_z 0
+scoreboard players set @s floating_ui.root_x_without_scale 0
+scoreboard players set @s floating_ui.root_y_without_scale 0
+scoreboard players set @s floating_ui.root_z_without_scale 0
 scoreboard players set @s floating_ui.child_x 0
 scoreboard players set @s floating_ui.child_y 0
+scoreboard players set @s floating_ui.child_z 0
 tp 1bf52-0-0-0-0 .0 .0 .0
 data modify entity 1bf52-0-0-0-5 Thrower set from entity @s UUID
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID

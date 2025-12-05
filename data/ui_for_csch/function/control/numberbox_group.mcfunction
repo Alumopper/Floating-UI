@@ -42,6 +42,7 @@ data modify storage floating_ui:data custom.'csch:numberbox_group' set value {\
         {"key": "max", "default": 999},\
         {"key": "min", "default": 0},\
         {"key": "scale"},\
-        {"key": "enabled", "default": true}\
+        {"key": "enabled", "default": true},\
+        {"key": "tag"}\
     ]\
 }

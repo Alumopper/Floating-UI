@@ -1,0 +1,1 @@
+function floating_ui:element/textcontrol/change_visible

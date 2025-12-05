@@ -1,2 +1,9 @@
-execute store result score scale floating_ui.temp run data get entity @s item.components."minecraft:custom_data".data.custom_data.scale 100
-function floating_ui:element/control/_set_scale
+# scale the original new animation
+tag @s remove floating_ui_schedule_new_animation
+
+function timelist:_reset
+data modify storage timelist:io event.run set value "function ui_for_csch:control/numberbox_group/init/schedule_set_scale"
+function timelist:_setas
+scoreboard players set inp int 3
+function timelist:_setdelay
+function timelist:_append

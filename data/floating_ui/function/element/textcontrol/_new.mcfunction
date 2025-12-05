@@ -3,6 +3,11 @@
 
 execute if data storage floating_ui:input temp.before_init run function floating_ui:macro/before_init_event with storage floating_ui:input temp
 
+#编号分配
+execute as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=..1, tag=just] floating_ui.uid = @s floating_ui.uid
+#加入父节点
+execute as 1bf52-0-0-0-2 on origin run ride @n[tag=just, distance=..1] mount @s
+
 tag @s remove just
 
 tag @s add floating_ui_textcontrol
@@ -34,35 +39,19 @@ execute if data storage floating_ui:input temp.name as 1bf52-0-0-0-5 on origin r
 #tag
 execute if data storage floating_ui:input temp.tag run data modify entity @s Tags append from storage floating_ui:input temp.tag
 
+#默认缩放大小都是1
+scoreboard players set @s floating_ui.scale 100
+
 #坐标
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
 execute unless data storage floating_ui:input temp.y run data modify storage floating_ui:input temp.y set value 0
 execute unless data storage floating_ui:input temp.z run data modify storage floating_ui:input temp.z set value 0
-execute store result score x floating_ui.temp run data get storage floating_ui:input temp.x 10000
-execute store result score y floating_ui.temp run data get storage floating_ui:input temp.y 10000
-execute store result score z floating_ui.temp run data get storage floating_ui:input temp.z 10000
-execute store result score @s floating_ui.parent_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_x
-execute store result score @s floating_ui.parent_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_y
-execute store result score @s floating_ui.parent_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.child_z
-execute store result score @s floating_ui.root_x as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_x
-execute store result score @s floating_ui.root_y as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_y
-execute store result score @s floating_ui.root_z as 1bf52-0-0-0-2 on origin run scoreboard players get @s floating_ui.root_z
-scoreboard players operation @s floating_ui.root_x += @s floating_ui.parent_x
-scoreboard players operation @s floating_ui.root_y += @s floating_ui.parent_y
-scoreboard players operation @s floating_ui.root_z += @s floating_ui.parent_z
-scoreboard players operation @s floating_ui.root_x += x floating_ui.temp
-scoreboard players operation @s floating_ui.root_y += y floating_ui.temp
-scoreboard players operation @s floating_ui.root_z += z floating_ui.temp
-execute store result entity @n[tag=just,distance=..1] transformation.translation[0] float 0.0001 run scoreboard players get @s floating_ui.root_x
-execute store result entity @n[tag=just,distance=..1] transformation.translation[1] float 0.0001 run scoreboard players get @s floating_ui.root_y
-execute store result entity @n[tag=just,distance=..1] transformation.translation[2] float 0.0001 run scoreboard players get @s floating_ui.root_z
-data modify entity @s item.components.minecraft:custom_data.data.x set from storage floating_ui:input temp.x
-data modify entity @s item.components.minecraft:custom_data.data.y set from storage floating_ui:input temp.y
-data modify entity @s item.components.minecraft:custom_data.data.z set from storage floating_ui:input temp.z
+function floating_ui:element/textcontrol/_set_offset
 
 #字体大小
 execute unless data storage floating_ui:input temp.fontsize run data modify storage floating_ui:input temp.fontsize set value 2.0f 
 data modify entity @s item.components.minecraft:custom_data.data.fontsize set from storage floating_ui:input temp.fontsize
+execute store result score @s floating_ui.text.fontsize run data get storage floating_ui:input temp.fontsize 10000
 # 动画。如果没有动画，插入默认动画，否则执行动画
 execute if score noNewAnim floating_ui.temp matches 0 run function floating_ui:element/textcontrol/_new/new_anim
 execute if score noNewAnim floating_ui.temp matches 1 run data modify entity @n[tag=just,distance=..1] transformation.scale[0] set from storage floating_ui:input temp.fontsize
@@ -84,10 +73,6 @@ execute if data storage floating_ui:input temp.left_click run data modify entity
 data modify entity @s item.components.minecraft:custom_data.data.ui set from storage floating_ui:input temp
 
 tag @s add new
-#编号分配
-execute as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=..1, tag=new] floating_ui.uid = @s floating_ui.uid
-#加入父节点
-execute as 1bf52-0-0-0-2 on origin run ride @n[tag=new, distance=..1] mount @s
 
 execute as 1bf52-0-0-0-2 on origin if entity @s[tag=floating_ui_root] run data modify entity @s item.components.minecraft:custom_data.size set from entity @n[tag=just,distance=..1] transformation.scale
 
@@ -101,7 +86,3 @@ function floating_ui:element/textcontrol/gemo_data_flush
 tag @s remove new
 
 tag @e[tag=just, distance=..1] remove just
-
-#高度和宽度
-execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000
-execute store result score @s floating_ui.size1_without_scale store result score @s floating_ui.size1 run data get entity @s item.components.minecraft:custom_data.data.size[1] 10000

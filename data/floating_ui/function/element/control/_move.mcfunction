@@ -9,5 +9,7 @@
 
 function floating_ui:element/control/move
 #移动子节点
-execute on passengers run function floating_ui:element/control/_move
+execute on passengers run function floating_ui:element/control/move_to/text_or_control
 
+scoreboard players reset time floating_ui.temp
+scoreboard players reset delay floating_ui.temp

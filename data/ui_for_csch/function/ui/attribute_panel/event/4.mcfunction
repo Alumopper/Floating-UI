@@ -1,0 +1,1 @@
+execute on vehicle run function ui_for_csch:ui/attribute_panel/status/expand4

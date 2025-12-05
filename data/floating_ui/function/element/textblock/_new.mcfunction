@@ -25,9 +25,6 @@ execute if score line floating_ui.temp matches 2.. run function floating_ui:elem
 execute store result score text_y floating_ui.temp run data get entity @s item.components.minecraft:custom_data.data.size[1] 5000
 scoreboard players operation root_y floating_ui.temp = @s floating_ui.root_y
 execute on passengers store result entity @s transformation.translation[1] float 0.0001 run scoreboard players operation root_y floating_ui.temp -= text_y floating_ui.temp
-scoreboard players operation @s floating_ui.root_y = root_y floating_ui.temp
-
-data modify entity @s item.components.minecraft:custom_data.data.size set from storage floating_ui:input temp.size
  
 #高度和宽度
 execute store result score @s floating_ui.size0_without_scale store result score @s floating_ui.size0 run data get entity @s item.components.minecraft:custom_data.data.size[0] 10000

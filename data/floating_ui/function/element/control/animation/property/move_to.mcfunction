@@ -1,2 +1,2 @@
-$scoreboard players set move_to floating_ui.temp $(value)
+$data modify storage floating_ui:input temp set value $(value)
 function floating_ui:element/control/_move_to

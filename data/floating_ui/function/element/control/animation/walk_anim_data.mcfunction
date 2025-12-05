@@ -3,6 +3,9 @@
 execute store result score length floating_ui.temp run data get storage floating_ui:temp anim.data
 execute if score length floating_ui.temp matches 0 run return 1
 
+execute store result score time floating_ui.temp run data get storage floating_ui:temp anim.time
+execute store result score delay floating_ui.temp run data get storage floating_ui:temp anim.delay
+
 data modify storage floating_ui:temp arg.key set from storage floating_ui:temp anim.data[0].key
 
 #设置目标值

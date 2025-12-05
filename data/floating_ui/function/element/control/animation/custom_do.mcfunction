@@ -1,7 +1,5 @@
 data modify storage floating_ui:temp anim.data set from storage floating_ui:temp anim.value
 
-execute store result score time floating_ui.temp run data get storage floating_ui:temp anim.time
-execute store result score delay floating_ui.temp run data get storage floating_ui:temp anim.delay
 
 function floating_ui:element/control/animation/walk_anim_data
 

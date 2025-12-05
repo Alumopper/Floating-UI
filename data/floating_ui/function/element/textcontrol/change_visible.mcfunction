@@ -1,0 +1,2 @@
+execute if score @s floating_ui.visible matches 0 on passengers run return run data modify entity @s view_range set value 0f
+data modify entity @s view_range set from entity @s item.components.minecraft:custom_data.data.view_range

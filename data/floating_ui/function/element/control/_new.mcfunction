@@ -3,6 +3,11 @@
 
 execute if data storage floating_ui:input temp.before_init run function floating_ui:macro/before_init_event with storage floating_ui:input temp
 
+#编号分配
+execute at @s as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=..1, tag=just] floating_ui.uid = @s floating_ui.uid
+#加入父节点
+execute as 1bf52-0-0-0-2 on origin run ride @n[tag=just, distance=..1] mount @s
+
 tag @s remove just
 
 tag @s add floating_ui_control
@@ -30,6 +35,9 @@ execute if data storage floating_ui:input temp.tag run data modify entity @s Tag
 
 # 是否启用
 execute store success score @s floating_ui.enabled if data storage floating_ui:input temp{enabled: true}
+
+#默认缩放大小都是1
+scoreboard players set @s floating_ui.scale 100
 
 #region 坐标
 execute unless data storage floating_ui:input temp.x run data modify storage floating_ui:input temp.x set value 0
@@ -73,10 +81,6 @@ data modify entity @s item.components.minecraft:custom_data.data.ui set from sto
 data modify entity @s item.components.minecraft:custom_data.data.view_range set from entity @s view_range
 
 tag @s add new
-#编号分配
-execute at @s as 1bf52-0-0-0-2 on origin run scoreboard players operation @n[distance=..1, tag=new] floating_ui.uid = @s floating_ui.uid
-#加入父节点
-execute as 1bf52-0-0-0-2 on origin run ride @n[tag=new, distance=..1] mount @s
 #父节点替换
 data modify entity 1bf52-0-0-0-2 Thrower set from entity @s UUID
 #根节点

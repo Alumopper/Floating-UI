@@ -1,2 +1,2 @@
-$data modify entity @s $(key) set value $(value)f
+$execute store success score changed floating_ui.temp run data modify entity @s $(key) set value $(value)f
 scoreboard players set success floating_ui.temp 1
